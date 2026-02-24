@@ -1,0 +1,662 @@
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+
+// ─── Embedded Card Database (lean, 1104 cards) ────────────────────────────────
+const CARD_DB = [{"name":"Apprentice Wizard","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard","Foil"]}]},{"name":"Blood Ravens","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Candlemas Monks","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cloud Spirit","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Daperyll Vampire","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dead of Night Demon","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"East-West Dragon","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Grandmaster Wizard","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard","Foil"]}]},{"name":"Grim Reaper","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Gyre Hippogriffs","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Haast Eagle","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Headless Haunt","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Highland Clansmen","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Highland Falconer","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Highland Princess","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Hounds of Ondaros","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Kite Archer","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Lord of the Void","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Men of Leng","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Midnight Rogue","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Moon Clan Werewolf","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Nightmare","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Nimbus Jinn","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Palliburrie Bats","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Peregrine Apparition","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Phantasmal Shade","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Phantom Steed","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Phase Assassin","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Plumed Pegasus","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Puppet Master","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Recurring Specter","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Riddle Sphinx","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Roaming Monster","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Skirmishers of Mu","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sky Baron","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sling Pixies","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Snow Leopard","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Spectral Stalker","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Spire Lich","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ultimate Horror","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vril Revenant","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wind Sylph","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Witherwing Hero","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Zephyranne Airship","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Blink","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Browse","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Chain Lightning","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Chaos Twister","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Disenchant","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dream-Quest","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Fade","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Flanking Maneuver","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Grapple Shot","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Lightning Bolt","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Mortality","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Occult Ritual","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard"]}]},{"name":"Psionic Blast","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rain of Arrows","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Raise Dead","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Recall","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Telekinesis","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Teleport","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Unlikely Alliance","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Waypoint Portal","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard"]}]},{"name":"Whirling Blades","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Windblast","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Evil Presence","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Summoning Sphere","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Thunderstorm","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wall of Air","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Albespine Pikemen","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Älvalinne Dryads","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Amazon Warriors","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Atlas Wanderers","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Autumn Unicorn","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Belmotte Longbowmen","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bone Rabble","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard","Foil"]}]},{"name":"Bosk Troll","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cave Trolls","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Conqueror Worm","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Crown Prince","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dalcean Phalanx","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dwarven Digging Team","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Frontier Settlers","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Gneissgnath Gnomes","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Grey Wolves","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"House Arn Bannerman","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"King of the Realm","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Land Surveyor","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mage Slayer","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Master Tracker","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Midland Army","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Miracle Workers","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Monastery Gargoyle","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Monster Hunter","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mordric Druids","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mountain Giant","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pudge Butcher","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard"]}]},{"name":"Queen of Midland","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Root Spider","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Royal Bodyguard","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Scent Hounds","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Scourge Zombies","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Shield Maidens","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Silver Valkyries","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sirian Templar","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sisters of Silence","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Slumbering Giantess","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Squirming Mass","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Stone-gaze Gorgons","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tragedy Worrywart","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vanguard Knights","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wicked Witch","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wild Boars","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wraetannis Titan","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Yourke Crossbowmen","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Assorted Animals","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Border Militia","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bury","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Call to War","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cave-In","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Common Sense","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Craterize","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dispel","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard","Foil"]}]},{"name":"Divine Healing","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Earthquake","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Exorcism","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Gigantism","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Minecart Madness","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Overpower","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Shield Wall","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Star-seeds of Uhr","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Unravel","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Crusade","rarity":"Unique","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Entangle Terrain","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rest in Peace","rarity":"Elite","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ancient Dragon","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Aramos Mercenaries","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Askelon Phoenix","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Awakened Mummies","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Azuridge Caravan","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bane Widow","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Beast of Burden","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bull Demons of Adum","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cauldron Crones","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cerberus in Chains","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Clamor of Harpies","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Colicky Dragonettes","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Courtesan Thaïs","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Death Dealer","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Doomsday Prophet","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Escyllion Cyclops","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Far East Assassin","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Grösse Poltergeist","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Hillock Basilisk","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Infernal Legion","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Karkemish Chimera","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Lava Salamander","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Maze Minotaur","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ogre Goons","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Outback Strider","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Panorama Manticore","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Petrosian Cavalry","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pit Vipers","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Quarrelsome Kobolds","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Raal Dromedary","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rimland Nomads","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sacred Scarabs","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sand Worm","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Scavenging Fiend","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Seasoned Sellsword","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sirocco Scorpions","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Swiven Scout","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tvinnax Berserker","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vile Imp","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wayfaring Pilgrim","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wills-o'-the-Wisp","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Backstab","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Blaze","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Boil","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cone of Flame","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Critical Strike","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Disintegrate","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Fireball","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Firebolts","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Flame Wave","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Heat Ray","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Immolation","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Incinerate","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Infiltrate","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Leap Attack","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mad Dash","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Major Explosion","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Meteor Shower","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Minor Explosion","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pact with the Devil","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Poison Nova","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Scorched Earth","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Spin Attack","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Warp Spasm","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Drought","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Jihad","rarity":"Unique","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sandstorm","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wall of Fire","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wildfire","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Accursed Albatross","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Adept Illusionist","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Anui Undine","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bridge Troll","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Brobdingnag Bullfrog","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Captain Baldassare","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Coral-Reef Kelpie","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Court Jester","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Deep-Sea Mermaids","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Diluvian Kraken","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Felbog Frog Men","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Fenvale Muse","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Fey Changeling","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ghost Ship","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Giant Shark","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Great Old One","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Guile Sirens","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Standard"]}]},{"name":"Lord of Unland","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Megamoeba","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mother Nature","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Muck Lampreys","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Old Salt Anchorman","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ormund Harpooneers","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pirate Ship","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Polar Bears","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Polar Explorers","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Porcupine Pufferfish","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ruler of Thul","rarity":"Unique","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sea Raider","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sea Serpent","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sedge Crabs","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Seirawan Hydra","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Selfsame Simulacrum","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sneak Thief","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Swamp Buffalo","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Swan Maidens","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tide Naiads","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tringh Constrictor","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tufted Turtles","rarity":"Ordinary","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Unland Angler","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Unland Eel","rarity":"Exceptional","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Yokai Kappas","rarity":"Elite","type":"Minion","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dodge Roll","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Drown","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Extinguish","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Fire Harpoons!","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Font of Life","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Frost Nova","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Geyser","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ice Lance","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Marine Voyage","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Plague of Frogs","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pollimorph","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Replication","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Riptide","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Shrink","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sleep","rarity":"Ordinary","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Stormy Seas","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Twist of Fate","rarity":"Unique","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Upwelling","rarity":"Exceptional","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wrath of the Sea","rarity":"Elite","type":"Magic","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Abundance","rarity":"Elite","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Atlantean Fate","rarity":"Unique","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Blizzard","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Flood","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mariner's Curse","rarity":"Exceptional","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Silence","rarity":"Elite","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wall of Ice","rarity":"Ordinary","type":"Aura","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"All-terrain Vestments","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Amethyst Core","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Angel's Egg","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Aquamarine Core","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Battering Ram","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Belfry","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Black Obelisk","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Blasted Oak","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Buried Treasure","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Chains of Prometheus","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Crave Golem","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Crown of the Victor","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Devil's Egg","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Doomsday Device","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Drums of Doom","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Erik's Curiosa","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]}]},{"name":"Flaming Sword","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Gilded Aegis","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Iron Shackles","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Kythera Mechanism","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Land Deed","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Lucky Charm","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Maddening Bells","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Magellan Globe","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Magnetic Muzzle","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mask of Mayhem","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mix Aer","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mix Aqua","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mix Ignis","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mix Terra","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Onyx Core","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Orb of Ba'al Berith","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Payload Trebuchet","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pendulum of Peril","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Philosopher's Stone","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pnakotic Manuscript","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Poisonous Dagger","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Purge Juggernaut","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rolling Boulder","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ruby Core","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Scarecrow","rarity":"Ordinary","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Screaming Skull","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Seven-League Boots","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Siege Ballista","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Spear of Destiny","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sunken Treasure","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"The Immortal Throne","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Torshammar Trinket","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Truesight Crossbow","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Undertaker Engine","rarity":"Elite","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wicker Manikin","rarity":"Ordinary","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Wings of Invention","rarity":"Exceptional","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cloud City","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Dark Tower","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Gothic Tower","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Lone Tower","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Mountain Pass","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Observatory","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Updraft Ridge","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Watchtower","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bedrock","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Gnome Hollows","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Holy Ground","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Humble Village","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Kingdom of Agartha","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pillar of Zeiros","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Quagmire","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rift Valley","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Rustic Village","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Secret Tunnel","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Simple Village","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vantage Hills","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Arid Desert","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dwarven Forge","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mirage","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Red Desert","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Remote Desert","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"River of Flame","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Shifting Sands","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Smokestacks of Gnaak","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vesuvius","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Autumn River","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Floodplain","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Iceberg","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Island Leviathan","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Maelström","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Spring River","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Summer River","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Tadpole Pool","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Undertow","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Aqueduct","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Lighthouse","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Oasis","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Pristine Paradise","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Ruins","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Steppe","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"The Colour Out of Space","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Windmill","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Astral Alcazar","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Battlefield","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Boneyard","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Bottomless Pit","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Cornerstone","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Crossroads","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dome of Osiros","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Donnybrook Inn","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Edge of the World","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Free City","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Great Wall","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Imperial Road","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mirror Realm","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Mudflow","rarity":"Exceptional","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Planar Gate","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Primordial Spring","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Roots of Yggdrasil","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Sinkhole","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Standing Stones","rarity":"Elite","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"The Geistwood","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Vaults of Zul","rarity":"Unique","type":"Site","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Avatar of Air","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Avatar of Earth","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Avatar of Fire","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Avatar of Water","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Battlemage","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Deathspeaker","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Elementalist","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Enchantress","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Pathfinder","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Seer","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Sorcerer","rarity":null,"type":"Avatar","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow","Standard","Foil"]}]},{"name":"Relentless Crowd","rarity":"Ordinary","type":"Minion","sets":[{"name":"Promotional","finishes":["Standard"]}]},{"name":"Winter River","rarity":"Ordinary","type":"Site","sets":[{"name":"Alpha","finishes":["Foil"]}]},{"name":"Sparkmage","rarity":null,"type":"Avatar","sets":[{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Geomancer","rarity":null,"type":"Avatar","sets":[{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Flamecaller","rarity":null,"type":"Avatar","sets":[{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Waveshaper","rarity":null,"type":"Avatar","sets":[{"name":"Beta","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Spellslinger","rarity":null,"type":"Avatar","sets":[{"name":"Promotional","finishes":["Rainbow","Standard","Foil"]}]},{"name":"Spire","rarity":"Ordinary","type":"Site","sets":[{"name":"Promotional","finishes":["Standard","Foil"]},{"name":"Gothic","finishes":["Standard"]}]},{"name":"Stream","rarity":"Ordinary","type":"Site","sets":[{"name":"Promotional","finishes":["Standard","Foil"]},{"name":"Gothic","finishes":["Standard"]}]},{"name":"Valley","rarity":"Ordinary","type":"Site","sets":[{"name":"Promotional","finishes":["Standard","Foil"]},{"name":"Gothic","finishes":["Standard"]}]},{"name":"Wasteland","rarity":"Ordinary","type":"Site","sets":[{"name":"Promotional","finishes":["Standard","Foil"]},{"name":"Gothic","finishes":["Standard"]}]},{"name":"Abaddon Succubus","rarity":"Elite","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Aino","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Armageddon","rarity":"Unique","type":"Magic","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Army of the Dead","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Asmodeus","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Jack the Ripper","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Mephistopheles","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Nosferatu","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Yog-Sothoth","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Lilith","rarity":"Unique","type":"Minion","sets":[{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Day of Judgment","rarity":"Unique","type":"Magic","sets":[{"name":"Promotional","finishes":["Foil"]},{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"Swap","rarity":"Exceptional","type":"Magic","sets":[{"name":"Promotional","finishes":["Standard"]},{"name":"Gothic","finishes":["Standard","Foil"]}]},{"name":"King Arthur","rarity":"Unique","type":"Minion","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Merlin","rarity":"Unique","type":"Minion","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]}]},{"name":"Sir Lancelot","rarity":"Unique","type":"Minion","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Foil"]}]},{"name":"Morgana le Fay","rarity":"Unique","type":"Minion","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]}]},{"name":"Queen Guinevere","rarity":"Unique","type":"Minion","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]}]},{"name":"Excalibur","rarity":"Unique","type":"Artifact","sets":[{"name":"Arthurian Legends","finishes":["Standard","Foil"]}]},{"name":"Philosopher's Stone","rarity":"Unique","type":"Artifact","sets":[{"name":"Alpha","finishes":["Standard","Foil"]},{"name":"Beta","finishes":["Standard","Foil"]}]},{"name":"Dragonlord","rarity":"Unique","type":"Avatar","sets":[{"name":"Dragonlord","finishes":["Standard","Foil"]},{"name":"Promotional","finishes":["Rainbow"]}]},{"name":"Caelestis","rarity":"Unique","type":"Minion","sets":[{"name":"Dragonlord","finishes":["Standard","Foil"]}]},{"name":"Ignis Rex","rarity":"Unique","type":"Minion","sets":[{"name":"Dragonlord","finishes":["Standard","Foil"]}]}];
+
+// ─── Fuzzy Matcher (lightweight, no external deps) ───────────────────────────
+function normalize(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function fuzzyScore(query, target) {
+  const q = normalize(query);
+  const t = normalize(target);
+  if (t === q) return 100;
+  if (t.startsWith(q)) return 90;
+  if (t.includes(q)) return 75;
+  // character overlap scoring
+  let score = 0;
+  let ti = 0;
+  for (let qi = 0; qi < q.length && ti < t.length; qi++) {
+    while (ti < t.length && t[ti] !== q[qi]) ti++;
+    if (ti < t.length) { score++; ti++; }
+  }
+  return Math.round((score / Math.max(q.length, t.length)) * 60);
+}
+
+function findCard(nameQuery) {
+  if (!nameQuery.trim()) return null;
+  let best = null;
+  let bestScore = 0;
+  for (const card of CARD_DB) {
+    const s = fuzzyScore(nameQuery, card.name);
+    if (s > bestScore) { bestScore = s; best = card; }
+  }
+  return bestScore > 30 ? best : null;
+}
+
+// ─── Parser ───────────────────────────────────────────────────────────────────
+const CONDITIONS = ["NM","LP","MP","HP","DMG","NM/M"];
+const FINISHES = ["Rainbow Foil","Rainbow","Foil","Promo","Promotional"];
+const SETS = ["Gothic","Arthurian Legends","Arthurian","Alpha","Beta","Dragonlord","Promotional","Promo"];
+const SET_ALIASES = { "Arthurian": "Arthurian Legends", "Promo": "Promotional" };
+
+function parseLine(line) {
+  line = line.trim();
+  if (!line || line.startsWith("//") || line.startsWith("#")) return null;
+
+  let remaining = line;
+  let qty = 1;
+  let condition = "NM";
+  let finish = "Standard";
+  let setName = null;
+
+  // Extract quantity: leading number optionally followed by x
+  const qtyMatch = remaining.match(/^(\d+)\s*x?\s*/i);
+  if (qtyMatch) { qty = parseInt(qtyMatch[1]); remaining = remaining.slice(qtyMatch[0].length); }
+
+  // Extract condition (case-insensitive)
+  for (const cond of CONDITIONS) {
+    const re = new RegExp(`\\b${cond}\\b`, "i");
+    if (re.test(remaining)) { condition = cond.toUpperCase(); remaining = remaining.replace(re, "").trim(); break; }
+  }
+
+  // Extract finish
+  for (const fin of FINISHES) {
+    const re = new RegExp(`\\b${fin}\\b`, "i");
+    if (re.test(remaining)) {
+      finish = fin === "Rainbow" || fin === "Rainbow Foil" ? "Rainbow" : fin === "Foil" ? "Foil" : fin.includes("Promo") ? "Standard" : "Standard";
+      remaining = remaining.replace(re, "").trim();
+      break;
+    }
+  }
+
+  // Extract set from parentheses or after dash
+  const parenMatch = remaining.match(/\(([^)]+)\)/);
+  if (parenMatch) {
+    const candidate = parenMatch[1].trim();
+    for (const s of SETS) {
+      if (candidate.toLowerCase().includes(s.toLowerCase())) {
+        setName = SET_ALIASES[s] || s;
+        break;
+      }
+    }
+    remaining = remaining.replace(parenMatch[0], "").trim();
+  }
+
+  // Also check for set name embedded directly  
+  if (!setName) {
+    for (const s of SETS) {
+      const re = new RegExp(`\\b${s}\\b`, "i");
+      if (re.test(remaining)) {
+        setName = SET_ALIASES[s] || s;
+        remaining = remaining.replace(re, "").trim();
+        break;
+      }
+    }
+  }
+
+  // Clean up trailing punctuation and dashes
+  remaining = remaining.replace(/[-–—]+$/, "").replace(/\s+/g, " ").trim();
+  const cardName = remaining || null;
+  if (!cardName) return null;
+
+  const matched = findCard(cardName);
+  return {
+    id: Math.random().toString(36).slice(2),
+    rawName: cardName,
+    matched,
+    resolvedName: matched ? matched.name : cardName,
+    qty,
+    condition,
+    finish,
+    setName: setName || (matched?.sets?.[0]?.name ?? null),
+    price: "",
+    confirmed: !!matched && fuzzyScore(cardName, matched.name) > 70,
+    unmatched: !matched,
+  };
+}
+
+function parseInput(text) {
+  return text.split("\n").map(parseLine).filter(Boolean);
+}
+
+// ─── Ad Generator ─────────────────────────────────────────────────────────────
+function generateAd(postType, cards, sellerInfo, currency) {
+  const lines = [];
+  const totalPrice = cards.reduce((sum, c) => sum + (parseFloat(c.price) * c.qty || 0), 0);
+  const over250 = totalPrice >= 250;
+
+  if (postType === "sell") {
+    const setNames = [...new Set(cards.map(c => c.setName).filter(Boolean))];
+    const title = `**Sorcery: Contested Realm – ${setNames.length ? setNames.join(" & ") : "Singles"} – Selling**`;
+    lines.push(title);
+    lines.push("");
+    cards.forEach(c => {
+      const foil = c.finish !== "Standard" ? ` ${c.finish}` : "";
+      const set = c.setName ? ` (${c.setName})` : "";
+      const rarity = c.matched?.rarity ? ` [${c.matched.rarity}]` : "";
+      const priceStr = c.price ? ` – ${currency}${parseFloat(c.price).toFixed(2)} each` : "";
+      lines.push(`${c.qty}x ${c.resolvedName}${set}${rarity}${foil} – ${c.condition}${priceStr}`);
+    });
+    lines.push("");
+    if (totalPrice > 0) lines.push(`**Total asking: ${currency}${totalPrice.toFixed(2)}**`);
+    if (sellerInfo.payment) lines.push(`Payment: ${sellerInfo.payment}`);
+    if (sellerInfo.shipping) lines.push(`Shipping: ${sellerInfo.shipping}`);
+    if (sellerInfo.location) lines.push(`Location: ${sellerInfo.location}`);
+    if (sellerInfo.notes) lines.push(`Notes: ${sellerInfo.notes}`);
+    if (sellerInfo.discord) lines.push(`DM: ${sellerInfo.discord}`);
+    if (over250) lines.push("");
+    if (over250) lines.push(`⚠️ *Per server rules, listing >$250 requires a photo with your Discord name and today's date.*`);
+  } else if (postType === "buy") {
+    lines.push(`**WTB – Sorcery: Contested Realm**`);
+    lines.push("");
+    cards.forEach(c => {
+      const foil = c.finish !== "Standard" ? ` ${c.finish}` : "";
+      const set = c.setName ? ` (${c.setName})` : "";
+      const priceStr = c.price ? ` – up to ${currency}${parseFloat(c.price).toFixed(2)} each` : "";
+      lines.push(`${c.qty}x ${c.resolvedName}${set}${foil} – ${c.condition}${priceStr}`);
+    });
+    lines.push("");
+    if (sellerInfo.payment) lines.push(`Payment: ${sellerInfo.payment}`);
+    if (sellerInfo.shipping) lines.push(`Shipping: ${sellerInfo.shipping}`);
+    if (sellerInfo.location) lines.push(`Location: ${sellerInfo.location}`);
+    if (sellerInfo.notes) lines.push(`Notes: ${sellerInfo.notes}`);
+    if (sellerInfo.discord) lines.push(`DM: ${sellerInfo.discord}`);
+  } else if (postType === "trade") {
+    lines.push(`**WTT – Sorcery: Contested Realm**`);
+    lines.push("");
+    lines.push(`**Offering:**`);
+    cards.filter(c => c._side !== "want").forEach(c => {
+      const foil = c.finish !== "Standard" ? ` ${c.finish}` : "";
+      const set = c.setName ? ` (${c.setName})` : "";
+      lines.push(`${c.qty}x ${c.resolvedName}${set}${foil} – ${c.condition}`);
+    });
+    lines.push("");
+    if (sellerInfo.shipping) lines.push(`Shipping: ${sellerInfo.shipping}`);
+    if (sellerInfo.location) lines.push(`Location: ${sellerInfo.location}`);
+    if (sellerInfo.notes) lines.push(`Notes/Comments: ${sellerInfo.notes}`);
+    if (sellerInfo.discord) lines.push(`DM: ${sellerInfo.discord}`);
+  }
+
+  return lines.join("\n");
+}
+
+// ─── Rarity Color Map ─────────────────────────────────────────────────────────
+const RARITY_COLORS = {
+  Ordinary: "#9ca3af",
+  Exceptional: "#34d399",
+  Elite: "#60a5fa",
+  Unique: "#f59e0b",
+};
+
+// ─── Main App ─────────────────────────────────────────────────────────────────
+export default function CardScribe() {
+  const [step, setStep] = useState(0); // 0=paste, 1=review, 2=seller, 3=preview
+  const [postType, setPostType] = useState("sell");
+  const [rawInput, setRawInput] = useState("");
+  const [cards, setCards] = useState([]);
+  const [currency, setCurrency] = useState("$");
+  const [sellerInfo, setSellerInfo] = useState({
+    discord: "", payment: "", shipping: "", location: "", notes: ""
+  });
+  const [adText, setAdText] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  const showToast = (msg, type = "success") => {
+    setToast({ msg, type });
+    setTimeout(() => setToast(null), 2500);
+  };
+
+  const handleParse = () => {
+    if (!rawInput.trim()) return;
+    const parsed = parseInput(rawInput);
+    if (!parsed.length) { showToast("No cards detected. Try: '2x Grim Reaper Alpha NM'", "error"); return; }
+    setCards(parsed);
+    setStep(1);
+  };
+
+  const updateCard = (id, field, value) => {
+    setCards(prev => prev.map(c => c.id === id ? { ...c, [field]: value } : c));
+  };
+
+  const removeCard = (id) => setCards(prev => prev.filter(c => c.id !== id));
+
+  const handleGenerate = () => {
+    const ad = generateAd(postType, cards, sellerInfo, currency);
+    setAdText(ad);
+    setStep(3);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(adText).then(() => {
+      setCopied(true);
+      showToast("Copied to clipboard!");
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const totalValue = cards.reduce((sum, c) => sum + (parseFloat(c.price) * c.qty || 0), 0);
+  const unmatchedCount = cards.filter(c => c.unmatched).length;
+
+  return (
+    <div style={{
+      minHeight: "100vh",
+      background: "linear-gradient(135deg, #0d0f1a 0%, #111827 50%, #0d1117 100%)",
+      fontFamily: "'Crimson Text', 'Georgia', serif",
+      color: "#e2d9c5",
+      position: "relative",
+      overflow: "hidden",
+    }}>
+      {/* Atmospheric background */}
+      <div style={{
+        position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0,
+        background: "radial-gradient(ellipse at 20% 50%, rgba(139,92,46,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.04) 0%, transparent 50%)",
+      }} />
+
+      {/* Header */}
+      <header style={{
+        borderBottom: "1px solid rgba(180,140,60,0.2)",
+        background: "rgba(10,12,20,0.7)",
+        backdropFilter: "blur(8px)",
+        padding: "0 32px",
+        position: "sticky", top: 0, zIndex: 50,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        height: 64,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L4 8v12l10 6 10-6V8L14 2z" stroke="#b48c3c" strokeWidth="1.5" fill="rgba(180,140,60,0.1)" />
+            <path d="M14 6l-6 4v8l6 4 6-4V10L14 6z" fill="rgba(180,140,60,0.2)" stroke="#b48c3c" strokeWidth="1" />
+            <circle cx="14" cy="14" r="2.5" fill="#b48c3c" />
+          </svg>
+          <span style={{ fontSize: 22, fontWeight: 700, color: "#d4aa50", letterSpacing: "0.04em" }}>CardScribe</span>
+          <span style={{ fontSize: 12, color: "#6b7280", marginLeft: 4, fontFamily: "monospace" }}>v0.1</span>
+        </div>
+        <div style={{ display: "flex", gap: 8 }}>
+          {["Paste", "Review", "Details", "Preview"].map((label, i) => (
+            <div key={i} style={{
+              display: "flex", alignItems: "center", gap: 6, fontSize: 13,
+              color: step === i ? "#d4aa50" : step > i ? "#6b7280" : "#374151",
+              transition: "color 0.2s",
+            }}>
+              <div style={{
+                width: 22, height: 22, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
+                border: `1px solid ${step === i ? "#b48c3c" : step > i ? "#4b5563" : "#1f2937"}`,
+                background: step === i ? "rgba(180,140,60,0.15)" : step > i ? "rgba(75,85,99,0.2)" : "transparent",
+                fontSize: 11, fontFamily: "monospace",
+              }}>{step > i ? "✓" : i + 1}</div>
+              <span style={{ display: window.innerWidth > 600 ? "inline" : "none" }}>{label}</span>
+              {i < 3 && <span style={{ color: "#1f2937", marginLeft: 2 }}>›</span>}
+            </div>
+          ))}
+        </div>
+      </header>
+
+      {/* Toast */}
+      {toast && (
+        <div style={{
+          position: "fixed", top: 80, right: 24, zIndex: 100,
+          background: toast.type === "error" ? "#7f1d1d" : "#14432a",
+          border: `1px solid ${toast.type === "error" ? "#ef4444" : "#22c55e"}`,
+          borderRadius: 8, padding: "10px 18px", fontSize: 14,
+          color: toast.type === "error" ? "#fca5a5" : "#86efac",
+          animation: "fadeInDown 0.3s ease",
+        }}>{toast.msg}</div>
+      )}
+
+      <main style={{ maxWidth: 900, margin: "0 auto", padding: "40px 24px", position: "relative", zIndex: 1 }}>
+
+        {/* STEP 0: Paste */}
+        {step === 0 && (
+          <div style={{ animation: "fadeIn 0.4s ease" }}>
+            <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <h1 style={{ fontSize: 36, fontWeight: 700, color: "#d4aa50", margin: "0 0 8px", letterSpacing: "0.02em" }}>
+                Craft Your Trade Listing
+              </h1>
+              <p style={{ color: "#9ca3af", fontSize: 16, margin: 0 }}>
+                Paste your card list below. Supports free-form text, quantity × name, conditions, sets, and finishes.
+              </p>
+            </div>
+
+            {/* Post type selector */}
+            <div style={{ display: "flex", gap: 8, marginBottom: 24, justifyContent: "center" }}>
+              {[["sell","Selling"],["buy","Buying"],["trade","Trading"]].map(([val,label]) => (
+                <button key={val} onClick={() => setPostType(val)} style={{
+                  padding: "8px 24px", borderRadius: 6, border: "1px solid",
+                  borderColor: postType === val ? "#b48c3c" : "#1f2937",
+                  background: postType === val ? "rgba(180,140,60,0.15)" : "rgba(255,255,255,0.03)",
+                  color: postType === val ? "#d4aa50" : "#6b7280",
+                  cursor: "pointer", fontSize: 15, transition: "all 0.2s",
+                  fontFamily: "'Crimson Text', serif",
+                }}>{label}</button>
+              ))}
+            </div>
+
+            {/* Example format hint */}
+            <div style={{
+              background: "rgba(255,255,255,0.03)", border: "1px solid rgba(180,140,60,0.1)",
+              borderRadius: 8, padding: "12px 16px", marginBottom: 16, fontSize: 13, color: "#6b7280",
+            }}>
+              <span style={{ color: "#b48c3c" }}>Example formats: </span>
+              2x Grim Reaper Alpha NM · 1 Philosopher's Stone (Beta) Foil LP · 3x Abaddon Succubus Gothic Elite Foil NM
+            </div>
+
+            <textarea
+              value={rawInput}
+              onChange={e => setRawInput(e.target.value)}
+              placeholder={"2x Grim Reaper Alpha NM\n1 Philosopher's Stone Beta Foil LP\n3x Abaddon Succubus Gothic NM\nHighland Princess – Foil NM"}
+              style={{
+                width: "100%", minHeight: 240, background: "rgba(5,7,12,0.6)",
+                border: "1px solid rgba(180,140,60,0.2)", borderRadius: 10,
+                color: "#e2d9c5", fontSize: 15, padding: "16px",
+                resize: "vertical", outline: "none", lineHeight: 1.6,
+                fontFamily: "'Crimson Text', serif", boxSizing: "border-box",
+                transition: "border-color 0.2s",
+              }}
+              onFocus={e => e.target.style.borderColor = "rgba(180,140,60,0.5)"}
+              onBlur={e => e.target.style.borderColor = "rgba(180,140,60,0.2)"}
+            />
+
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 16 }}>
+              <button onClick={handleParse} style={{
+                padding: "12px 36px", background: "linear-gradient(135deg, #92701e, #b48c3c)",
+                border: "none", borderRadius: 8, color: "#0d0f1a", fontWeight: 700,
+                fontSize: 16, cursor: "pointer", fontFamily: "'Crimson Text', serif",
+                letterSpacing: "0.04em", transition: "opacity 0.2s",
+                boxShadow: "0 4px 20px rgba(180,140,60,0.25)",
+              }}
+              onMouseEnter={e => e.target.style.opacity = "0.9"}
+              onMouseLeave={e => e.target.style.opacity = "1"}
+              >Parse Cards →</button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 1: Review Table */}
+        {step === 1 && (
+          <div style={{ animation: "fadeIn 0.4s ease" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+              <div>
+                <h2 style={{ color: "#d4aa50", margin: "0 0 4px", fontSize: 24 }}>Review & Edit</h2>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: 14 }}>
+                  {cards.length} cards parsed
+                  {unmatchedCount > 0 && <span style={{ color: "#f59e0b" }}> · {unmatchedCount} unmatched (review below)</span>}
+                  {totalValue > 0 && <span style={{ color: "#d4aa50" }}> · Est. total: {currency}{totalValue.toFixed(2)}</span>}
+                </p>
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button onClick={() => setStep(0)} style={ghostBtn}>← Back</button>
+                <button onClick={() => setStep(2)} style={primaryBtn}>Continue →</button>
+              </div>
+            </div>
+
+            {/* Currency selector */}
+            <div style={{ display: "flex", gap: 8, marginBottom: 16, alignItems: "center" }}>
+              <span style={{ fontSize: 13, color: "#6b7280" }}>Currency:</span>
+              {[["$","USD"],["€","EUR"],["£","GBP"],["kr","NOK"]].map(([sym,label]) => (
+                <button key={sym} onClick={() => setCurrency(sym)} style={{
+                  padding: "4px 12px", fontSize: 13, borderRadius: 4,
+                  border: `1px solid ${currency === sym ? "#b48c3c" : "#1f2937"}`,
+                  background: currency === sym ? "rgba(180,140,60,0.15)" : "transparent",
+                  color: currency === sym ? "#d4aa50" : "#6b7280",
+                  cursor: "pointer", fontFamily: "'Crimson Text', serif",
+                }}>{sym} {label}</button>
+              ))}
+            </div>
+
+            {/* Table */}
+            <div style={{ background: "rgba(5,7,12,0.5)", border: "1px solid rgba(180,140,60,0.15)", borderRadius: 10, overflow: "hidden" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+                <thead>
+                  <tr style={{ background: "rgba(180,140,60,0.08)" }}>
+                    {["Qty","Card Name","Set","Condition","Finish","Price",""].map(h => (
+                      <th key={h} style={{ padding: "10px 12px", textAlign: "left", color: "#b48c3c", fontWeight: 600, letterSpacing: "0.05em", fontSize: 12, borderBottom: "1px solid rgba(180,140,60,0.15)" }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {cards.map((card, i) => (
+                    <tr key={card.id} style={{
+                      borderBottom: "1px solid rgba(255,255,255,0.04)",
+                      background: card.unmatched ? "rgba(239,68,68,0.05)" : i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.01)",
+                    }}>
+                      <td style={{ padding: "8px 12px" }}>
+                        <input type="number" min="1" value={card.qty}
+                          onChange={e => updateCard(card.id, "qty", parseInt(e.target.value) || 1)}
+                          style={{ ...inputStyle, width: 52 }} />
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                          <input value={card.resolvedName}
+                            onChange={e => updateCard(card.id, "resolvedName", e.target.value)}
+                            style={{ ...inputStyle, minWidth: 160 }} />
+                          {card.unmatched && (
+                            <span style={{ fontSize: 11, color: "#f59e0b" }}>⚠ Not matched — edit name</span>
+                          )}
+                          {card.matched && !card.unmatched && (
+                            <span style={{ fontSize: 11, color: RARITY_COLORS[card.matched.rarity] || "#6b7280" }}>
+                              {card.matched.rarity} {card.matched.type}
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <select value={card.setName || ""} onChange={e => updateCard(card.id, "setName", e.target.value)}
+                          style={{ ...inputStyle, cursor: "pointer" }}>
+                          <option value="">—</option>
+                          {(card.matched?.sets || []).map(s => <option key={s.name} value={s.name}>{s.name}</option>)}
+                          {!card.matched && ["Alpha","Beta","Gothic","Arthurian Legends","Dragonlord","Promotional"].map(s => <option key={s} value={s}>{s}</option>)}
+                        </select>
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <select value={card.condition} onChange={e => updateCard(card.id, "condition", e.target.value)}
+                          style={{ ...inputStyle, cursor: "pointer" }}>
+                          {CONDITIONS.map(c => <option key={c} value={c}>{c}</option>)}
+                        </select>
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <select value={card.finish} onChange={e => updateCard(card.id, "finish", e.target.value)}
+                          style={{ ...inputStyle, cursor: "pointer" }}>
+                          <option value="Standard">Standard</option>
+                          <option value="Foil">Foil</option>
+                          <option value="Rainbow">Rainbow</option>
+                        </select>
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                          <span style={{ color: "#6b7280" }}>{currency}</span>
+                          <input type="number" min="0" step="0.01" value={card.price}
+                            onChange={e => updateCard(card.id, "price", e.target.value)}
+                            placeholder="0.00"
+                            style={{ ...inputStyle, width: 72 }} />
+                        </div>
+                      </td>
+                      <td style={{ padding: "8px 12px" }}>
+                        <button onClick={() => removeCard(card.id)} style={{
+                          background: "none", border: "none", color: "#6b7280",
+                          cursor: "pointer", fontSize: 16, padding: "2px 4px",
+                          transition: "color 0.2s",
+                        }}
+                        onMouseEnter={e => e.target.style.color = "#ef4444"}
+                        onMouseLeave={e => e.target.style.color = "#6b7280"}
+                        >✕</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {totalValue >= 250 && (
+              <div style={{
+                marginTop: 16, padding: "12px 16px", background: "rgba(245,158,11,0.1)",
+                border: "1px solid rgba(245,158,11,0.3)", borderRadius: 8, fontSize: 13, color: "#fbbf24",
+              }}>
+                ⚠️ Total exceeds $250 USD. Per server rules, a photo with your Discord name and date will be required.
+              </div>
+            )}
+
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 20, gap: 8 }}>
+              <button onClick={() => setStep(0)} style={ghostBtn}>← Back</button>
+              <button onClick={() => setStep(2)} style={primaryBtn}>Add Details →</button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 2: Seller Info */}
+        {step === 2 && (
+          <div style={{ animation: "fadeIn 0.4s ease", maxWidth: 560, margin: "0 auto" }}>
+            <h2 style={{ color: "#d4aa50", marginBottom: 8, fontSize: 24 }}>Seller Details</h2>
+            <p style={{ color: "#6b7280", marginBottom: 32, fontSize: 14 }}>All fields optional. Fill in what applies to your listing.</p>
+
+            {[
+              ["discord", "Discord Tag", "YourName#1234"],
+              ["payment", "Payment Method(s)", "PayPal F&F, Wise, Venmo"],
+              ["shipping", "Shipping", "US to US $5 tracked, International on request"],
+              ["location", "Location", "New York, US"],
+              ["notes", "Notes / Comments", "Open to offers, can bundle"],
+            ].map(([key, label, placeholder]) => (
+              <div key={key} style={{ marginBottom: 20 }}>
+                <label style={{ display: "block", fontSize: 13, color: "#b48c3c", marginBottom: 6, letterSpacing: "0.05em" }}>{label.toUpperCase()}</label>
+                {key === "notes" ? (
+                  <textarea value={sellerInfo[key]} onChange={e => setSellerInfo(p => ({...p,[key]:e.target.value}))}
+                    placeholder={placeholder} rows={3}
+                    style={{ ...inputStyle, width: "100%", resize: "vertical", lineHeight: 1.5, boxSizing: "border-box" }} />
+                ) : (
+                  <input value={sellerInfo[key]} onChange={e => setSellerInfo(p => ({...p,[key]:e.target.value}))}
+                    placeholder={placeholder}
+                    style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} />
+                )}
+              </div>
+            ))}
+
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 32 }}>
+              <button onClick={() => setStep(1)} style={ghostBtn}>← Back</button>
+              <button onClick={handleGenerate} style={{
+                ...primaryBtn,
+                background: "linear-gradient(135deg, #92701e, #b48c3c)",
+                boxShadow: "0 0 24px rgba(180,140,60,0.3)",
+                animation: "pulse 2s infinite",
+              }}>✨ Generate Ad</button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 3: Preview & Copy */}
+        {step === 3 && (
+          <div style={{ animation: "fadeIn 0.4s ease" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+              <div>
+                <h2 style={{ color: "#d4aa50", margin: "0 0 4px", fontSize: 24 }}>Your Listing</h2>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: 14 }}>Ready to paste into Discord</p>
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button onClick={() => setStep(2)} style={ghostBtn}>← Edit</button>
+                <button onClick={() => { setCards([]); setRawInput(""); setStep(0); setAdText(""); }} style={ghostBtn}>New Listing</button>
+              </div>
+            </div>
+
+            {/* Preview pane */}
+            <div style={{
+              background: "#36393f", borderRadius: 8, overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.08)", marginBottom: 16,
+            }}>
+              <div style={{
+                background: "#2f3136", padding: "8px 16px", fontSize: 12, color: "#72767d",
+                letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 8,
+              }}>
+                <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#40444b" }} />
+                Discord Preview
+              </div>
+              <div style={{ padding: "16px 20px" }}>
+                <div style={{ display: "flex", gap: 12 }}>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#5865f2", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>⚔</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", gap: 8, marginBottom: 4, alignItems: "baseline" }}>
+                      <span style={{ color: "#fff", fontWeight: 600, fontSize: 15, fontFamily: "sans-serif" }}>{sellerInfo.discord || "You"}</span>
+                      <span style={{ color: "#72767d", fontSize: 12, fontFamily: "sans-serif" }}>Today at {new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})}</span>
+                    </div>
+                    <div style={{ color: "#dcddde", fontFamily: "sans-serif", fontSize: 15, lineHeight: 1.6, whiteSpace: "pre-wrap" }}
+                      dangerouslySetInnerHTML={{ __html: adText
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                      }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Raw text */}
+            <div style={{ position: "relative" }}>
+              <textarea readOnly value={adText}
+                style={{
+                  width: "100%", minHeight: 220, background: "rgba(5,7,12,0.7)",
+                  border: "1px solid rgba(180,140,60,0.2)", borderRadius: 8,
+                  color: "#e2d9c5", fontSize: 14, padding: "14px 16px",
+                  fontFamily: "monospace", lineHeight: 1.6, resize: "vertical",
+                  boxSizing: "border-box", outline: "none",
+                }} />
+              <button onClick={handleCopy} style={{
+                position: "absolute", top: 12, right: 12,
+                padding: "6px 16px", background: copied ? "rgba(34,197,94,0.2)" : "rgba(180,140,60,0.15)",
+                border: `1px solid ${copied ? "#22c55e" : "#b48c3c"}`,
+                borderRadius: 6, color: copied ? "#22c55e" : "#d4aa50",
+                cursor: "pointer", fontSize: 13, transition: "all 0.2s",
+                fontFamily: "'Crimson Text', serif",
+              }}>{copied ? "✓ Copied!" : "Copy"}</button>
+            </div>
+
+            <div style={{ marginTop: 16, padding: "12px 16px", background: "rgba(180,140,60,0.06)", border: "1px solid rgba(180,140,60,0.12)", borderRadius: 8, fontSize: 13, color: "#9ca3af" }}>
+              💡 Tip: Paste directly into Discord. Use <strong style={{color:"#d4aa50"}}>Ctrl+V</strong> or ⌘V. Markdown will render automatically.
+            </div>
+          </div>
+        )}
+      </main>
+
+      <style>{`
+        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 24px rgba(180,140,60,0.3); } 50% { box-shadow: 0 0 36px rgba(180,140,60,0.5); } }
+        @keyframes fadeInDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+        select option { background: #1a1d2e; color: #e2d9c5; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+      `}</style>
+    </div>
+  );
+}
+
+const inputStyle = {
+  background: "rgba(255,255,255,0.05)",
+  border: "1px solid rgba(180,140,60,0.15)",
+  borderRadius: 5,
+  color: "#e2d9c5",
+  fontSize: 14,
+  padding: "5px 8px",
+  fontFamily: "'Crimson Text', serif",
+  outline: "none",
+};
+
+const primaryBtn = {
+  padding: "10px 28px",
+  background: "linear-gradient(135deg, #92701e, #b48c3c)",
+  border: "none",
+  borderRadius: 7,
+  color: "#0d0f1a",
+  fontWeight: 700,
+  fontSize: 15,
+  cursor: "pointer",
+  fontFamily: "'Crimson Text', serif",
+  letterSpacing: "0.03em",
+};
+
+const ghostBtn = {
+  padding: "10px 20px",
+  background: "rgba(255,255,255,0.04)",
+  border: "1px solid rgba(180,140,60,0.2)",
+  borderRadius: 7,
+  color: "#9ca3af",
+  fontSize: 15,
+  cursor: "pointer",
+  fontFamily: "'Crimson Text', serif",
+};
