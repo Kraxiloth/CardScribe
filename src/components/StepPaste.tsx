@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useStore } from '@/hooks/useStore'
 import { parseCardList } from '@/utils/parser'
 import { findCard, getSuggestions } from '@/data'
+import { resolveSlug } from '@/data/prices'
 import { showToast } from '@/components/Toast'
 import type { CardRow, Condition, Finish } from '@/types'
 
@@ -23,7 +24,6 @@ export function StepPaste() {
       showToast('Please paste some cards first')
       return
     }
-
     const parsed = parseCardList(text)
     if (!parsed.length) {
       showToast('Could not parse any cards — check the format')
@@ -31,14 +31,10 @@ export function StepPaste() {
     }
 
     const rows: CardRow[] = parsed.map(p => {
-      const match = findCard(p.rawName, p.setName)
+      const match       = findCard(p.rawName, p.setName)
       const suggestions = match ? [] : getSuggestions(p.rawName)
-
-      const setName = (() => {
-        if (p.setName) return p.setName
-        if (match) return match.sets[match.sets.length - 1].n
-        return ''
-      })()
+      const setName     = p.setName || (match ? match.sets[match.sets.length - 1].n : '')
+      const slug        = match ? resolveSlug(match.sets, setName, p.finish) : null
 
       return {
         id: Math.random().toString(36).slice(2),
@@ -52,6 +48,7 @@ export function StepPaste() {
         matchedCard: match,
         suggestions,
         price: '',
+        slug,
       }
     })
 
@@ -77,8 +74,8 @@ export function StepPaste() {
         <div className="notice notice-info mb-4">
           <span>📜</span>
           <span>
-            Paste your cards one per line. CardScribe understands most formats — quantity, name, set,
-            condition, and finish. Try things like:{' '}
+            Paste your cards one per line. CardScribe understands most formats — quantity, name,
+            set, condition, and finish. Try things like:{' '}
             <em>2x Abaddon Succubus Gothic Elite Foil NM</em> or{' '}
             <em>1 Dragon King (Alpha) Unique</em>
           </span>

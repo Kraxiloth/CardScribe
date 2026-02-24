@@ -4,10 +4,16 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+  server: {
+    watch: {
+      usePolling: true,
+      interval: 100,
+      ignored: ['**/node_modules/**'],
     },
   },
   build: {

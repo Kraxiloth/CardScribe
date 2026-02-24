@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { AppState, CardRow, ListingType, SellerInfo, Step } from '@/types'
+import type { AppState, CardRow, ListingType, PriceData, SellerInfo, Step } from '@/types'
 
 const DEFAULT_SELLER: SellerInfo = {
   discord: '',
@@ -18,11 +18,10 @@ export const useStore = create<AppState>((set) => ({
   cards: [],
   sellerInfo: DEFAULT_SELLER,
   outputTab: 'raw',
+  priceData: null,
 
   setStep: (step: Step) => set({ step }),
-
   setListingType: (listingType: ListingType) => set({ listingType }),
-
   setCards: (cards: CardRow[]) => set({ cards }),
 
   updateCard: (id: string, patch: Partial<CardRow>) =>
@@ -41,4 +40,6 @@ export const useStore = create<AppState>((set) => ({
     })),
 
   setOutputTab: (outputTab) => set({ outputTab }),
+
+  setPriceData: (priceData: PriceData | null) => set({ priceData }),
 }))

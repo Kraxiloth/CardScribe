@@ -11,25 +11,36 @@ export interface CardVariant {
 }
 
 export interface CardSet {
-  /** Full set name e.g. "Arthurian Legends" */
-  n: string
+  n: string   // set name
   v: CardVariant[]
 }
 
-/** Shape of each entry in the embedded card database (minified keys) */
 export interface RawCardRecord {
-  n: string   // name
-  r: Rarity   // rarity
-  t: string   // type (Minion, Spell, Site…)
-  s: CardSet[] // sets
+  n: string
+  r: Rarity
+  t: string
+  s: CardSet[]
 }
 
-/** Normalised card record used throughout the app */
 export interface CardRecord {
   name: string
   rarity: Rarity
   type: string
   sets: CardSet[]
+}
+
+// ─── Prices ───────────────────────────────────────────────────────────────────
+
+export interface CardPrice {
+  market: number
+  low: number
+}
+
+export interface PriceData {
+  updated: string       // ISO timestamp
+  source: string        // e.g. "CardNexus"
+  sourceUrl: string     // link to price source homepage
+  prices: Record<string, CardPrice>  // keyed by variant slug
 }
 
 // ─── Parser / Review ──────────────────────────────────────────────────────────
@@ -53,7 +64,8 @@ export interface CardRow {
   matched: boolean
   matchedCard: CardRecord | null
   suggestions: string[]
-  price: string
+  price: string         // manual override — empty string means "use market price"
+  slug: string | null   // resolved variant slug for price lookup
 }
 
 // ─── Listing / Seller Info ────────────────────────────────────────────────────
@@ -79,6 +91,7 @@ export interface AppState {
   cards: CardRow[]
   sellerInfo: SellerInfo
   outputTab: 'raw' | 'preview'
+  priceData: PriceData | null
 
   // Actions
   setStep: (step: Step) => void
@@ -88,4 +101,5 @@ export interface AppState {
   removeCard: (id: string) => void
   setSellerInfo: (patch: Partial<SellerInfo>) => void
   setOutputTab: (tab: 'raw' | 'preview') => void
+  setPriceData: (data: PriceData | null) => void
 }
