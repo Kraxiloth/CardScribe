@@ -1,3 +1,5 @@
+console.log('CardHover module loaded')
+
 import { useState, useRef, useCallback, useEffect } from 'react'
 
 const CDN_BASE = 'https://d27a44hjr9gen3.cloudfront.net/cards'
