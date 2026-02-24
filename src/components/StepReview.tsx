@@ -19,14 +19,6 @@ function RarityBadge({ rarity }: { rarity: string }) {
   )
 }
 
-function FinishBadge({ finish }: { finish: Finish }) {
-  if (finish === 'Standard') return null
-  const style: React.CSSProperties = finish === 'Foil'
-    ? { color: '#7adde8', borderColor: 'rgba(122,221,232,0.3)', background: 'rgba(122,221,232,0.07)' }
-    : { color: '#e87ad8', borderColor: 'rgba(232,122,216,0.3)', background: 'rgba(232,122,216,0.07)' }
-  return <span className="finish-badge" style={style}>{finish}</span>
-}
-
 function blankRow(): CardRow {
   return {
     id: Math.random().toString(36).slice(2),
