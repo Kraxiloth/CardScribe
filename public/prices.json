@@ -1,6 +1,87 @@
 {
-  "updated": "2026-02-25T09:14:02.690820+00:00",
-  "source": "TCGPlayer",
-  "sourceUrl": "https://www.tcgplayer.com/categories/trading-and-collectible-card-games/sorcery-contested-realm/price-guides",
-  "prices": {}
+  "updated": "2026-02-24T00:00:00Z",
+  "source": "CardNexus",
+  "sourceUrl": "https://app.cardnexus.com/en/explore/sorcery",
+  "prices": {
+    "alp-grim_reaper-b-s": {
+      "market": 142.31,
+      "low": 100.33
+    },
+    "alp-grim_reaper-b-f": {
+      "market": 195.51,
+      "low": 145.58
+    },
+    "bet-grim_reaper-b-s": {
+      "market": 157.84,
+      "low": 131.85
+    },
+    "bet-grim_reaper-b-f": {
+      "market": 454.72,
+      "low": 326.21
+    },
+    "alp-highland_princess-b-s": {
+      "market": 107.51,
+      "low": 75.9
+    },
+    "alp-highland_princess-b-f": {
+      "market": 171.83,
+      "low": 137.65
+    },
+    "alp-candlemas_monks-b-s": {
+      "market": 2.61,
+      "low": 1.93
+    },
+    "bet-candlemas_monks-b-s": {
+      "market": 16.95,
+      "low": 13.71
+    },
+    "alp-east_west_dragon-b-s": {
+      "market": 7.07,
+      "low": 5.78
+    },
+    "bet-east_west_dragon-b-s": {
+      "market": 20.62,
+      "low": 14.46
+    },
+    "alp-grandmaster_wizard-b-s": {
+      "market": 20.53,
+      "low": 17.24
+    },
+    "bet-grandmaster_wizard-b-s": {
+      "market": 9.83,
+      "low": 7.19
+    },
+    "alp-candlemas_monks-b-f": {
+      "market": 76.92,
+      "low": 59.02
+    },
+    "bet-candlemas_monks-b-f": {
+      "market": 14.68,
+      "low": 10.56
+    },
+    "alp-east_west_dragon-b-f": {
+      "market": 69.02,
+      "low": 56.65
+    },
+    "bet-east_west_dragon-b-f": {
+      "market": 66.11,
+      "low": 55.93
+    },
+    "alp-apprentice_wizard-b-s": {
+      "market": 0.31,
+      "low": 0.28
+    },
+    "bet-apprentice_wizard-b-s": {
+      "market": 0.25,
+      "low": 0.2
+    },
+    "pro-apprentice_wizard-wk-s": {
+      "market": 0.43,
+      "low": 0.35
+    },
+    "alp-blood_ravens-b-s": {
+      "market": 0.44,
+      "low": 0.36
+    }
+  }
 }
