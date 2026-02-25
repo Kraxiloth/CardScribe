@@ -212,31 +212,30 @@
     </section>
 
     <!-- Step 4: Generate -->
-<!-- Step 4: Generate -->
-<section id="step-4" class="panel">
-  <div class="panel-header">
-    <span class="panel-title">Your Trade Ad</span>
-    <div class="panel-actions">
-      <button class="btn btn-ghost" id="btn-back-3">← Back</button>
-      <button class="btn btn-primary" id="btn-copy">Copy to Clipboard</button>
-    </div>
-  </div>
-  <div class="panel-body">
-    <div class="notice notice-info" id="photo-notice">
-      📸 Remember to attach clear photos of your cards when posting in Discord!
-    </div>
-    <div class="output-tabs">
-      <button class="output-tab active" data-tab="raw">Raw</button>
-      <button class="output-tab" data-tab="preview">Discord Preview</button>
-    </div>
-      <div id="tab-raw" class="tab-panel active">
-        <pre id="ad-output"></pre>
+    <section id="step-4" class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Your Trade Ad</span>
+        <div class="panel-actions">
+          <button class="btn btn-ghost" id="btn-back-3">← Back</button>
+          <button class="btn btn-primary" id="btn-copy">Copy to Clipboard</button>
+        </div>
       </div>
-    <div id="tab-preview" class="tab-panel">
-      <div id="ad-preview" class="discord-preview"></div>
-    </div>
-  </div>
-</section>
+      <div class="panel-body">
+        <div class="notice notice-info">
+          📸 Remember to attach clear photos of your cards when posting in Discord!
+        </div>
+        <div class="output-tabs">
+          <button class="output-tab active" data-tab="raw">Raw</button>
+          <button class="output-tab" data-tab="preview">Discord Preview</button>
+        </div>
+        <div id="tab-raw" class="tab-panel active">
+          <div id="ad-output" class="ad-raw"></div>
+        </div>
+        <div id="tab-preview" class="tab-panel">
+          <div id="ad-preview" class="discord-preview"></div>
+        </div>
+      </div>
+    </section>
 
   </main>
 

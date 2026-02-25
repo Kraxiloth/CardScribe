@@ -180,15 +180,17 @@ textarea:focus, input:focus, select:focus {
   font-family: 'Courier New', monospace;
   font-size: 0.85rem; line-height: 1.7;
 }
-#ad-output {
-  height: 280px; min-height: 280px;
+
+.ad-raw {
+  min-height: 280px;
   font-family: 'Courier New', monospace;
   font-size: 0.8rem; line-height: 1.7;
   color: var(--text-sec);
-  overflow-y: auto;
   white-space: pre-wrap;
   word-break: break-word;
+  padding: 0.5rem;
 }
+
 .paste-footer {
   display: flex; justify-content: space-between; align-items: center;
   margin-top: 0.5rem;
