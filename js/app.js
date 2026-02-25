@@ -100,6 +100,9 @@ document.getElementById('btn-to-4').addEventListener('click', () => {
   document.getElementById('ad-output').value = ad;
   document.getElementById('ad-output').style.display = 'block';
   goToStep(4);
+  setTimeout(() => {
+  console.log('delayed check:', document.getElementById('ad-output').value.slice(0, 50));
+}, 500);
 });
 
 // Listing type toggle
