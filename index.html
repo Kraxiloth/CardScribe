@@ -13,14 +13,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Noise texture overlay -->
   <div class="noise"></div>
- 
-  <!-- Header -->
+
   <header class="site-header">
     <div class="header-inner">
       <span class="logo">CardScribe</span>
@@ -28,7 +26,6 @@
     </div>
   </header>
 
-  <!-- Step Indicator -->
   <nav class="steps">
     <button class="step active" data-step="1">
       <span class="step-num">I</span>
@@ -48,10 +45,9 @@
     </button>
   </nav>
 
-  <!-- Main Content -->
   <main class="main">
 
-    <!-- Step 1: Paste -->
+    <!-- Step 1 -->
     <section id="step-1" class="panel active">
       <div class="panel-header">
         <span class="panel-title">Paste Your Card List</span>
@@ -73,7 +69,7 @@
       </div>
     </section>
 
-    <!-- Step 2: Review -->
+    <!-- Step 2 -->
     <section id="step-2" class="panel">
       <div class="panel-header">
         <span class="panel-title">Review &amp; Edit Cards</span>
@@ -119,11 +115,9 @@
       </div>
     </section>
 
-    <!-- Step 3: Listing Info -->
+    <!-- Step 3 -->
     <section id="step-3" class="panel">
       <div class="step3-layout">
-
-        <!-- Left: Form -->
         <div class="step3-form">
           <div class="panel-header">
             <span class="panel-title">Listing Details</span>
@@ -169,7 +163,7 @@
                 </div>
               </div>
               <div class="form-group form-group-wide">
-                <label>Payment Methods *</label>
+                <label>Payment Methods</label>
                 <div class="payment-chips" id="payment-chips">
                   <button class="chip" data-value="PayPal F&amp;F">PayPal F&amp;F</button>
                   <button class="chip" data-value="PayPal G&amp;S">PayPal G&amp;S</button>
@@ -199,19 +193,16 @@
             </div>
           </div>
         </div>
-
-        <!-- Right: Card Summary -->
         <div class="step3-summary">
           <div class="panel-header">
             <span class="panel-title">Card Summary</span>
           </div>
           <div id="summary-body" class="summary-body"></div>
         </div>
-
       </div>
     </section>
 
-    <!-- Step 4: Generate -->
+    <!-- Step 4 -->
     <section id="step-4" class="panel">
       <div class="panel-header">
         <span class="panel-title">Your Trade Ad</span>
@@ -239,21 +230,18 @@
 
   </main>
 
-  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <!-- Card hover preview -->
   <div class="card-preview" id="card-preview">
     <img id="card-preview-img" src="" alt="" />
   </div>
 
-  <!-- Scripts — order matters -->
-  <script src="js/cards.js?v=2"></script>
-  <script src="js/prices.js?v=2"></script>
-  <script src="js/parser.js?v=2"></script>
-  <script src="js/generator.js?v=2"></script>
-  <script src="js/review.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/prices.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="js/review.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>

@@ -171,7 +171,7 @@ textarea, input[type="text"], input[type="number"], select {
   padding: 0.5rem 0.65rem;
   transition: border-color 0.15s;
   outline: none;
-} 
+}
 textarea:focus, input:focus, select:focus {
   border-color: rgba(201,168,76,0.4);
 }
@@ -180,7 +180,6 @@ textarea:focus, input:focus, select:focus {
   font-family: 'Courier New', monospace;
   font-size: 0.85rem; line-height: 1.7;
 }
-
 .ad-raw {
   min-height: 280px;
   font-family: 'Courier New', monospace;
@@ -190,7 +189,6 @@ textarea:focus, input:focus, select:focus {
   word-break: break-word;
   padding: 0.5rem;
 }
-
 .paste-footer {
   display: flex; justify-content: space-between; align-items: center;
   margin-top: 0.5rem;
@@ -400,7 +398,7 @@ tbody td { padding: 0.5rem 0.75rem; vertical-align: middle; }
   font-size: 0.88rem;
 }
 .summary-qty { color: var(--text-dim); font-size: 0.78rem; min-width: 1.5rem; }
-.summary-name { flex: 1; font-weight: 600; color: var(--text); cursor: default; }
+.summary-name { flex: 1; font-weight: 600; color: var(--text); }
 .summary-cond { font-size: 0.72rem; color: var(--text-dim); font-family: 'Cinzel', serif; }
 .badge-finish { color: #6ab0cc; border-color: rgba(106,176,204,0.3); background: rgba(106,176,204,0.08); }
 
@@ -445,53 +443,7 @@ tbody td { padding: 0.5rem 0.75rem; vertical-align: middle; }
 }
 .chip.active { background: rgba(201,168,76,0.12); border-color: var(--gold); color: var(--gold); }
 
-/* ── Step 4 Output Tabs ────────────────────────────────────────────────────── */
-.output-tabs {
-  display: flex;
-  gap: 0;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
-}
-.output-tab {
-  font-family: 'Cinzel', serif;
-  font-size: 0.62rem; letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.5rem 1.25rem;
-  background: none; border: none;
-  color: var(--text-dim); cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: color 0.15s, border-color 0.15s;
-}
-.output-tab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-.output-tab:hover:not(.active) { color: var(--text-sec); }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
-/* Discord preview */
-.discord-preview {
-  background: #313338;
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  font-family: 'gg sans', 'Noto Sans', sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #dbdee1;
-  min-height: 280px;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-.discord-preview p { margin: 0; min-height: 1.2em; }
-.discord-preview p + p { margin-top: 0.25em; }
-.discord-preview strong { color: #fff; font-weight: 700; }
-.discord-preview em { font-style: italic; }
-
 @media (max-width: 640px) {
   .step3-layout { grid-template-columns: 1fr; }
   .step3-form { border-right: none; border-bottom: 1px solid var(--border); }
 }
-
-#tab-raw.active #ad-output { display: block !important; }

@@ -21,175 +21,149 @@ function goToStep(n) {
   document.querySelectorAll('.step').forEach(s => {
     s.classList.toggle('active', parseInt(s.dataset.step) === n);
   });
-  document.getElementById(`step-${n}`).classList.add('active');
+  document.getElementById('step-' + n).classList.add('active');
   if (n === 3) renderSummary(cards);
-  if (n === 4) document.getElementById('ad-output').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
- 
-// ── Step 1: Parse ──────────────────────────────────────────────────────────────
-const EXAMPLE = `2x Abaddon Succubus Gothic Elite Foil NM
-1 Avalon Arthurian Legends Unique NM
-2x Camelot Arthurian Legends Unique LP
-3 Apprentice Wizard Beta Standard NM
-1x Black Knight Gothic Exceptional Foil NM
-4x Spire Gothic Ordinary NM`;
 
-document.getElementById('btn-load-example').addEventListener('click', () => {
+// ── Step 1 ─────────────────────────────────────────────────────────────────────
+const EXAMPLE = '2x Abaddon Succubus Gothic Elite Foil NM\n1 Avalon Arthurian Legends Unique NM\n2x Camelot Arthurian Legends Unique LP\n3 Apprentice Wizard Beta Standard NM\n1x Black Knight Gothic Exceptional Foil NM\n4x Spire Gothic Ordinary NM';
+
+document.getElementById('btn-load-example').addEventListener('click', function() {
   document.getElementById('paste-input').value = EXAMPLE;
 });
 
-document.getElementById('btn-clear').addEventListener('click', () => {
+document.getElementById('btn-clear').addEventListener('click', function() {
   document.getElementById('paste-input').value = '';
 });
 
-document.getElementById('btn-parse').addEventListener('click', () => {
-  const text = document.getElementById('paste-input').value.trim();
+document.getElementById('btn-parse').addEventListener('click', function() {
+  var text = document.getElementById('paste-input').value.trim();
   if (!text) { showToast('Please paste some cards first'); return; }
-
-  const parsed = parseCardList(text);
-  if (!parsed.length) { showToast('Could not parse any cards — check the format'); return; }
-
-  cards = parsed.map(p => {
-    const match   = findCard(p.rawName, p.setName);
-    const setName = p.setName || (match ? match.sets[match.sets.length - 1].n : '');
-    const slug    = match ? resolveSlug(match.sets, setName, p.finish) : null;
+  var parsed = parseCardList(text);
+  if (!parsed.length) { showToast('Could not parse any cards'); return; }
+  cards = parsed.map(function(p) {
+    var match   = findCard(p.rawName, p.setName);
+    var setName = p.setName || (match ? match.sets[match.sets.length - 1].n : '');
+    var slug    = match ? resolveSlug(match.sets, setName, p.finish) : null;
     return {
       id:          Math.random().toString(36).slice(2),
       rawName:     p.rawName,
       qty:         p.qty,
       condition:   p.condition,
       finish:      p.finish,
-      setName,
+      setName:     setName,
       matched:     !!match,
       matchedCard: match,
       suggestions: match ? [] : getSuggestions(p.rawName),
       price:       '',
-      slug,
+      slug:        slug,
     };
   });
-
   renderTable(cards);
   goToStep(2);
 });
 
-// ── Step 2: Review ─────────────────────────────────────────────────────────────
-document.getElementById('btn-back-1').addEventListener('click', () => goToStep(1));
-document.getElementById('btn-to-3').addEventListener('click', () => {
+// ── Step 2 ─────────────────────────────────────────────────────────────────────
+document.getElementById('btn-back-1').addEventListener('click', function() { goToStep(1); });
+document.getElementById('btn-to-3').addEventListener('click', function() {
   if (!cards.length) { showToast('No cards to continue with'); return; }
   goToStep(3);
 });
-
-document.getElementById('btn-add-row').addEventListener('click', () => {
+document.getElementById('btn-add-row').addEventListener('click', function() {
   cards.push(blankCard());
   renderTable(cards);
 });
-
-document.getElementById('btn-fill-market').addEventListener('click', () => {
-  const filled = fillFromMarket(cards);
-  if (filled > 0) showToast(`Filled ${filled} card${filled > 1 ? 's' : ''} from market prices`);
-  else showToast('No blank prices to fill');
+document.getElementById('btn-fill-market').addEventListener('click', function() {
+  var filled = fillFromMarket(cards);
+  showToast(filled > 0 ? 'Filled ' + filled + ' card' + (filled > 1 ? 's' : '') + ' from market prices' : 'No blank prices to fill');
 });
 
-// ── Step 3: Listing Info ───────────────────────────────────────────────────────
-document.getElementById('btn-back-2').addEventListener('click', () => goToStep(2));
-document.getElementById('btn-to-4').addEventListener('click', () => {
+// ── Step 3 ─────────────────────────────────────────────────────────────────────
+document.getElementById('btn-back-2').addEventListener('click', function() { goToStep(2); });
+document.getElementById('btn-to-4').addEventListener('click', function() {
   if (!cards.length) { showToast('No cards to continue with'); return; }
-  const seller = getSellerInfo();
-  const ad     = generateAd(cards, seller.listingType, seller);
-  document.getElementById('ad-output').textContent = ad;
-  document.getElementById('ad-output').style.display = 'block';
+  var seller = getSellerInfo();
+  var ad     = generateAd(cards, seller.listingType, seller);
+  var el     = document.getElementById('ad-output');
+  el.textContent = ad;
   goToStep(4);
 });
 
-// Listing type toggle
-document.querySelectorAll('.type-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.type-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.type-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
     document.getElementById('listing-type').value = btn.dataset.type;
   });
 });
 
-// Payment chips
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', () => chip.classList.toggle('active'));
+document.querySelectorAll('.chip').forEach(function(chip) {
+  chip.addEventListener('click', function() { chip.classList.toggle('active'); });
 });
 
-// Card summary renderer
 function renderSummary(cards) {
-  const body = document.getElementById('summary-body');
+  var body = document.getElementById('summary-body');
   if (!body) return;
   body.innerHTML = '';
-
-  const grouped = new Map();
-  cards.forEach(c => {
-    const key = c.setName || 'Unknown Set';
+  var grouped = new Map();
+  cards.forEach(function(c) {
+    var key = c.setName || 'Unknown Set';
     if (!grouped.has(key)) grouped.set(key, []);
     grouped.get(key).push(c);
   });
-
-  for (const [setName, setCards] of grouped) {
-    const setEl = document.createElement('div');
+  grouped.forEach(function(setCards, setName) {
+    var setEl = document.createElement('div');
     setEl.className = 'summary-set';
     setEl.textContent = setName;
     body.appendChild(setEl);
-
-    const sorted = [...setCards].sort((a, b) =>
-      (RARITY_ORDER[a.matchedCard?.rarity] ?? 4) - (RARITY_ORDER[b.matchedCard?.rarity] ?? 4)
-    );
-
-    sorted.forEach(card => {
-      const name   = card.matchedCard?.name ?? card.rawName;
-      const rarity = card.matchedCard?.rarity;
-      const finish = card.finish !== 'Standard' ? card.finish : '';
-      const isSite = card.matchedCard?.type === 'Site';
-
-      const row = document.createElement('div');
+    var sorted = setCards.slice().sort(function(a, b) {
+      return (RARITY_ORDER[a.matchedCard && a.matchedCard.rarity] || 4) -
+             (RARITY_ORDER[b.matchedCard && b.matchedCard.rarity] || 4);
+    });
+    sorted.forEach(function(card) {
+      var name   = (card.matchedCard && card.matchedCard.name) || card.rawName;
+      var rarity = card.matchedCard && card.matchedCard.rarity;
+      var finish = card.finish !== 'Standard' ? card.finish : '';
+      var isSite = card.matchedCard && card.matchedCard.type === 'Site';
+      var row    = document.createElement('div');
       row.className = 'summary-row';
-
-      const qty = document.createElement('span');
+      var qty = document.createElement('span');
       qty.className = 'summary-qty';
-      qty.textContent = `${card.qty}×`;
-
-      const nameEl = document.createElement('span');
+      qty.textContent = card.qty + '×';
+      var nameEl = document.createElement('span');
       nameEl.className = 'summary-name';
       nameEl.textContent = name;
       if (card.slug) {
-        nameEl.addEventListener('mouseenter', e => showPreview(card.slug, e.clientX, e.clientY, isSite));
-        nameEl.addEventListener('mousemove',  e => updatePreviewPos(e));
+        nameEl.addEventListener('mouseenter', function(e) { showPreview(card.slug, e.clientX, e.clientY, isSite); });
+        nameEl.addEventListener('mousemove',  function(e) { updatePreviewPos(e); });
         nameEl.addEventListener('mouseleave', hidePreview);
       }
-
       row.appendChild(qty);
       row.appendChild(nameEl);
-
       if (rarity) {
-        const rar = document.createElement('span');
-        rar.className = `badge badge-${rarity.toLowerCase()}`;
+        var rar = document.createElement('span');
+        rar.className = 'badge badge-' + rarity.toLowerCase();
         rar.textContent = rarity;
         row.appendChild(rar);
       }
       if (finish) {
-        const fin = document.createElement('span');
+        var fin = document.createElement('span');
         fin.className = 'badge badge-finish';
         fin.textContent = finish;
         row.appendChild(fin);
       }
-
-      const cond = document.createElement('span');
+      var cond = document.createElement('span');
       cond.className = 'summary-cond';
       cond.textContent = card.condition;
       row.appendChild(cond);
-
       body.appendChild(row);
     });
-  }
+  });
 }
 
 function getSellerInfo() {
-  const activeChips = [...document.querySelectorAll('.chip.active')]
-    .map(c => c.dataset.value);
+  var activeChips = Array.from(document.querySelectorAll('.chip.active')).map(function(c) { return c.dataset.value; });
   return {
     listingType:    document.getElementById('listing-type').value,
     discord:        document.getElementById('discord-handle').value,
@@ -203,60 +177,53 @@ function getSellerInfo() {
   };
 }
 
-// ── Step 4: Generate ───────────────────────────────────────────────────────────
-document.getElementById('btn-back-3').addEventListener('click', () => goToStep(3));
-document.getElementById('btn-copy').addEventListener('click', () => {
-  const text = document.getElementById('ad-output').textContent;
+// ── Step 4 ─────────────────────────────────────────────────────────────────────
+document.getElementById('btn-back-3').addEventListener('click', function() { goToStep(3); });
+document.getElementById('btn-copy').addEventListener('click', function() {
+  var text = document.getElementById('ad-output').textContent;
   if (!text) { showToast('Nothing to copy'); return; }
   navigator.clipboard.writeText(text)
-    .then(() => showToast('Copied to clipboard!'))
-    .catch(() => {
-      document.getElementById('ad-output').select();
+    .then(function() { showToast('Copied to clipboard!'); })
+    .catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
       document.execCommand('copy');
+      document.body.removeChild(ta);
       showToast('Copied to clipboard!');
     });
 });
 
-// Output tabs
-document.querySelectorAll('.output-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+document.querySelectorAll('.output-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.output-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
     tab.classList.add('active');
-    document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
     if (tab.dataset.tab === 'preview') {
-      const text = document.getElementById('ad-output').textContent;
+      var text = document.getElementById('ad-output').textContent;
       document.getElementById('ad-preview').innerHTML = renderDiscordMarkdown(text);
     }
   });
 });
 
 function renderDiscordMarkdown(text) {
-  const lines = text.split('\n');
-  return lines.map(line => {
-    // Escape HTML first
-    line = line
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-    // Bold italic ***text***
+  return text.split('\n').map(function(line) {
+    line = line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     line = line.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
-    // Bold **text**
     line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    // Italic *text*
     line = line.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    // Underline __text__
     line = line.replace(/__(.*?)__/g, '<u>$1</u>');
-    // Strikethrough ~~text~~
     line = line.replace(/~~(.*?)~~/g, '<s>$1</s>');
-    return `<p>${line}</p>`;
+    return '<p>' + line + '</p>';
   }).join('');
 }
 
-// ── Step nav clicks ────────────────────────────────────────────────────────────
-document.querySelectorAll('.step').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const n = parseInt(btn.dataset.step);
+// ── Step nav ───────────────────────────────────────────────────────────────────
+document.querySelectorAll('.step').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var n = parseInt(btn.dataset.step);
     if (n < currentStep) goToStep(n);
   });
 });
