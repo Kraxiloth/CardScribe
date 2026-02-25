@@ -97,12 +97,9 @@ document.getElementById('btn-to-4').addEventListener('click', () => {
   if (!cards.length) { showToast('No cards to continue with'); return; }
   const seller = getSellerInfo();
   const ad     = generateAd(cards, seller.listingType, seller);
-  document.getElementById('ad-output').value = ad;
+  document.getElementById('ad-output').textContent = ad;
   document.getElementById('ad-output').style.display = 'block';
   goToStep(4);
-  setTimeout(() => {
-  console.log('delayed check:', document.getElementById('ad-output').value.slice(0, 50));
-}, 500);
 });
 
 // Listing type toggle
@@ -209,7 +206,7 @@ function getSellerInfo() {
 // ── Step 4: Generate ───────────────────────────────────────────────────────────
 document.getElementById('btn-back-3').addEventListener('click', () => goToStep(3));
 document.getElementById('btn-copy').addEventListener('click', () => {
-  const text = document.getElementById('ad-output').value;
+  const text = document.getElementById('ad-output').textContent;
   if (!text) { showToast('Nothing to copy'); return; }
   navigator.clipboard.writeText(text)
     .then(() => showToast('Copied to clipboard!'))
@@ -228,7 +225,7 @@ document.querySelectorAll('.output-tab').forEach(tab => {
     tab.classList.add('active');
     document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
     if (tab.dataset.tab === 'preview') {
-      const text = document.getElementById('ad-output').value;
+      const text = document.getElementById('ad-output').textContent;
       document.getElementById('ad-preview').innerHTML = renderDiscordMarkdown(text);
     }
   });

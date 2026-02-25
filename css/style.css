@@ -181,10 +181,13 @@ textarea:focus, input:focus, select:focus {
   font-size: 0.85rem; line-height: 1.7;
 }
 #ad-output {
-  height: 280px; min-height: 280px; resize: vertical;
+  height: 280px; min-height: 280px;
   font-family: 'Courier New', monospace;
   font-size: 0.8rem; line-height: 1.7;
   color: var(--text-sec);
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .paste-footer {
   display: flex; justify-content: space-between; align-items: center;
