@@ -1,10 +1,9 @@
-// Test 2
-import { useStore } from '@/hooks/useStore'
-import { findCard, getSuggestions } from '@/data'
-import { getPrice, resolveSlug } from '@/data/prices'
-import { showToast } from '@/components/Toast'
+import { useStore } from '../hooks/useStore'
+import { findCard, getSuggestions } from '../data'
+import { getPrice, resolveSlug } from '../data/prices'
+import { showToast } from '../components/Toast'
 import type { CardRow, Condition, Finish } from '@/types'
-import { CardHover } from '@/components/CardHover'
+import { CardHover } from '../components/CardHover'  // adjust levels as needed
 
 const CONDITIONS: Condition[] = ['NM', 'LP', 'MP', 'HP', 'DMG']
 
