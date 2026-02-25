@@ -488,3 +488,5 @@ tbody td { padding: 0.5rem 0.75rem; vertical-align: middle; }
   .step3-layout { grid-template-columns: 1fr; }
   .step3-form { border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+#tab-raw.active #ad-output { display: block !important; }

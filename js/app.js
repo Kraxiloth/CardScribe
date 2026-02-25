@@ -23,6 +23,7 @@ function goToStep(n) {
   });
   document.getElementById(`step-${n}`).classList.add('active');
   if (n === 3) renderSummary(cards);
+  if (n === 4) document.getElementById('ad-output').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
  
