@@ -85,7 +85,7 @@ document.getElementById('btn-to-4').addEventListener('click', function() {
   if (!cards.length) { showToast('No cards to continue with'); return; }
   var seller = getSellerInfo();
   var ad     = generateAd(cards, seller.listingType, seller);
-  var el     = document.getElementById('ad-output');
+  var el     = document.getElementById('listing-output');
   el.textContent = ad;
   goToStep(4);
 });
@@ -180,7 +180,7 @@ function getSellerInfo() {
 // ── Step 4 ─────────────────────────────────────────────────────────────────────
 document.getElementById('btn-back-3').addEventListener('click', function() { goToStep(3); });
 document.getElementById('btn-copy').addEventListener('click', function() {
-  var text = document.getElementById('ad-output').textContent;
+  var text = document.getElementById('listing-output').textContent;
   if (!text) { showToast('Nothing to copy'); return; }
   navigator.clipboard.writeText(text)
     .then(function() { showToast('Copied to clipboard!'); })
@@ -202,7 +202,7 @@ document.querySelectorAll('.output-tab').forEach(function(tab) {
     tab.classList.add('active');
     document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
     if (tab.dataset.tab === 'preview') {
-      var text = document.getElementById('ad-output').textContent;
+      var text = document.getElementById('listing-output').textContent;
       document.getElementById('ad-preview').innerHTML = renderDiscordMarkdown(text);
     }
   });
