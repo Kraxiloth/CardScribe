@@ -545,11 +545,11 @@
   },
   {
     "tcg_name": "Death's Door (Foil) (Pledge Pack)",
-    "matched": "Philosopher's Stone",
+    "matched": "Erik's Curiosa",
     "score": 86,
     "set": "Alpha",
     "finish": "Foil",
-    "slug": "alp-philosophers_stone-b-f"
+    "slug": "alp-eriks_curiosa-b-f"
   },
   {
     "tcg_name": "Deep-Sea Mermaids (Foil)",
@@ -833,19 +833,19 @@
   },
   {
     "tcg_name": "Floodplain (Foil)",
-    "matched": "Flood",
+    "matched": "Floodplain",
     "score": 90,
     "set": "Alpha",
     "finish": "Foil",
-    "slug": "alp-flood-b-f"
+    "slug": "alp-floodplain-b-f"
   },
   {
     "tcg_name": "Floodplain (Preconstructed Deck)",
-    "matched": "Flood",
+    "matched": "Floodplain",
     "score": 90,
     "set": "Alpha",
     "finish": "Standard",
-    "slug": "alp-flood-b-s"
+    "slug": "alp-floodplain-b-s"
   },
   {
     "tcg_name": "Font of Life (Foil)",
@@ -1592,14 +1592,6 @@
     "slug": "alp-riddle_sphinx-b-f"
   },
   {
-    "tcg_name": "Rift Valley (Foil)",
-    "matched": "Rift Valley",
-    "score": 90,
-    "set": "Alpha",
-    "finish": "Foil",
-    "slug": "alp-rift_valley-b-f"
-  },
-  {
     "tcg_name": "Rimland Nomads (Foil)",
     "matched": "Rimland Nomads",
     "score": 95,
@@ -1974,22 +1966,6 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-spin_attack-b-f"
-  },
-  {
-    "tcg_name": "Spire Lich (Foil)",
-    "matched": "Spire Lich",
-    "score": 90,
-    "set": "Alpha",
-    "finish": "Foil",
-    "slug": "alp-spire_lich-b-f"
-  },
-  {
-    "tcg_name": "Spire Lich (Preconstructed Deck)",
-    "matched": "Spire Lich",
-    "score": 90,
-    "set": "Alpha",
-    "finish": "Standard",
-    "slug": "alp-spire_lich-b-s"
   },
   {
     "tcg_name": "Spring River (Foil)",
@@ -3497,11 +3473,11 @@
   },
   {
     "tcg_name": "Floodplain (Foil)",
-    "matched": "Flood",
+    "matched": "Floodplain",
     "score": 90,
     "set": "Beta",
     "finish": "Foil",
-    "slug": "bet-flood-b-f"
+    "slug": "bet-floodplain-b-f"
   },
   {
     "tcg_name": "Font of Life (Foil)",
@@ -3774,14 +3750,6 @@
     "set": "Beta",
     "finish": "Foil",
     "slug": "bet-humble_village-b-f"
-  },
-  {
-    "tcg_name": "Ice Lance (Foil)",
-    "matched": "Ice Lance",
-    "score": 90,
-    "set": "Beta",
-    "finish": "Foil",
-    "slug": "bet-ice_lance-b-f"
   },
   {
     "tcg_name": "Iceberg (Foil)",
@@ -4712,14 +4680,6 @@
     "slug": "bet-riddle_sphinx-b-f"
   },
   {
-    "tcg_name": "Rift Valley (Foil)",
-    "matched": "Rift Valley",
-    "score": 90,
-    "set": "Beta",
-    "finish": "Foil",
-    "slug": "bet-rift_valley-b-f"
-  },
-  {
     "tcg_name": "Rimland Nomads (Foil)",
     "matched": "Rimland Nomads",
     "score": 95,
@@ -5174,14 +5134,6 @@
     "set": "Beta",
     "finish": "Foil",
     "slug": "bet-spin_attack-b-f"
-  },
-  {
-    "tcg_name": "Spire Lich (Foil)",
-    "matched": "Spire Lich",
-    "score": 90,
-    "set": "Beta",
-    "finish": "Foil",
-    "slug": "bet-spire_lich-b-f"
   },
   {
     "tcg_name": "Spring River (Foil)",
@@ -6529,11 +6481,11 @@
   },
   {
     "tcg_name": "Lugbog Cat (Foil)",
-    "matched": "Bog",
+    "matched": "Lugbog Cat",
     "score": 90,
     "set": "Arthurian Legends",
     "finish": "Foil",
-    "slug": "art-bog-b-f"
+    "slug": "art-lugbog_cat-b-f"
   },
   {
     "tcg_name": "Lumbering Giant (Foil)",
@@ -6998,14 +6950,6 @@
     "set": "Arthurian Legends",
     "finish": "Foil",
     "slug": "art-sir_lamorak-b-f"
-  },
-  {
-    "tcg_name": "Sir Lancelot (Foil)",
-    "matched": "Sir Lancelot",
-    "score": 90,
-    "set": "Arthurian Legends",
-    "finish": "Foil",
-    "slug": "art-sir_lancelot-b-f"
   },
   {
     "tcg_name": "Sir Mordred (Foil)",
@@ -8480,6 +8424,14 @@
     "slug": "got-driftwood_marrows-b-f"
   },
   {
+    "tcg_name": "Drowned (Foil)",
+    "matched": "Drowned",
+    "score": 90,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-drowned-b-f"
+  },
+  {
     "tcg_name": "Duplicator (Foil)",
     "matched": "Duplicator",
     "score": 90,
@@ -8510,6 +8462,14 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-eerie_coral-b-f"
+  },
+  {
+    "tcg_name": "Elder Ruins (Foil)",
+    "matched": "Elder Ruins",
+    "score": 90,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-elder_ruins-b-f"
   },
   {
     "tcg_name": "Eltham Townsfolk (Foil)",
@@ -8790,6 +8750,14 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-gargantula-b-f"
+  },
+  {
+    "tcg_name": "Ghost Town (Foil)",
+    "matched": "Ghost Town",
+    "score": 90,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-ghost_town-b-f"
   },
   {
     "tcg_name": "Ghostfire (Foil)",
@@ -10184,6 +10152,14 @@
     "slug": "got-screamer-b-f"
   },
   {
+    "tcg_name": "Sea Witch (Foil)",
+    "matched": "Sea Witch",
+    "score": 90,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-sea_witch-b-f"
+  },
+  {
     "tcg_name": "Sea of Ash (Foil)",
     "matched": "Sea of Ash",
     "score": 90,
@@ -10678,14 +10654,6 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-torrid_omphalos-b-f"
-  },
-  {
-    "tcg_name": "Town Priest (Foil)",
-    "matched": "Town Priest",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-town_priest-b-f"
   },
   {
     "tcg_name": "Trade Encampment (Foil)",
