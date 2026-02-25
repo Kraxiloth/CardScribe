@@ -96,8 +96,10 @@ document.getElementById('btn-to-4').addEventListener('click', () => {
   if (!cards.length) { showToast('No cards to continue with'); return; }
   const seller = getSellerInfo();
   const ad     = generateAd(cards, seller.listingType, seller);
-  document.getElementById('ad-output').value = ad;
+  console.log('seller:', JSON.stringify(seller));
+  console.log('ad:', ad);
   goToStep(4);
+  document.getElementById('ad-output').value = ad;
 });
 
 // Listing type toggle
