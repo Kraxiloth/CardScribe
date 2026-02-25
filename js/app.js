@@ -25,7 +25,7 @@ function goToStep(n) {
   if (n === 3) renderSummary(cards);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
 // ── Step 1: Parse ──────────────────────────────────────────────────────────────
 const EXAMPLE = `2x Abaddon Succubus Gothic Elite Foil NM
 1 Avalon Arthurian Legends Unique NM
