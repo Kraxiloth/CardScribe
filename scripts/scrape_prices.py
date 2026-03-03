@@ -158,16 +158,21 @@ def parse_price(s):
 def fetch_page(url):
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page    = browser.new_page()
-        page.set_extra_http_headers({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        })
+        browser = p.chromium.launch(
+            headless=False,  # Run with visible browser window
+            args=['--start-maximized']
+        )
+        context = browser.new_context(
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+            viewport={'width': 1280, 'height': 800},
+            locale='en-US',
+            timezone_id='America/New_York',
+        )
+        page = context.new_page()
         print(f'  Fetching {url}...')
-        page.goto(url, wait_until='networkidle', timeout=30000)
-        # Wait for table to appear
+        page.goto(url, wait_until='networkidle', timeout=60000)
         try:
-            page.wait_for_selector('table', timeout=15000)
+            page.wait_for_selector('table', timeout=30000)
         except Exception:
             print('  WARNING: Table did not appear within timeout')
         html = page.content()

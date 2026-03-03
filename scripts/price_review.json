@@ -224,6 +224,14 @@
     "slug": "alp-battering_ram-b-f"
   },
   {
+    "tcg_name": "Battlefield (Foil)",
+    "matched": "Battlefield",
+    "score": 90,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-battlefield-b-f"
+  },
+  {
     "tcg_name": "Battlemage (Foil)",
     "matched": "Battlemage",
     "score": 90,
@@ -328,6 +336,14 @@
     "slug": "alp-boneyard-b-f"
   },
   {
+    "tcg_name": "Border Militia (Foil)",
+    "matched": "Border Militia",
+    "score": 95,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-border_militia-b-f"
+  },
+  {
     "tcg_name": "Bridge Troll (Foil)",
     "matched": "Bridge Troll",
     "score": 90,
@@ -374,6 +390,14 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-call_to_war-b-f"
+  },
+  {
+    "tcg_name": "Captain Baldassare (Foil)",
+    "matched": "Captain Baldassare",
+    "score": 95,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-captain_baldassare-b-f"
   },
   {
     "tcg_name": "Cauldron Crones (Foil)",
@@ -542,14 +566,6 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-dead_of_night_demon-b-f"
-  },
-  {
-    "tcg_name": "Death's Door (Foil) (Pledge Pack)",
-    "matched": "Erik's Curiosa",
-    "score": 86,
-    "set": "Alpha",
-    "finish": "Foil",
-    "slug": "alp-eriks_curiosa-b-f"
   },
   {
     "tcg_name": "Deep-Sea Mermaids (Foil)",
@@ -833,19 +849,19 @@
   },
   {
     "tcg_name": "Floodplain (Foil)",
-    "matched": "Floodplain",
+    "matched": "Flood",
     "score": 90,
     "set": "Alpha",
     "finish": "Foil",
-    "slug": "alp-floodplain-b-f"
+    "slug": "alp-flood-b-f"
   },
   {
     "tcg_name": "Floodplain (Preconstructed Deck)",
-    "matched": "Floodplain",
+    "matched": "Flood",
     "score": 90,
     "set": "Alpha",
     "finish": "Standard",
-    "slug": "alp-floodplain-b-s"
+    "slug": "alp-flood-b-s"
   },
   {
     "tcg_name": "Font of Life (Foil)",
@@ -1064,12 +1080,28 @@
     "slug": "alp-iron_shackles-b-f"
   },
   {
+    "tcg_name": "Island Leviathan (Foil)",
+    "matched": "Island Leviathan",
+    "score": 95,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-island_leviathan-b-f"
+  },
+  {
     "tcg_name": "Island Leviathan (Preconstructed Deck)",
     "matched": "Island Leviathan",
     "score": 90,
     "set": "Alpha",
     "finish": "Standard",
     "slug": "alp-island_leviathan-b-s"
+  },
+  {
+    "tcg_name": "King of the Realm (Foil)",
+    "matched": "King of the Realm",
+    "score": 95,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-king_of_the_realm-b-f"
   },
   {
     "tcg_name": "King of the Realm (Preconstructed Deck)",
@@ -1104,6 +1136,14 @@
     "slug": "alp-lava_salamander-b-f"
   },
   {
+    "tcg_name": "Lighthouse (Foil)",
+    "matched": "Lighthouse",
+    "score": 90,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-lighthouse-b-f"
+  },
+  {
     "tcg_name": "Lightning Bolt (Foil)",
     "matched": "Lightning Bolt",
     "score": 95,
@@ -1134,6 +1174,14 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-mad_dash-b-f"
+  },
+  {
+    "tcg_name": "Maddening Bells (Foil)",
+    "matched": "Maddening Bells",
+    "score": 95,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-maddening_bells-b-f"
   },
   {
     "tcg_name": "Maelstrom",
@@ -1208,6 +1256,14 @@
     "slug": "alp-meteor_shower-b-f"
   },
   {
+    "tcg_name": "Midland Army (Foil)",
+    "matched": "Midland Army",
+    "score": 90,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-midland_army-b-f"
+  },
+  {
     "tcg_name": "Midland Army (Preconstructed Deck)",
     "matched": "Midland Army",
     "score": 90,
@@ -1270,14 +1326,6 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-mortality-b-f"
-  },
-  {
-    "tcg_name": "Mother Nature (Preconstructed Deck)",
-    "matched": "Mother Nature",
-    "score": 90,
-    "set": "Alpha",
-    "finish": "Standard",
-    "slug": "alp-mother_nature-b-s"
   },
   {
     "tcg_name": "Mudflow (Foil)",
@@ -1592,6 +1640,14 @@
     "slug": "alp-riddle_sphinx-b-f"
   },
   {
+    "tcg_name": "Rift Valley (Foil)",
+    "matched": "Rift Valley",
+    "score": 90,
+    "set": "Alpha",
+    "finish": "Foil",
+    "slug": "alp-rift_valley-b-f"
+  },
+  {
     "tcg_name": "Rimland Nomads (Foil)",
     "matched": "Rimland Nomads",
     "score": 95,
@@ -1832,14 +1888,6 @@
     "slug": "alp-sinkhole-b-f"
   },
   {
-    "tcg_name": "Sirian Templar (Box Topper)",
-    "matched": "Sirian Templar",
-    "score": 90,
-    "set": "Alpha",
-    "finish": "Standard",
-    "slug": "alp-sirian_templar-bt-s"
-  },
-  {
     "tcg_name": "Sirian Templar (Foil)",
     "matched": "Sirian Templar",
     "score": 95,
@@ -2030,14 +2078,6 @@
     "set": "Alpha",
     "finish": "Foil",
     "slug": "alp-summoning_sphere-b-f"
-  },
-  {
-    "tcg_name": "Sunken Treasure (Foil)",
-    "matched": "Sunken Treasure",
-    "score": 95,
-    "set": "Alpha",
-    "finish": "Foil",
-    "slug": "alp-sunken_treasure-b-f"
   },
   {
     "tcg_name": "Sunken Treasure (Preconstructed Deck)",
@@ -3473,11 +3513,11 @@
   },
   {
     "tcg_name": "Floodplain (Foil)",
-    "matched": "Floodplain",
+    "matched": "Flood",
     "score": 90,
     "set": "Beta",
     "finish": "Foil",
-    "slug": "bet-floodplain-b-f"
+    "slug": "bet-flood-b-f"
   },
   {
     "tcg_name": "Font of Life (Foil)",
@@ -3486,6 +3526,14 @@
     "set": "Beta",
     "finish": "Foil",
     "slug": "bet-font_of_life-b-f"
+  },
+  {
+    "tcg_name": "Foot Soldier (1) (Box Topper)",
+    "matched": "Foot Soldier 3",
+    "score": 86,
+    "set": "Beta",
+    "finish": "Standard",
+    "slug": "bet-foot_soldier_3-bt-s"
   },
   {
     "tcg_name": "Free City (Foil)",
@@ -4680,6 +4728,14 @@
     "slug": "bet-riddle_sphinx-b-f"
   },
   {
+    "tcg_name": "Rift Valley (Foil)",
+    "matched": "Rift Valley",
+    "score": 90,
+    "set": "Beta",
+    "finish": "Foil",
+    "slug": "bet-rift_valley-b-f"
+  },
+  {
     "tcg_name": "Rimland Nomads (Foil)",
     "matched": "Rimland Nomads",
     "score": 95,
@@ -5550,14 +5606,6 @@
     "set": "Beta",
     "finish": "Foil",
     "slug": "bet-whirling_blades-b-f"
-  },
-  {
-    "tcg_name": "Wicked Witch (Foil)",
-    "matched": "Wicked Witch",
-    "score": 90,
-    "set": "Beta",
-    "finish": "Foil",
-    "slug": "bet-wicked_witch-b-f"
   },
   {
     "tcg_name": "Wicker Manikin (Foil)",
@@ -7584,6 +7632,14 @@
     "slug": "got-algor_omphalos-b-f"
   },
   {
+    "tcg_name": "All Mortals Gone (Foil)",
+    "matched": "All Mortals Gone",
+    "score": 95,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-all_mortals_gone-b-f"
+  },
+  {
     "tcg_name": "Altar of Malachai (Foil)",
     "matched": "Altar of Malachai",
     "score": 95,
@@ -8064,6 +8120,14 @@
     "slug": "got-cherubim-b-f"
   },
   {
+    "tcg_name": "Chorus of Condemnation (Foil)",
+    "matched": "Chorus of Condemnation",
+    "score": 95,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-chorus_of_condemnation-b-f"
+  },
+  {
     "tcg_name": "City of Glass (Foil)",
     "matched": "City of Glass",
     "score": 95,
@@ -8256,6 +8320,14 @@
     "slug": "got-deep_sea-b-f"
   },
   {
+    "tcg_name": "Defiler Spire (Foil)",
+    "matched": "Defiler Spire",
+    "score": 95,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-defiler_spire-b-f"
+  },
+  {
     "tcg_name": "Deliverance (Foil)",
     "matched": "Deliverance",
     "score": 90,
@@ -8352,14 +8424,6 @@
     "slug": "got-divine_intervention-b-f"
   },
   {
-    "tcg_name": "Divine Lance (Foil)",
-    "matched": "Divine Lance",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-divine_lance-b-f"
-  },
-  {
     "tcg_name": "Doctor Demetrius (Foil)",
     "matched": "Doctor Demetrius",
     "score": 95,
@@ -8422,14 +8486,6 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-driftwood_marrows-b-f"
-  },
-  {
-    "tcg_name": "Drowned (Foil)",
-    "matched": "Drowned",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-drowned-b-f"
   },
   {
     "tcg_name": "Duplicator (Foil)",
@@ -8750,14 +8806,6 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-gargantula-b-f"
-  },
-  {
-    "tcg_name": "Ghost Town (Foil)",
-    "matched": "Ghost Town",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-ghost_town-b-f"
   },
   {
     "tcg_name": "Ghostfire (Foil)",
@@ -9102,6 +9150,14 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-hotwheel-b-f"
+  },
+  {
+    "tcg_name": "Howl from Beyond (Foil)",
+    "matched": "Howl from Beyond",
+    "score": 95,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-howl_from_beyond-b-f"
   },
   {
     "tcg_name": "Hyperparasite (Foil)",
@@ -10152,14 +10208,6 @@
     "slug": "got-screamer-b-f"
   },
   {
-    "tcg_name": "Sea Witch (Foil)",
-    "matched": "Sea Witch",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-sea_witch-b-f"
-  },
-  {
     "tcg_name": "Sea of Ash (Foil)",
     "matched": "Sea of Ash",
     "score": 90,
@@ -10488,6 +10536,14 @@
     "slug": "got-swap-b-f"
   },
   {
+    "tcg_name": "Swap (SCGCon Promo)",
+    "matched": "Swap",
+    "score": 90,
+    "set": "Gothic",
+    "finish": "Standard",
+    "slug": "got-swap-b-s"
+  },
+  {
     "tcg_name": "Symmetric Suffering (Foil)",
     "matched": "Symmetric Suffering",
     "score": 95,
@@ -10502,6 +10558,14 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-tabula_rasa-b-f"
+  },
+  {
+    "tcg_name": "Temple of Moloch (Foil)",
+    "matched": "Temple of Moloch",
+    "score": 95,
+    "set": "Gothic",
+    "finish": "Foil",
+    "slug": "got-temple_of_moloch-b-f"
   },
   {
     "tcg_name": "Ten-tonne Slug (Foil)",
@@ -10534,14 +10598,6 @@
     "set": "Gothic",
     "finish": "Foil",
     "slug": "got-the_empyrean-b-f"
-  },
-  {
-    "tcg_name": "The Flood (Foil)",
-    "matched": "The Flood",
-    "score": 90,
-    "set": "Gothic",
-    "finish": "Foil",
-    "slug": "got-the_flood-b-f"
   },
   {
     "tcg_name": "The Hexham Haunts (Foil)",
