@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-03T22:59:42.805308+00:00",
+  "updated": "2026-03-03T23:03:48.409271+00:00",
   "source": "TCGPlayer",
   "sourceUrl": "https://www.tcgplayer.com/categories/trading-and-collectible-card-games/sorcery-contested-realm/price-guides",
   "prices": {
@@ -603,8 +603,8 @@
       "market": 271.59,
       "low": null
     },
-    "alp-philosophers_stone-b-f": {
-      "market": 2999.99,
+    "alp-eriks_curiosa-b-f": {
+      "market": 48.48,
       "low": null
     },
     "alp-deathspeaker-b-s": {
@@ -904,10 +904,10 @@
       "low": null
     },
     "alp-floodplain-b-s": {
-      "market": 0.95,
+      "market": 0.97,
       "low": null
     },
-    "alp-flood-b-f": {
+    "alp-floodplain-b-f": {
       "market": 37.5,
       "low": null
     },
@@ -1623,6 +1623,10 @@
       "market": 268.83,
       "low": null
     },
+    "alp-philosophers_stone-b-f": {
+      "market": 2999.99,
+      "low": null
+    },
     "alp-pillar_of_zeiros-b-s": {
       "market": 25.55,
       "low": null
@@ -1839,8 +1843,8 @@
       "market": 4.94,
       "low": null
     },
-    "alp-rift_valley-b-f": {
-      "market": 64.5,
+    "null": {
+      "market": 81.15,
       "low": null
     },
     "alp-rimland_nomads-b-s": {
@@ -2109,10 +2113,6 @@
     },
     "alp-sirian_templar-bt-s": {
       "market": 0.35,
-      "low": null
-    },
-    "null": {
-      "market": 81.15,
       "low": null
     },
     "alp-sirian_templar-b-f": {
@@ -3672,11 +3672,15 @@
       "low": null
     },
     "bet-flood-b-f": {
-      "market": 29.18,
+      "market": 2.86,
       "low": null
     },
     "bet-floodplain-b-s": {
       "market": 0.41,
+      "low": null
+    },
+    "bet-floodplain-b-f": {
+      "market": 29.18,
       "low": null
     },
     "bet-font_of_life-b-s": {
@@ -3685,6 +3689,10 @@
     },
     "bet-font_of_life-b-f": {
       "market": 1.83,
+      "low": null
+    },
+    "bet-foot_soldier_1-bt-s": {
+      "market": 0.77,
       "low": null
     },
     "bet-free_city-b-s": {
@@ -4871,10 +4879,6 @@
       "market": 3.02,
       "low": null
     },
-    "bet-rift_valley-b-f": {
-      "market": 17.52,
-      "low": null
-    },
     "bet-rimland_nomads-b-s": {
       "market": 0.05,
       "low": null
@@ -5747,6 +5751,10 @@
       "market": 0.51,
       "low": null
     },
+    "bet-wicked_witch-b-f": {
+      "market": 3.68,
+      "low": null
+    },
     "bet-wicker_manikin-b-s": {
       "market": 0.07,
       "low": null
@@ -6016,7 +6024,7 @@
       "low": null
     },
     "art-bog-b-f": {
-      "market": 1.8,
+      "market": 8.18,
       "low": null
     },
     "art-bonfire-b-s": {
@@ -6649,10 +6657,6 @@
     },
     "art-lugbog_cat-b-s": {
       "market": 0.33,
-      "low": null
-    },
-    "art-lugbog_cat-b-f": {
-      "market": 8.18,
       "low": null
     },
     "art-lumbering_giant-b-s": {
@@ -8056,7 +8060,7 @@
       "low": null
     },
     "got-bless-b-f": {
-      "market": 3.03,
+      "market": 5.3,
       "low": null
     },
     "got-blessed_village-b-s": {
@@ -8069,6 +8073,10 @@
     },
     "got-blessed_well-b-s": {
       "market": 0.08,
+      "low": null
+    },
+    "got-blessed_well-b-f": {
+      "market": 3.03,
       "low": null
     },
     "got-blightstone-b-s": {
@@ -8953,10 +8961,6 @@
     },
     "got-ghost_town-b-s": {
       "market": 0.17,
-      "low": null
-    },
-    "got-ghost_town-b-f": {
-      "market": 1.88,
       "low": null
     },
     "got-ghostfire-b-s": {
@@ -10373,6 +10377,10 @@
     },
     "got-sea_witch-b-s": {
       "market": 0.08,
+      "low": null
+    },
+    "got-sea_witch-b-f": {
+      "market": 1.6,
       "low": null
     },
     "got-sea_of_ash-b-s": {
