@@ -7,30 +7,26 @@ on:
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install playwright fuzzywuzzy python-Levenshtein beautifulsoup4
-          python -m playwright install chromium
-          python -m playwright install-deps chromium
-
       - name: Scrape prices
-        run: python scripts/scrape_prices.py --live
+        shell: powershell
+        run: powershell.exe -ExecutionPolicy Bypass -File scripts/scrape_prices.ps1
 
       - name: Commit updated prices
+        shell: powershell
         run: |
           git config user.name  "CardScribe Price Bot"
           git config user.email "bot@cardscribe.sorcery.no"
           git add public/prices.json
-          git diff --cached --quiet || git commit -m "chore: update prices $(date -u '+%Y-%m-%d')"
-          git push
+          $diff = git diff --cached --quiet; if ($LASTEXITCODE -ne 0) {
+            $date = Get-Date -Format 'yyyy-MM-dd'
+            git commit -m "chore: update prices $date"
+            git push
+          } else {
+            Write-Host "No changes to commit"
+          }
