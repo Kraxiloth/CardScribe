@@ -1,14 +1,10 @@
 {
-  "updated": "2026-03-06T03:31:22.704803+00:00",
+  "updated": "2026-03-07T03:31:23.699863+00:00",
   "source": "TCGPlayer",
   "sourceUrl": "https://www.tcgplayer.com/categories/trading-and-collectible-card-games/sorcery-contested-realm/price-guides",
   "prices": {
     "alp-abundance-b-s": {
       "market": 1.68,
-      "low": null
-    },
-    "alp-abundance-b-f": {
-      "market": 88.29,
       "low": null
     },
     "alp-accursed_albatross-b-s": {
@@ -84,7 +80,7 @@
       "low": null
     },
     "alp-apprentice_wizard-b-s": {
-      "market": 0.26,
+      "market": 0.27,
       "low": null
     },
     "alp-apprentice_wizard-b-f": {
@@ -108,7 +104,7 @@
       "low": null
     },
     "alp-aramos_mercenaries-b-f": {
-      "market": 12.42,
+      "market": 11.65,
       "low": null
     },
     "alp-arid_desert-b-s": {
@@ -140,7 +136,7 @@
       "low": null
     },
     "alp-atlantean_fate-b-f": {
-      "market": 289.49,
+      "market": 274.75,
       "low": null
     },
     "alp-atlas_wanderers-b-s": {
@@ -296,7 +292,7 @@
       "low": null
     },
     "alp-blink-b-s": {
-      "market": 0.31,
+      "market": 0.32,
       "low": null
     },
     "alp-blizzard-b-s": {
@@ -368,7 +364,7 @@
       "low": null
     },
     "alp-browse-b-s": {
-      "market": 28.24,
+      "market": 28.52,
       "low": null
     },
     "alp-bull_demons_of_adum-b-s": {
@@ -384,7 +380,7 @@
       "low": null
     },
     "alp-bury-b-s": {
-      "market": 0.29,
+      "market": 0.3,
       "low": null
     },
     "alp-bury-b-f": {
@@ -544,7 +540,7 @@
       "low": null
     },
     "alp-critical_strike-bt-s": {
-      "market": 1.01,
+      "market": 1.47,
       "low": null
     },
     "alp-critical_strike-b-f": {
@@ -584,7 +580,7 @@
       "low": null
     },
     "alp-dark_tower-b-s": {
-      "market": 0.33,
+      "market": 0.36,
       "low": null
     },
     "alp-dark_tower-b-f": {
@@ -604,7 +600,7 @@
       "low": null
     },
     "null": {
-      "market": 2.04,
+      "market": 1.87,
       "low": null
     },
     "alp-deathspeaker-b-s": {
@@ -612,7 +608,7 @@
       "low": null
     },
     "alp-deep_sea_mermaids-b-s": {
-      "market": 0.23,
+      "market": 0.47,
       "low": null
     },
     "alp-deep_sea_mermaids-b-f": {
@@ -972,7 +968,7 @@
       "low": null
     },
     "alp-gnome_hollows-b-s": {
-      "market": 0.95,
+      "market": 0.99,
       "low": null
     },
     "alp-gnome_hollows-b-f": {
@@ -980,7 +976,7 @@
       "low": null
     },
     "alp-gothic_tower-b-s": {
-      "market": 0.36,
+      "market": 0.39,
       "low": null
     },
     "alp-gothic_tower-b-f": {
@@ -1115,6 +1111,10 @@
       "market": 0.14,
       "low": null
     },
+    "alp-ice_lance-b-f": {
+      "market": 6.15,
+      "low": null
+    },
     "alp-iceberg-b-s": {
       "market": 0.74,
       "low": null
@@ -1240,7 +1240,7 @@
       "low": null
     },
     "alp-lone_tower-b-s": {
-      "market": 0.33,
+      "market": 0.36,
       "low": null
     },
     "alp-lone_tower-b-f": {
@@ -1400,7 +1400,7 @@
       "low": null
     },
     "alp-mirror_realm-b-s": {
-      "market": 40.37,
+      "market": 43.66,
       "low": null
     },
     "alp-mix_aer-b-s": {
@@ -1408,15 +1408,15 @@
       "low": null
     },
     "alp-mix_aqua-b-s": {
-      "market": 6.16,
+      "market": 6.3,
       "low": null
     },
     "alp-mix_ignis-b-s": {
-      "market": 6.0,
+      "market": 6.4,
       "low": null
     },
     "alp-mix_terra-b-s": {
-      "market": 5.64,
+      "market": 5.48,
       "low": null
     },
     "alp-mix_terra-b-f": {
@@ -1624,7 +1624,7 @@
       "low": null
     },
     "alp-pillar_of_zeiros-b-s": {
-      "market": 25.52,
+      "market": 25.61,
       "low": null
     },
     "alp-pirate_ship-b-s": {
@@ -1664,7 +1664,7 @@
       "low": null
     },
     "alp-poison_nova-b-s": {
-      "market": 1.05,
+      "market": 1.1,
       "low": null
     },
     "alp-poison_nova-b-f": {
@@ -1688,7 +1688,7 @@
       "low": null
     },
     "alp-polar_explorers-b-s": {
-      "market": 1.82,
+      "market": 2.02,
       "low": null
     },
     "alp-polar_explorers-b-f": {
@@ -1880,7 +1880,7 @@
       "low": null
     },
     "alp-root_spider-b-s": {
-      "market": 1.31,
+      "market": 1.34,
       "low": null
     },
     "alp-roots_of_yggdrasil-b-s": {
@@ -2172,7 +2172,7 @@
       "low": null
     },
     "alp-smokestacks_of_gnaak-b-s": {
-      "market": 18.69,
+      "market": 18.73,
       "low": null
     },
     "alp-sneak_thief-b-s": {
@@ -2216,11 +2216,7 @@
       "low": null
     },
     "alp-spire_lich-b-s": {
-      "market": 0.99,
-      "low": null
-    },
-    "alp-spire_lich-b-f": {
-      "market": 17.99,
+      "market": 0.32,
       "low": null
     },
     "alp-spring_river-b-s": {
@@ -2564,7 +2560,7 @@
       "low": null
     },
     "alp-whirling_blades-b-f": {
-      "market": 23.49,
+      "market": 27.56,
       "low": null
     },
     "alp-wicked_witch-b-s": {
@@ -2708,7 +2704,7 @@
       "low": null
     },
     "bet-all_terrain_vestments-b-f": {
-      "market": 3.45,
+      "market": 3.37,
       "low": null
     },
     "bet-alvalinne_dryads-b-s": {
@@ -2724,7 +2720,7 @@
       "low": null
     },
     "bet-amethyst_core-b-s": {
-      "market": 44.08,
+      "market": 43.92,
       "low": null
     },
     "bet-amethyst_core-b-f": {
@@ -2744,7 +2740,7 @@
       "low": null
     },
     "bet-angels_egg-b-f": {
-      "market": 23.12,
+      "market": 21.76,
       "low": null
     },
     "bet-anui_undine-b-s": {
@@ -2828,7 +2824,7 @@
       "low": null
     },
     "bet-atlas_wanderers-b-s": {
-      "market": 0.66,
+      "market": 0.65,
       "low": null
     },
     "bet-atlas_wanderers-b-f": {
@@ -2864,7 +2860,7 @@
       "low": null
     },
     "bet-azuridge_caravan-b-f": {
-      "market": 2.28,
+      "market": 2.25,
       "low": null
     },
     "bet-backstab-b-s": {
@@ -2952,7 +2948,7 @@
       "low": null
     },
     "bet-blasted_oak-b-f": {
-      "market": 14.64,
+      "market": 14.45,
       "low": null
     },
     "bet-blaze-b-s": {
@@ -3028,7 +3024,7 @@
       "low": null
     },
     "bet-bottomless_pit-b-s": {
-      "market": 1.21,
+      "market": 1.2,
       "low": null
     },
     "bet-bottomless_pit-b-f": {
@@ -3080,7 +3076,7 @@
       "low": null
     },
     "bet-bury-b-f": {
-      "market": 2.06,
+      "market": 2.01,
       "low": null
     },
     "bet-call_to_war-b-s": {
@@ -3100,7 +3096,7 @@
       "low": null
     },
     "bet-captain_baldassare-b-s": {
-      "market": 4.68,
+      "market": 4.63,
       "low": null
     },
     "bet-captain_baldassare-b-f": {
@@ -3128,11 +3124,11 @@
       "low": null
     },
     "bet-cave_in-b-f": {
-      "market": 3.24,
+      "market": 3.17,
       "low": null
     },
     "bet-cerberus_in_chains-b-s": {
-      "market": 4.23,
+      "market": 4.27,
       "low": null
     },
     "bet-cerberus_in_chains-b-f": {
@@ -3160,7 +3156,7 @@
       "low": null
     },
     "bet-chaos_twister-b-f": {
-      "market": 17.58,
+      "market": 17.14,
       "low": null
     },
     "bet-clamor_of_harpies-b-s": {
@@ -3172,7 +3168,7 @@
       "low": null
     },
     "bet-cloud_city-b-s": {
-      "market": 2.72,
+      "market": 2.74,
       "low": null
     },
     "bet-cloud_city-b-f": {
@@ -3204,7 +3200,7 @@
       "low": null
     },
     "bet-cone_of_flame-b-s": {
-      "market": 0.15,
+      "market": 0.16,
       "low": null
     },
     "bet-cone_of_flame-b-f": {
@@ -3236,7 +3232,7 @@
       "low": null
     },
     "bet-court_jester-b-s": {
-      "market": 0.29,
+      "market": 0.28,
       "low": null
     },
     "bet-court_jester-b-f": {
@@ -3256,7 +3252,7 @@
       "low": null
     },
     "bet-craterize-b-f": {
-      "market": 6.28,
+      "market": 6.3,
       "low": null
     },
     "bet-crave_golem-b-s": {
@@ -3284,7 +3280,7 @@
       "low": null
     },
     "bet-crown_prince-b-s": {
-      "market": 3.0,
+      "market": 3.05,
       "low": null
     },
     "bet-crown_prince-b-f": {
@@ -3292,7 +3288,7 @@
       "low": null
     },
     "bet-crown_of_the_victor-b-s": {
-      "market": 4.72,
+      "market": 4.57,
       "low": null
     },
     "bet-crown_of_the_victor-b-f": {
@@ -3312,7 +3308,7 @@
       "low": null
     },
     "bet-daperyll_vampire-b-f": {
-      "market": 19.06,
+      "market": 18.98,
       "low": null
     },
     "bet-dark_tower-b-s": {
@@ -3332,7 +3328,7 @@
       "low": null
     },
     "bet-death_dealer-b-s": {
-      "market": 11.87,
+      "market": 11.75,
       "low": null
     },
     "bet-death_dealer-b-f": {
@@ -3352,11 +3348,11 @@
       "low": null
     },
     "bet-deep_sea_mermaids-b-f": {
-      "market": 1.36,
+      "market": 1.34,
       "low": null
     },
     "bet-devils_egg-b-s": {
-      "market": 0.55,
+      "market": 0.56,
       "low": null
     },
     "bet-devils_egg-b-f": {
@@ -3380,7 +3376,7 @@
       "low": null
     },
     "bet-disintegrate-b-s": {
-      "market": 2.42,
+      "market": 2.43,
       "low": null
     },
     "bet-disintegrate-b-f": {
@@ -3400,7 +3396,7 @@
       "low": null
     },
     "bet-divine_healing-b-f": {
-      "market": 7.04,
+      "market": 7.01,
       "low": null
     },
     "bet-dodge_roll-b-s": {
@@ -3420,7 +3416,7 @@
       "low": null
     },
     "bet-donnybrook_inn-b-s": {
-      "market": 1.86,
+      "market": 1.87,
       "low": null
     },
     "bet-donnybrook_inn-b-f": {
@@ -3444,7 +3440,7 @@
       "low": null
     },
     "bet-dream_quest-b-s": {
-      "market": 5.91,
+      "market": 5.71,
       "low": null
     },
     "bet-dream_quest-b-f": {
@@ -3464,7 +3460,7 @@
       "low": null
     },
     "bet-drown-b-f": {
-      "market": 3.99,
+      "market": 3.94,
       "low": null
     },
     "bet-drums_of_doom-b-s": {
@@ -3492,7 +3488,7 @@
       "low": null
     },
     "bet-earthquake-b-s": {
-      "market": 7.46,
+      "market": 7.55,
       "low": null
     },
     "bet-earthquake-b-f": {
@@ -3508,7 +3504,7 @@
       "low": null
     },
     "bet-edge_of_the_world-b-s": {
-      "market": 0.49,
+      "market": 0.5,
       "low": null
     },
     "bet-edge_of_the_world-b-f": {
@@ -3604,7 +3600,7 @@
       "low": null
     },
     "bet-fey_changeling-b-s": {
-      "market": 0.21,
+      "market": 0.22,
       "low": null
     },
     "bet-fey_changeling-b-f": {
@@ -3620,7 +3616,7 @@
       "low": null
     },
     "bet-fireball-b-s": {
-      "market": 0.17,
+      "market": 0.18,
       "low": null
     },
     "bet-fireball-b-f": {
@@ -3691,12 +3687,8 @@
       "market": 1.83,
       "low": null
     },
-    "bet-foot_soldier_1-bt-s": {
-      "market": 0.77,
-      "low": null
-    },
     "bet-free_city-b-s": {
-      "market": 0.39,
+      "market": 0.4,
       "low": null
     },
     "bet-free_city-b-f": {
@@ -3736,7 +3728,7 @@
       "low": null
     },
     "bet-ghost_ship-b-s": {
-      "market": 0.68,
+      "market": 0.67,
       "low": null
     },
     "bet-ghost_ship-b-f": {
@@ -3744,7 +3736,7 @@
       "low": null
     },
     "bet-giant_shark-b-s": {
-      "market": 0.28,
+      "market": 0.29,
       "low": null
     },
     "bet-giant_shark-b-f": {
@@ -3752,7 +3744,7 @@
       "low": null
     },
     "bet-gigantism-b-s": {
-      "market": 7.52,
+      "market": 7.51,
       "low": null
     },
     "bet-gigantism-b-f": {
@@ -3772,7 +3764,7 @@
       "low": null
     },
     "bet-gneissgnath_gnomes-b-f": {
-      "market": 1.23,
+      "market": 1.24,
       "low": null
     },
     "bet-gnome_hollows-b-s": {
@@ -3804,7 +3796,7 @@
       "low": null
     },
     "bet-grapple_shot-b-f": {
-      "market": 8.05,
+      "market": 7.89,
       "low": null
     },
     "bet-great_old_one-b-s": {
@@ -3832,7 +3824,7 @@
       "low": null
     },
     "bet-grim_reaper-b-s": {
-      "market": 6.89,
+      "market": 6.96,
       "low": null
     },
     "bet-grim_reaper-b-f": {
@@ -3844,7 +3836,7 @@
       "low": null
     },
     "bet-grosse_poltergeist-b-f": {
-      "market": 4.42,
+      "market": 4.46,
       "low": null
     },
     "bet-guile_sirens-b-s": {
@@ -3860,7 +3852,7 @@
       "low": null
     },
     "bet-gyre_hippogriffs-b-f": {
-      "market": 4.56,
+      "market": 4.6,
       "low": null
     },
     "bet-haast_eagle-b-s": {
@@ -3876,7 +3868,7 @@
       "low": null
     },
     "bet-headless_haunt-b-f": {
-      "market": 6.61,
+      "market": 6.71,
       "low": null
     },
     "bet-heat_ray-b-s": {
@@ -3904,7 +3896,7 @@
       "low": null
     },
     "bet-highland_princess-b-s": {
-      "market": 28.44,
+      "market": 28.53,
       "low": null
     },
     "bet-highland_princess-b-f": {
@@ -3924,7 +3916,7 @@
       "low": null
     },
     "bet-holy_ground-b-f": {
-      "market": 19.23,
+      "market": 18.46,
       "low": null
     },
     "bet-hounds_of_ondaros-b-s": {
@@ -3955,6 +3947,10 @@
       "market": 0.09,
       "low": null
     },
+    "bet-ice_lance-b-f": {
+      "market": 1.1,
+      "low": null
+    },
     "bet-iceberg-b-s": {
       "market": 0.17,
       "low": null
@@ -3972,7 +3968,7 @@
       "low": null
     },
     "bet-imperial_road-b-s": {
-      "market": 1.11,
+      "market": 1.13,
       "low": null
     },
     "bet-imperial_road-b-f": {
@@ -3988,7 +3984,7 @@
       "low": null
     },
     "bet-infernal_legion-b-s": {
-      "market": 0.62,
+      "market": 0.63,
       "low": null
     },
     "bet-infernal_legion-b-f": {
@@ -3996,7 +3992,7 @@
       "low": null
     },
     "bet-infiltrate-b-s": {
-      "market": 4.58,
+      "market": 4.55,
       "low": null
     },
     "bet-infiltrate-b-f": {
@@ -4008,7 +4004,7 @@
       "low": null
     },
     "bet-iron_shackles-b-f": {
-      "market": 2.45,
+      "market": 2.47,
       "low": null
     },
     "bet-island_leviathan-b-s": {
@@ -4016,7 +4012,7 @@
       "low": null
     },
     "bet-island_leviathan-b-f": {
-      "market": 7.41,
+      "market": 7.42,
       "low": null
     },
     "bet-karkemish_chimera-b-s": {
@@ -4052,7 +4048,7 @@
       "low": null
     },
     "bet-kythera_mechanism-b-s": {
-      "market": 8.07,
+      "market": 8.09,
       "low": null
     },
     "bet-kythera_mechanism-b-f": {
@@ -4072,7 +4068,7 @@
       "low": null
     },
     "bet-land_surveyor-b-f": {
-      "market": 4.55,
+      "market": 4.51,
       "low": null
     },
     "bet-lava_salamander-b-s": {
@@ -4100,11 +4096,11 @@
       "low": null
     },
     "bet-lightning_bolt-b-s": {
-      "market": 0.15,
+      "market": 0.16,
       "low": null
     },
     "bet-lightning_bolt-b-f": {
-      "market": 108.5,
+      "market": 111.25,
       "low": null
     },
     "bet-lone_tower-b-s": {
@@ -4116,7 +4112,7 @@
       "low": null
     },
     "bet-lord_of_unland-b-s": {
-      "market": 6.61,
+      "market": 6.76,
       "low": null
     },
     "bet-lord_of_unland-b-f": {
@@ -4144,7 +4140,7 @@
       "low": null
     },
     "bet-mad_dash-b-f": {
-      "market": 1.32,
+      "market": 1.31,
       "low": null
     },
     "bet-maddening_bells-b-s": {
@@ -4176,7 +4172,7 @@
       "low": null
     },
     "bet-magnetic_muzzle-b-s": {
-      "market": 0.31,
+      "market": 0.32,
       "low": null
     },
     "bet-magnetic_muzzle-b-f": {
@@ -4184,7 +4180,7 @@
       "low": null
     },
     "bet-major_explosion-b-s": {
-      "market": 0.61,
+      "market": 0.6,
       "low": null
     },
     "bet-major_explosion-b-f": {
@@ -4212,7 +4208,7 @@
       "low": null
     },
     "bet-mask_of_mayhem-b-f": {
-      "market": 12.3,
+      "market": 12.51,
       "low": null
     },
     "bet-master_tracker-b-s": {
@@ -4232,7 +4228,7 @@
       "low": null
     },
     "bet-megamoeba-b-s": {
-      "market": 0.41,
+      "market": 0.39,
       "low": null
     },
     "bet-megamoeba-b-f": {
@@ -4284,7 +4280,7 @@
       "low": null
     },
     "bet-minor_explosion-b-f": {
-      "market": 5.47,
+      "market": 5.29,
       "low": null
     },
     "bet-miracle_workers-b-s": {
@@ -4300,11 +4296,11 @@
       "low": null
     },
     "bet-mirage-b-f": {
-      "market": 9.73,
+      "market": 9.77,
       "low": null
     },
     "bet-mirror_realm-b-s": {
-      "market": 27.67,
+      "market": 27.65,
       "low": null
     },
     "bet-mirror_realm-b-f": {
@@ -4336,7 +4332,7 @@
       "low": null
     },
     "bet-mix_terra-b-s": {
-      "market": 2.56,
+      "market": 2.51,
       "low": null
     },
     "bet-mix_terra-b-f": {
@@ -4452,15 +4448,15 @@
       "low": null
     },
     "bet-observatory-b-f": {
-      "market": 36.75,
+      "market": 36.41,
       "low": null
     },
     "bet-occult_ritual-b-s": {
-      "market": 2.41,
+      "market": 2.42,
       "low": null
     },
     "bet-occult_ritual-b-f": {
-      "market": 15.22,
+      "market": 14.7,
       "low": null
     },
     "bet-ogre_goons-b-s": {
@@ -4480,7 +4476,7 @@
       "low": null
     },
     "bet-onyx_core-b-s": {
-      "market": 53.73,
+      "market": 52.56,
       "low": null
     },
     "bet-onyx_core-b-f": {
@@ -4520,7 +4516,7 @@
       "low": null
     },
     "bet-pact_with_the_devil-b-s": {
-      "market": 10.07,
+      "market": 10.09,
       "low": null
     },
     "bet-pact_with_the_devil-b-f": {
@@ -4544,7 +4540,7 @@
       "low": null
     },
     "bet-pathfinder-b-s": {
-      "market": 9.27,
+      "market": 9.26,
       "low": null
     },
     "bet-pathfinder-b-f": {
@@ -4608,7 +4604,7 @@
       "low": null
     },
     "bet-philosophers_stone-b-s": {
-      "market": 96.41,
+      "market": 96.09,
       "low": null
     },
     "bet-philosophers_stone-b-f": {
@@ -4616,7 +4612,7 @@
       "low": null
     },
     "bet-pillar_of_zeiros-b-s": {
-      "market": 11.47,
+      "market": 11.42,
       "low": null
     },
     "bet-pillar_of_zeiros-b-f": {
@@ -4640,7 +4636,7 @@
       "low": null
     },
     "bet-plague_of_frogs-b-s": {
-      "market": 14.74,
+      "market": 14.75,
       "low": null
     },
     "bet-plague_of_frogs-b-f": {
@@ -4668,15 +4664,15 @@
       "low": null
     },
     "bet-pnakotic_manuscript-b-f": {
-      "market": 32.73,
+      "market": 32.83,
       "low": null
     },
     "bet-poison_nova-b-s": {
-      "market": 0.46,
+      "market": 0.47,
       "low": null
     },
     "bet-poison_nova-b-f": {
-      "market": 21.1,
+      "market": 21.02,
       "low": null
     },
     "bet-poisonous_dagger-b-s": {
@@ -4704,7 +4700,7 @@
       "low": null
     },
     "bet-pollimorph-b-s": {
-      "market": 4.27,
+      "market": 4.31,
       "low": null
     },
     "bet-pollimorph-b-f": {
@@ -4716,15 +4712,15 @@
       "low": null
     },
     "bet-porcupine_pufferfish-b-f": {
-      "market": 2.64,
+      "market": 2.6,
       "low": null
     },
     "bet-primordial_spring-b-s": {
-      "market": 0.74,
+      "market": 0.73,
       "low": null
     },
     "bet-primordial_spring-b-f": {
-      "market": 5.31,
+      "market": 5.27,
       "low": null
     },
     "bet-pristine_paradise-b-s": {
@@ -4764,7 +4760,7 @@
       "low": null
     },
     "bet-purge_juggernaut-b-f": {
-      "market": 3.67,
+      "market": 3.7,
       "low": null
     },
     "bet-quagmire-b-s": {
@@ -4776,7 +4772,7 @@
       "low": null
     },
     "bet-quarrelsome_kobolds-b-s": {
-      "market": 0.31,
+      "market": 0.32,
       "low": null
     },
     "bet-quarrelsome_kobolds-b-f": {
@@ -4868,11 +4864,11 @@
       "low": null
     },
     "bet-riddle_sphinx-b-f": {
-      "market": 5.87,
+      "market": 5.88,
       "low": null
     },
     "bet-rift_valley-b-s": {
-      "market": 2.97,
+      "market": 2.99,
       "low": null
     },
     "bet-rimland_nomads-b-s": {
@@ -4892,7 +4888,7 @@
       "low": null
     },
     "bet-river_of_flame-b-s": {
-      "market": 7.07,
+      "market": 7.12,
       "low": null
     },
     "bet-river_of_flame-b-f": {
@@ -4916,11 +4912,11 @@
       "low": null
     },
     "bet-root_spider-b-s": {
-      "market": 0.89,
+      "market": 0.9,
       "low": null
     },
     "bet-root_spider-b-f": {
-      "market": 8.26,
+      "market": 8.25,
       "low": null
     },
     "bet-roots_of_yggdrasil-b-s": {
@@ -4944,7 +4940,7 @@
       "low": null
     },
     "bet-ruby_core-b-s": {
-      "market": 58.71,
+      "market": 58.24,
       "low": null
     },
     "bet-ruby_core-b-f": {
@@ -4952,15 +4948,15 @@
       "low": null
     },
     "bet-ruins-b-s": {
-      "market": 2.8,
+      "market": 2.81,
       "low": null
     },
     "bet-ruins-b-f": {
-      "market": 84.54,
+      "market": 87.51,
       "low": null
     },
     "bet-ruler_of_thul-b-s": {
-      "market": 15.52,
+      "market": 15.45,
       "low": null
     },
     "bet-ruler_of_thul-b-f": {
@@ -5008,7 +5004,7 @@
       "low": null
     },
     "bet-scavenging_fiend-b-s": {
-      "market": 0.16,
+      "market": 0.17,
       "low": null
     },
     "bet-scavenging_fiend-b-f": {
@@ -5104,7 +5100,7 @@
       "low": null
     },
     "bet-selfsame_simulacrum-b-s": {
-      "market": 2.21,
+      "market": 2.22,
       "low": null
     },
     "bet-selfsame_simulacrum-b-f": {
@@ -5116,7 +5112,7 @@
       "low": null
     },
     "bet-seven_league_boots-b-f": {
-      "market": 23.63,
+      "market": 23.44,
       "low": null
     },
     "bet-shield_maidens-b-s": {
@@ -5164,7 +5160,7 @@
       "low": null
     },
     "bet-silence-b-f": {
-      "market": 6.45,
+      "market": 6.53,
       "low": null
     },
     "bet-silver_valkyries-b-s": {
@@ -5184,7 +5180,7 @@
       "low": null
     },
     "bet-sinkhole-b-s": {
-      "market": 1.29,
+      "market": 1.3,
       "low": null
     },
     "bet-sinkhole-b-f": {
@@ -5244,7 +5240,7 @@
       "low": null
     },
     "bet-sling_pixies-b-f": {
-      "market": 2.3,
+      "market": 2.31,
       "low": null
     },
     "bet-slumbering_giantess-b-s": {
@@ -5264,7 +5260,7 @@
       "low": null
     },
     "bet-sneak_thief-b-s": {
-      "market": 0.48,
+      "market": 0.46,
       "low": null
     },
     "bet-sneak_thief-b-f": {
@@ -5284,7 +5280,7 @@
       "low": null
     },
     "bet-sorcerer-bt-f": {
-      "market": 0.46,
+      "market": 0.45,
       "low": null
     },
     "bet-sparkmage-b-s": {
@@ -5320,15 +5316,11 @@
       "low": null
     },
     "bet-spire_lich-b-s": {
-      "market": 0.19,
-      "low": null
-    },
-    "bet-spire_lich-b-f": {
-      "market": 3.69,
+      "market": 0.2,
       "low": null
     },
     "bet-spring_river-b-s": {
-      "market": 0.13,
+      "market": 0.14,
       "low": null
     },
     "bet-spring_river-b-f": {
@@ -5340,7 +5332,7 @@
       "low": null
     },
     "bet-squirming_mass-b-f": {
-      "market": 6.87,
+      "market": 6.89,
       "low": null
     },
     "bet-standing_stones-b-s": {
@@ -5368,7 +5360,7 @@
       "low": null
     },
     "bet-stone_gaze_gorgons-b-s": {
-      "market": 0.43,
+      "market": 0.42,
       "low": null
     },
     "bet-stone_gaze_gorgons-b-f": {
@@ -5384,7 +5376,7 @@
       "low": null
     },
     "bet-summer_river-b-s": {
-      "market": 0.13,
+      "market": 0.14,
       "low": null
     },
     "bet-summer_river-b-f": {
@@ -5412,7 +5404,7 @@
       "low": null
     },
     "bet-swamp_buffalo-b-f": {
-      "market": 1.12,
+      "market": 1.13,
       "low": null
     },
     "bet-swan_maidens-b-s": {
@@ -5432,7 +5424,7 @@
       "low": null
     },
     "bet-tadpole_pool-b-s": {
-      "market": 13.79,
+      "market": 13.71,
       "low": null
     },
     "bet-tadpole_pool-b-f": {
@@ -5456,15 +5448,15 @@
       "low": null
     },
     "bet-the_colour_out_of_space-b-s": {
-      "market": 17.53,
+      "market": 17.45,
       "low": null
     },
     "bet-the_colour_out_of_space-b-f": {
-      "market": 102.26,
+      "market": 99.64,
       "low": null
     },
     "bet-the_geistwood-b-s": {
-      "market": 4.23,
+      "market": 4.12,
       "low": null
     },
     "bet-the_geistwood-b-f": {
@@ -5552,7 +5544,7 @@
       "low": null
     },
     "bet-ultimate_horror-b-s": {
-      "market": 8.19,
+      "market": 8.1,
       "low": null
     },
     "bet-ultimate_horror-b-f": {
@@ -5568,7 +5560,7 @@
       "low": null
     },
     "bet-undertow-b-s": {
-      "market": 0.25,
+      "market": 0.26,
       "low": null
     },
     "bet-undertow-b-f": {
@@ -5648,11 +5640,11 @@
       "low": null
     },
     "bet-vesuvius-b-s": {
-      "market": 1.59,
+      "market": 1.61,
       "low": null
     },
     "bet-vesuvius-b-f": {
-      "market": 27.67,
+      "market": 27.75,
       "low": null
     },
     "bet-vile_imp-b-s": {
@@ -5668,7 +5660,7 @@
       "low": null
     },
     "bet-vril_revenant-b-f": {
-      "market": 4.43,
+      "market": 4.47,
       "low": null
     },
     "bet-wall_of_air-b-s": {
@@ -5692,11 +5684,11 @@
       "low": null
     },
     "bet-wall_of_ice-b-f": {
-      "market": 1.57,
+      "market": 1.43,
       "low": null
     },
     "bet-warp_spasm-b-s": {
-      "market": 3.77,
+      "market": 3.79,
       "low": null
     },
     "bet-warp_spasm-b-f": {
@@ -5736,11 +5728,11 @@
       "low": null
     },
     "bet-whirling_blades-b-s": {
-      "market": 0.43,
+      "market": 0.42,
       "low": null
     },
     "bet-whirling_blades-b-f": {
-      "market": 8.03,
+      "market": 8.63,
       "low": null
     },
     "bet-wicked_witch-b-s": {
@@ -5772,7 +5764,7 @@
       "low": null
     },
     "bet-wildfire-b-f": {
-      "market": 3.71,
+      "market": 3.66,
       "low": null
     },
     "bet-wills_o_the_wisp-b-s": {
@@ -5800,7 +5792,7 @@
       "low": null
     },
     "bet-windmill-b-s": {
-      "market": 2.73,
+      "market": 2.72,
       "low": null
     },
     "bet-windmill-b-f": {
@@ -5832,7 +5824,7 @@
       "low": null
     },
     "bet-wrath_of_the_sea-b-s": {
-      "market": 0.44,
+      "market": 0.45,
       "low": null
     },
     "bet-wrath_of_the_sea-b-f": {
@@ -5844,7 +5836,7 @@
       "low": null
     },
     "bet-yokai_kappas-b-f": {
-      "market": 3.67,
+      "market": 3.59,
       "low": null
     },
     "bet-yourke_crossbowmen-b-s": {
@@ -5864,7 +5856,7 @@
       "low": null
     },
     "art-13_treasures_of_britain-b-s": {
-      "market": 5.16,
+      "market": 4.91,
       "low": null
     },
     "art-13_treasures_of_britain-b-f": {
@@ -5880,7 +5872,7 @@
       "low": null
     },
     "art-amulet_of_niniane-b-s": {
-      "market": 18.2,
+      "market": 18.28,
       "low": null
     },
     "art-amulet_of_niniane-b-f": {
@@ -5904,7 +5896,7 @@
       "low": null
     },
     "art-arcane_barrage-b-s": {
-      "market": 0.96,
+      "market": 0.95,
       "low": null
     },
     "art-arcane_barrage-b-f": {
@@ -5916,7 +5908,7 @@
       "low": null
     },
     "art-archimago-b-f": {
-      "market": 39.29,
+      "market": 39.09,
       "low": null
     },
     "art-attack_by_night-b-s": {
@@ -5928,7 +5920,7 @@
       "low": null
     },
     "art-avalon-b-s": {
-      "market": 4.07,
+      "market": 4.03,
       "low": null
     },
     "art-avalon-b-f": {
@@ -5952,7 +5944,7 @@
       "low": null
     },
     "art-ball_lightning-b-s": {
-      "market": 0.35,
+      "market": 0.34,
       "low": null
     },
     "art-ball_lightning-b-f": {
@@ -6052,7 +6044,7 @@
       "low": null
     },
     "art-briar_patch-b-f": {
-      "market": 1.64,
+      "market": 1.65,
       "low": null
     },
     "art-broceliande-b-s": {
@@ -6060,7 +6052,7 @@
       "low": null
     },
     "art-brother_knight-b-s": {
-      "market": 0.66,
+      "market": 0.65,
       "low": null
     },
     "art-brother_knight-b-f": {
@@ -6096,7 +6088,7 @@
       "low": null
     },
     "art-camelot-b-s": {
-      "market": 5.38,
+      "market": 5.41,
       "low": null
     },
     "art-camelot-b-f": {
@@ -6128,7 +6120,7 @@
       "low": null
     },
     "art-castles_ablaze-b-s": {
-      "market": 0.39,
+      "market": 0.36,
       "low": null
     },
     "art-castles_ablaze-b-f": {
@@ -6136,7 +6128,7 @@
       "low": null
     },
     "art-charge-b-s": {
-      "market": 0.09,
+      "market": 0.08,
       "low": null
     },
     "art-charge-b-f": {
@@ -6148,7 +6140,7 @@
       "low": null
     },
     "art-cold_iron_rod-b-f": {
-      "market": 0.88,
+      "market": 0.87,
       "low": null
     },
     "art-common_cottagers-b-s": {
@@ -6164,7 +6156,7 @@
       "low": null
     },
     "art-common_village-b-f": {
-      "market": 1.12,
+      "market": 1.11,
       "low": null
     },
     "art-coy_nixie-b-s": {
@@ -6180,11 +6172,11 @@
       "low": null
     },
     "art-cursed_land-b-f": {
-      "market": 6.54,
+      "market": 6.28,
       "low": null
     },
     "art-dame_britomart-b-s": {
-      "market": 0.25,
+      "market": 0.26,
       "low": null
     },
     "art-dame_britomart-b-f": {
@@ -6228,7 +6220,7 @@
       "low": null
     },
     "art-excalibur-b-s": {
-      "market": 6.14,
+      "market": 6.04,
       "low": null
     },
     "art-excalibur-b-f": {
@@ -6252,7 +6244,7 @@
       "low": null
     },
     "art-feast_for_crows-b-s": {
-      "market": 9.26,
+      "market": 9.24,
       "low": null
     },
     "art-feast_for_crows-b-f": {
@@ -6268,7 +6260,7 @@
       "low": null
     },
     "art-fields_of_camlann-b-s": {
-      "market": 26.39,
+      "market": 26.59,
       "low": null
     },
     "art-fields_of_camlann-b-f": {
@@ -6276,7 +6268,7 @@
       "low": null
     },
     "art-fine_courser-b-s": {
-      "market": 0.19,
+      "market": 0.18,
       "low": null
     },
     "art-fine_courser-b-f": {
@@ -6288,7 +6280,7 @@
       "low": null
     },
     "art-finwife-b-f": {
-      "market": 1.51,
+      "market": 1.52,
       "low": null
     },
     "art-firebreathing-b-s": {
@@ -6340,11 +6332,11 @@
       "low": null
     },
     "art-frisky_red_squirrel-b-f": {
-      "market": 1.1,
+      "market": 1.09,
       "low": null
     },
     "art-funeral_pyre-b-s": {
-      "market": 0.25,
+      "market": 0.26,
       "low": null
     },
     "art-funeral_pyre-b-f": {
@@ -6356,7 +6348,7 @@
       "low": null
     },
     "art-giant_killer-b-f": {
-      "market": 0.71,
+      "market": 0.7,
       "low": null
     },
     "art-glastonbury_tor-b-s": {
@@ -6372,7 +6364,7 @@
       "low": null
     },
     "art-golden_harp-b-f": {
-      "market": 10.68,
+      "market": 10.85,
       "low": null
     },
     "art-goswhit_helmet-b-s": {
@@ -6420,7 +6412,7 @@
       "low": null
     },
     "art-guards-b-f": {
-      "market": 4.2,
+      "market": 4.21,
       "low": null
     },
     "art-hamlet-b-s": {
@@ -6428,7 +6420,7 @@
       "low": null
     },
     "art-hamlet-b-f": {
-      "market": 1.24,
+      "market": 1.23,
       "low": null
     },
     "art-hamlets_ablaze-b-s": {
@@ -6456,7 +6448,7 @@
       "low": null
     },
     "art-horn_of_caerleon-b-s": {
-      "market": 0.34,
+      "market": 0.33,
       "low": null
     },
     "art-horn_of_caerleon-b-f": {
@@ -6496,7 +6488,7 @@
       "low": null
     },
     "art-invasion-b-s": {
-      "market": 0.29,
+      "market": 0.28,
       "low": null
     },
     "art-invasion-b-f": {
@@ -6520,7 +6512,7 @@
       "low": null
     },
     "art-joyous_garde-b-s": {
-      "market": 51.0,
+      "market": 50.92,
       "low": null
     },
     "art-joyous_garde-b-f": {
@@ -6544,7 +6536,7 @@
       "low": null
     },
     "art-kelp_cavern-b-s": {
-      "market": 0.92,
+      "market": 0.94,
       "low": null
     },
     "art-kelp_cavern-b-f": {
@@ -6552,15 +6544,15 @@
       "low": null
     },
     "art-kettletop_leprechaun-b-s": {
-      "market": 0.15,
+      "market": 0.14,
       "low": null
     },
     "art-kettletop_leprechaun-b-f": {
-      "market": 11.65,
+      "market": 11.15,
       "low": null
     },
     "art-king_arthur-b-s": {
-      "market": 7.77,
+      "market": 7.66,
       "low": null
     },
     "art-king_arthur-b-f": {
@@ -6572,7 +6564,7 @@
       "low": null
     },
     "art-kings_council-b-f": {
-      "market": 3.27,
+      "market": 3.25,
       "low": null
     },
     "art-kingswood_poachers-b-s": {
@@ -6584,7 +6576,7 @@
       "low": null
     },
     "art-knighthood-b-s": {
-      "market": 0.16,
+      "market": 0.15,
       "low": null
     },
     "art-knighthood-b-f": {
@@ -6644,7 +6636,7 @@
       "low": null
     },
     "art-love_potion-b-s": {
-      "market": 0.26,
+      "market": 0.25,
       "low": null
     },
     "art-love_potion-b-f": {
@@ -6684,7 +6676,7 @@
       "low": null
     },
     "art-merlin-b-s": {
-      "market": 13.42,
+      "market": 13.34,
       "low": null
     },
     "art-merlin-b-f": {
@@ -6700,7 +6692,7 @@
       "low": null
     },
     "art-merlins_tower-b-s": {
-      "market": 10.74,
+      "market": 10.82,
       "low": null
     },
     "art-merlins_tower-b-f": {
@@ -6708,7 +6700,7 @@
       "low": null
     },
     "art-mesmerism-b-s": {
-      "market": 21.95,
+      "market": 21.52,
       "low": null
     },
     "art-mesmerism-b-f": {
@@ -6732,7 +6724,7 @@
       "low": null
     },
     "art-morgana_le_fay-b-s": {
-      "market": 94.72,
+      "market": 94.65,
       "low": null
     },
     "art-morgana_le_fay-b-f": {
@@ -6748,7 +6740,7 @@
       "low": null
     },
     "art-nelly_longarms-b-s": {
-      "market": 19.26,
+      "market": 19.05,
       "low": null
     },
     "art-nelly_longarms-b-f": {
@@ -6772,7 +6764,7 @@
       "low": null
     },
     "art-peasant_revolt-b-s": {
-      "market": 5.76,
+      "market": 5.73,
       "low": null
     },
     "art-peasant_revolt-b-f": {
@@ -6796,7 +6788,7 @@
       "low": null
     },
     "art-pendragon_legacy-b-s": {
-      "market": 13.36,
+      "market": 13.17,
       "low": null
     },
     "art-pendragon_legacy-b-f": {
@@ -6804,7 +6796,7 @@
       "low": null
     },
     "art-perilous_bridge-b-s": {
-      "market": 1.59,
+      "market": 1.61,
       "low": null
     },
     "art-perilous_bridge-b-f": {
@@ -6820,7 +6812,7 @@
       "low": null
     },
     "art-poisoned_well-b-s": {
-      "market": 0.23,
+      "market": 0.24,
       "low": null
     },
     "art-poisoned_well-b-f": {
@@ -6844,7 +6836,7 @@
       "low": null
     },
     "art-postern_gate-b-s": {
-      "market": 0.28,
+      "market": 0.26,
       "low": null
     },
     "art-postern_gate-b-f": {
@@ -6868,7 +6860,7 @@
       "low": null
     },
     "art-queen_guinevere-b-s": {
-      "market": 6.13,
+      "market": 6.2,
       "low": null
     },
     "art-queen_guinevere-b-f": {
@@ -6876,7 +6868,7 @@
       "low": null
     },
     "art-questing_beast-b-s": {
-      "market": 15.4,
+      "market": 15.34,
       "low": null
     },
     "art-questing_beast-b-f": {
@@ -6920,11 +6912,11 @@
       "low": null
     },
     "art-rescue-b-f": {
-      "market": 0.89,
+      "market": 0.88,
       "low": null
     },
     "art-rhitta_gawr_of_snowdonia-b-s": {
-      "market": 5.05,
+      "market": 5.03,
       "low": null
     },
     "art-rhitta_gawr_of_snowdonia-b-f": {
@@ -6932,7 +6924,7 @@
       "low": null
     },
     "art-rhongomyniad-b-s": {
-      "market": 7.2,
+      "market": 7.18,
       "low": null
     },
     "art-rhongomyniad-b-f": {
@@ -6940,7 +6932,7 @@
       "low": null
     },
     "art-ribble_boggart-b-s": {
-      "market": 0.3,
+      "market": 0.29,
       "low": null
     },
     "art-ribble_boggart-b-f": {
@@ -6948,7 +6940,7 @@
       "low": null
     },
     "art-ring_of_morrigan-b-s": {
-      "market": 162.66,
+      "market": 162.26,
       "low": null
     },
     "art-ring_of_morrigan-b-f": {
@@ -6992,7 +6984,7 @@
       "low": null
     },
     "art-shameless_squire-b-f": {
-      "market": 0.82,
+      "market": 0.81,
       "low": null
     },
     "art-shapeshift-b-s": {
@@ -7044,7 +7036,7 @@
       "low": null
     },
     "art-sir_balin-b-s": {
-      "market": 0.3,
+      "market": 0.27,
       "low": null
     },
     "art-sir_balin-b-f": {
@@ -7052,7 +7044,7 @@
       "low": null
     },
     "art-sir_bedivere-b-s": {
-      "market": 0.29,
+      "market": 0.27,
       "low": null
     },
     "art-sir_bedivere-b-f": {
@@ -7076,7 +7068,7 @@
       "low": null
     },
     "art-sir_galahad-b-s": {
-      "market": 15.79,
+      "market": 15.76,
       "low": null
     },
     "art-sir_galahad-b-f": {
@@ -7084,7 +7076,7 @@
       "low": null
     },
     "art-sir_gareth-b-s": {
-      "market": 3.65,
+      "market": 3.63,
       "low": null
     },
     "art-sir_gareth-b-f": {
@@ -7092,7 +7084,7 @@
       "low": null
     },
     "art-sir_gawain-b-s": {
-      "market": 0.37,
+      "market": 0.26,
       "low": null
     },
     "art-sir_gawain-b-f": {
@@ -7100,7 +7092,7 @@
       "low": null
     },
     "art-sir_ironside-b-s": {
-      "market": 0.26,
+      "market": 0.23,
       "low": null
     },
     "art-sir_ironside-b-f": {
@@ -7116,7 +7108,7 @@
       "low": null
     },
     "art-sir_lamorak-b-s": {
-      "market": 0.33,
+      "market": 0.32,
       "low": null
     },
     "art-sir_lamorak-b-f": {
@@ -7124,7 +7116,7 @@
       "low": null
     },
     "art-sir_lancelot-b-s": {
-      "market": 4.22,
+      "market": 4.26,
       "low": null
     },
     "art-sir_lancelot-b-f": {
@@ -7132,7 +7124,7 @@
       "low": null
     },
     "art-sir_mordred-b-s": {
-      "market": 8.19,
+      "market": 8.2,
       "low": null
     },
     "art-sir_mordred-b-f": {
@@ -7140,7 +7132,7 @@
       "low": null
     },
     "art-sir_morien-b-s": {
-      "market": 0.26,
+      "market": 0.25,
       "low": null
     },
     "art-sir_morien-b-f": {
@@ -7148,7 +7140,7 @@
       "low": null
     },
     "art-sir_pelleas-b-s": {
-      "market": 0.38,
+      "market": 0.39,
       "low": null
     },
     "art-sir_pelleas-b-f": {
@@ -7180,7 +7172,7 @@
       "low": null
     },
     "art-sir_tom_thumb-b-s": {
-      "market": 0.42,
+      "market": 0.43,
       "low": null
     },
     "art-sir_tom_thumb-b-f": {
@@ -7216,7 +7208,7 @@
       "low": null
     },
     "art-sly_fox-b-f": {
-      "market": 1.24,
+      "market": 1.17,
       "low": null
     },
     "art-snowball-b-s": {
@@ -7228,7 +7220,7 @@
       "low": null
     },
     "art-spearmarshal-b-s": {
-      "market": 0.3,
+      "market": 0.29,
       "low": null
     },
     "art-spearmarshal-b-f": {
@@ -7240,7 +7232,7 @@
       "low": null
     },
     "art-squeakers-b-f": {
-      "market": 1.01,
+      "market": 1.0,
       "low": null
     },
     "art-stone_rain-b-s": {
@@ -7252,7 +7244,7 @@
       "low": null
     },
     "art-sugarplum_pixies-b-s": {
-      "market": 0.15,
+      "market": 0.16,
       "low": null
     },
     "art-sugarplum_pixies-b-f": {
@@ -7276,11 +7268,11 @@
       "low": null
     },
     "art-sylvan_splendor-b-s": {
-      "market": 0.51,
+      "market": 0.5,
       "low": null
     },
     "art-sylvan_splendor-b-f": {
-      "market": 6.14,
+      "market": 6.13,
       "low": null
     },
     "art-tactical_move-b-s": {
@@ -7296,7 +7288,7 @@
       "low": null
     },
     "art-tax_collector-b-s": {
-      "market": 0.07,
+      "market": 0.08,
       "low": null
     },
     "art-tax_collector-b-f": {
@@ -7320,7 +7312,7 @@
       "low": null
     },
     "art-the_black_plague-b-s": {
-      "market": 25.07,
+      "market": 25.12,
       "low": null
     },
     "art-the_black_plague-b-f": {
@@ -7336,7 +7328,7 @@
       "low": null
     },
     "art-the_great_drowning_of_men-b-s": {
-      "market": 5.51,
+      "market": 5.47,
       "low": null
     },
     "art-the_great_drowning_of_men-b-f": {
@@ -7344,15 +7336,15 @@
       "low": null
     },
     "art-the_great_famine-b-s": {
-      "market": 18.46,
+      "market": 18.23,
       "low": null
     },
     "art-the_great_famine-b-f": {
-      "market": 58.16,
+      "market": 58.1,
       "low": null
     },
     "art-the_green_knight-b-s": {
-      "market": 21.29,
+      "market": 21.32,
       "low": null
     },
     "art-the_green_knight-b-f": {
@@ -7376,7 +7368,7 @@
       "low": null
     },
     "art-the_round_table-b-s": {
-      "market": 6.37,
+      "market": 6.34,
       "low": null
     },
     "art-the_round_table-b-f": {
@@ -7404,11 +7396,11 @@
       "low": null
     },
     "art-thundering_giant-b-f": {
-      "market": 4.52,
+      "market": 4.47,
       "low": null
     },
     "art-tintagel-b-s": {
-      "market": 37.76,
+      "market": 37.74,
       "low": null
     },
     "art-tintagel-b-f": {
@@ -7416,7 +7408,7 @@
       "low": null
     },
     "art-tithe-b-s": {
-      "market": 18.16,
+      "market": 18.05,
       "low": null
     },
     "art-tithe-b-f": {
@@ -7464,7 +7456,7 @@
       "low": null
     },
     "art-unseelie_court-b-s": {
-      "market": 0.24,
+      "market": 0.23,
       "low": null
     },
     "art-unseelie_court-b-f": {
@@ -7472,7 +7464,7 @@
       "low": null
     },
     "art-valley_of_delight-b-s": {
-      "market": 3.4,
+      "market": 3.55,
       "low": null
     },
     "art-valley_of_delight-b-f": {
@@ -7480,7 +7472,7 @@
       "low": null
     },
     "art-valor-b-s": {
-      "market": 0.46,
+      "market": 0.45,
       "low": null
     },
     "art-valor-b-f": {
@@ -7496,7 +7488,7 @@
       "low": null
     },
     "art-varmint_warrens-b-s": {
-      "market": 0.53,
+      "market": 0.52,
       "low": null
     },
     "art-varmint_warrens-b-f": {
@@ -7528,7 +7520,7 @@
       "low": null
     },
     "art-vivien_the_enchantress-b-s": {
-      "market": 15.21,
+      "market": 15.18,
       "low": null
     },
     "art-vivien_the_enchantress-b-f": {
@@ -7552,7 +7544,7 @@
       "low": null
     },
     "art-wedding_hall-b-s": {
-      "market": 0.31,
+      "market": 0.3,
       "low": null
     },
     "art-wedding_hall-b-f": {
@@ -7576,7 +7568,7 @@
       "low": null
     },
     "art-white_hart-b-s": {
-      "market": 8.75,
+      "market": 8.69,
       "low": null
     },
     "art-white_hart-b-f": {
@@ -7592,7 +7584,7 @@
       "low": null
     },
     "art-witch-b-s": {
-      "market": 15.87,
+      "market": 15.83,
       "low": null
     },
     "art-witch-b-f": {
@@ -7600,7 +7592,7 @@
       "low": null
     },
     "art-wizards_den-b-s": {
-      "market": 2.46,
+      "market": 2.44,
       "low": null
     },
     "art-wizards_den-b-f": {
@@ -7608,7 +7600,7 @@
       "low": null
     },
     "art-wolpertinger-b-s": {
-      "market": 0.41,
+      "market": 0.4,
       "low": null
     },
     "art-wolpertinger-b-f": {
@@ -7616,7 +7608,7 @@
       "low": null
     },
     "art-wormelow_tump-b-s": {
-      "market": 12.81,
+      "market": 12.76,
       "low": null
     },
     "art-wormelow_tump-b-f": {
@@ -7648,7 +7640,7 @@
       "low": null
     },
     "got-aaj_kegon_ghost_crabs-b-s": {
-      "market": 0.37,
+      "market": 0.36,
       "low": null
     },
     "got-aaj_kegon_ghost_crabs-b-f": {
@@ -7704,7 +7696,7 @@
       "low": null
     },
     "got-active_volcano-b-s": {
-      "market": 0.5,
+      "market": 0.51,
       "low": null
     },
     "got-active_volcano-b-f": {
@@ -7712,7 +7704,7 @@
       "low": null
     },
     "got-aethermoeba-b-s": {
-      "market": 0.46,
+      "market": 0.45,
       "low": null
     },
     "got-aethermoeba-b-f": {
@@ -7720,7 +7712,7 @@
       "low": null
     },
     "got-aino-b-s": {
-      "market": 45.12,
+      "market": 44.7,
       "low": null
     },
     "got-aino-b-f": {
@@ -7744,7 +7736,7 @@
       "low": null
     },
     "got-algor_omphalos-b-s": {
-      "market": 52.38,
+      "market": 50.81,
       "low": null
     },
     "got-algor_omphalos-b-f": {
@@ -7760,7 +7752,7 @@
       "low": null
     },
     "got-altar_of_malachai-b-s": {
-      "market": 7.34,
+      "market": 7.52,
       "low": null
     },
     "got-altar_of_malachai-b-f": {
@@ -7768,7 +7760,7 @@
       "low": null
     },
     "got-angel_ascendant-b-s": {
-      "market": 0.37,
+      "market": 0.38,
       "low": null
     },
     "got-angel_ascendant-b-f": {
@@ -7784,7 +7776,7 @@
       "low": null
     },
     "got-animist-b-s": {
-      "market": 0.7,
+      "market": 0.68,
       "low": null
     },
     "got-animist-b-f": {
@@ -7800,11 +7792,11 @@
       "low": null
     },
     "got-apply_alkahest-b-s": {
-      "market": 0.47,
+      "market": 0.48,
       "low": null
     },
     "got-apply_alkahest-b-f": {
-      "market": 7.54,
+      "market": 7.81,
       "low": null
     },
     "got-arcade_of_bones-b-s": {
@@ -7816,7 +7808,7 @@
       "low": null
     },
     "got-archangel_gabriel-b-s": {
-      "market": 16.3,
+      "market": 16.13,
       "low": null
     },
     "got-archangel_gabriel-b-f": {
@@ -7832,7 +7824,7 @@
       "low": null
     },
     "got-archangel_raphael-b-s": {
-      "market": 19.82,
+      "market": 19.97,
       "low": null
     },
     "got-archangel_raphael-b-f": {
@@ -7848,7 +7840,7 @@
       "low": null
     },
     "got-arjaro_exorcist-b-s": {
-      "market": 1.18,
+      "market": 1.11,
       "low": null
     },
     "got-arjaro_exorcist-b-f": {
@@ -7856,7 +7848,7 @@
       "low": null
     },
     "got-armageddon-b-s": {
-      "market": 4.8,
+      "market": 4.79,
       "low": null
     },
     "got-armageddon-b-f": {
@@ -7892,7 +7884,7 @@
       "low": null
     },
     "got-autumn_bloom-b-f": {
-      "market": 9.63,
+      "market": 9.76,
       "low": null
     },
     "got-avenging_angel-b-s": {
@@ -7920,7 +7912,7 @@
       "low": null
     },
     "got-bane_of_aventis-b-s": {
-      "market": 18.28,
+      "market": 17.78,
       "low": null
     },
     "got-bane_of_aventis-b-f": {
@@ -7928,11 +7920,11 @@
       "low": null
     },
     "got-baptize-b-s": {
-      "market": 0.11,
+      "market": 0.1,
       "low": null
     },
     "got-baptize-b-f": {
-      "market": 2.45,
+      "market": 2.42,
       "low": null
     },
     "got-barging_barghest-b-s": {
@@ -8000,7 +7992,7 @@
       "low": null
     },
     "got-black_mass-b-s": {
-      "market": 16.72,
+      "market": 16.36,
       "low": null
     },
     "got-black_mass-b-f": {
@@ -8060,7 +8052,7 @@
       "low": null
     },
     "got-bless-b-f": {
-      "market": 5.17,
+      "market": 3.01,
       "low": null
     },
     "got-blessed_village-b-s": {
@@ -8075,10 +8067,6 @@
       "market": 0.08,
       "low": null
     },
-    "got-blessed_well-b-f": {
-      "market": 3.02,
-      "low": null
-    },
     "got-blightstone-b-s": {
       "market": 0.62,
       "low": null
@@ -8088,11 +8076,11 @@
       "low": null
     },
     "got-blood_mana-b-s": {
-      "market": 11.92,
+      "market": 11.86,
       "low": null
     },
     "got-bodach_bogeyman-b-s": {
-      "market": 4.69,
+      "market": 4.63,
       "low": null
     },
     "got-bodach_bogeyman-b-f": {
@@ -8140,7 +8128,7 @@
       "low": null
     },
     "got-boulevard_of_bones-b-s": {
-      "market": 1.72,
+      "market": 1.73,
       "low": null
     },
     "got-boulevard_of_bones-b-f": {
@@ -8152,7 +8140,7 @@
       "low": null
     },
     "got-bound_spirit-b-f": {
-      "market": 3.34,
+      "market": 3.3,
       "low": null
     },
     "got-broomstick_witch-b-s": {
@@ -8188,7 +8176,7 @@
       "low": null
     },
     "got-cage_of_sidrak-b-s": {
-      "market": 5.91,
+      "market": 5.88,
       "low": null
     },
     "got-cage_of_sidrak-b-f": {
@@ -8208,7 +8196,7 @@
       "low": null
     },
     "got-carrion_beetles-b-f": {
-      "market": 3.2,
+      "market": 3.18,
       "low": null
     },
     "got-carrionette-b-s": {
@@ -8224,7 +8212,7 @@
       "low": null
     },
     "got-cemetery_rats-b-f": {
-      "market": 3.95,
+      "market": 3.97,
       "low": null
     },
     "got-chaoswish-b-s": {
@@ -8236,7 +8224,7 @@
       "low": null
     },
     "got-char_omphalos-b-s": {
-      "market": 58.25,
+      "market": 58.58,
       "low": null
     },
     "got-char_omphalos-b-f": {
@@ -8260,7 +8248,7 @@
       "low": null
     },
     "got-city_of_glass-b-s": {
-      "market": 25.93,
+      "market": 27.02,
       "low": null
     },
     "got-city_of_glass-b-f": {
@@ -8272,7 +8260,7 @@
       "low": null
     },
     "got-city_of_souls-b-s": {
-      "market": 23.3,
+      "market": 23.16,
       "low": null
     },
     "got-city_of_souls-b-f": {
@@ -8340,7 +8328,7 @@
       "low": null
     },
     "got-corruptor-b-f": {
-      "market": 53.13,
+      "market": 53.43,
       "low": null
     },
     "got-corruptor_freak-b-s": {
@@ -8364,7 +8352,7 @@
       "low": null
     },
     "got-crawler-b-f": {
-      "market": 3.47,
+      "market": 3.37,
       "low": null
     },
     "got-crawling_congregation-b-s": {
@@ -8372,11 +8360,11 @@
       "low": null
     },
     "got-crawling_congregation-b-f": {
-      "market": 8.67,
+      "market": 8.57,
       "low": null
     },
     "got-croaking_swamp-b-s": {
-      "market": 0.12,
+      "market": 0.11,
       "low": null
     },
     "got-croaking_swamp-b-f": {
@@ -8408,7 +8396,7 @@
       "low": null
     },
     "got-dank_omphalos-b-s": {
-      "market": 64.91,
+      "market": 63.98,
       "low": null
     },
     "got-dank_omphalos-b-f": {
@@ -8436,11 +8424,11 @@
       "low": null
     },
     "got-de_vermis_mysteriis-b-s": {
-      "market": 6.11,
+      "market": 6.1,
       "low": null
     },
     "got-death_knight-b-s": {
-      "market": 0.23,
+      "market": 0.24,
       "low": null
     },
     "got-death_knight-b-f": {
@@ -8500,7 +8488,7 @@
       "low": null
     },
     "got-den_of_evil-b-f": {
-      "market": 8.3,
+      "market": 8.33,
       "low": null
     },
     "got-desecrate-b-s": {
@@ -8524,7 +8512,7 @@
       "low": null
     },
     "got-desecrator_kite-b-f": {
-      "market": 5.21,
+      "market": 5.13,
       "low": null
     },
     "got-desert_bloom-b-s": {
@@ -8532,7 +8520,7 @@
       "low": null
     },
     "got-desert_bloom-b-f": {
-      "market": 11.79,
+      "market": 11.7,
       "low": null
     },
     "got-detonate-b-s": {
@@ -8540,7 +8528,7 @@
       "low": null
     },
     "got-detonate-b-f": {
-      "market": 5.65,
+      "market": 5.6,
       "low": null
     },
     "got-dhol_chants-b-s": {
@@ -8556,11 +8544,11 @@
       "low": null
     },
     "got-displace-b-f": {
-      "market": 10.29,
+      "market": 10.39,
       "low": null
     },
     "got-divine_intervention-b-s": {
-      "market": 4.61,
+      "market": 4.57,
       "low": null
     },
     "got-divine_intervention-b-f": {
@@ -8568,11 +8556,7 @@
       "low": null
     },
     "got-divine_lance-b-s": {
-      "market": 0.44,
-      "low": null
-    },
-    "got-divine_lance-b-f": {
-      "market": 12.38,
+      "market": 0.41,
       "low": null
     },
     "got-doctor_demetrius-b-s": {
@@ -8584,7 +8568,7 @@
       "low": null
     },
     "got-doomsday_cult-b-s": {
-      "market": 0.39,
+      "market": 0.42,
       "low": null
     },
     "got-doomsday_cult-b-f": {
@@ -8652,7 +8636,7 @@
       "low": null
     },
     "got-duplicator-b-f": {
-      "market": 191.47,
+      "market": 192.18,
       "low": null
     },
     "got-earl_of_the_ivory_towers-b-s": {
@@ -8696,7 +8680,7 @@
       "low": null
     },
     "got-endless_fence-b-s": {
-      "market": 5.86,
+      "market": 5.84,
       "low": null
     },
     "got-endless_fence-b-f": {
@@ -8724,11 +8708,11 @@
       "low": null
     },
     "got-entombed-b-f": {
-      "market": 1.79,
+      "market": 1.78,
       "low": null
     },
     "got-ersatz_platz-b-s": {
-      "market": 1.04,
+      "market": 1.03,
       "low": null
     },
     "got-ersatz_platz-b-f": {
@@ -8752,11 +8736,11 @@
       "low": null
     },
     "got-evil_twin-b-s": {
-      "market": 5.21,
+      "market": 5.15,
       "low": null
     },
     "got-evil_twin-b-f": {
-      "market": 57.52,
+      "market": 58.01,
       "low": null
     },
     "got-exhume-b-s": {
@@ -8768,7 +8752,7 @@
       "low": null
     },
     "got-failed_mutation-b-s": {
-      "market": 0.23,
+      "market": 0.22,
       "low": null
     },
     "got-failed_mutation-b-f": {
@@ -8776,7 +8760,7 @@
       "low": null
     },
     "got-faith_incarnate-b-s": {
-      "market": 0.26,
+      "market": 0.27,
       "low": null
     },
     "got-faith_incarnate-b-f": {
@@ -8820,7 +8804,7 @@
       "low": null
     },
     "got-feign_death-b-f": {
-      "market": 2.37,
+      "market": 2.32,
       "low": null
     },
     "got-ferrymans_coin-b-s": {
@@ -8840,7 +8824,7 @@
       "low": null
     },
     "got-fields_of_phyxis-b-s": {
-      "market": 0.3,
+      "market": 0.31,
       "low": null
     },
     "got-fields_of_phyxis-b-f": {
@@ -8880,7 +8864,7 @@
       "low": null
     },
     "got-flayer-b-s": {
-      "market": 0.1,
+      "market": 0.11,
       "low": null
     },
     "got-flayer-b-f": {
@@ -8896,7 +8880,7 @@
       "low": null
     },
     "got-forlorn_keep-b-s": {
-      "market": 0.21,
+      "market": 0.22,
       "low": null
     },
     "got-forlorn_keep-b-f": {
@@ -8912,7 +8896,7 @@
       "low": null
     },
     "got-forsaken_crypt-b-s": {
-      "market": 0.2,
+      "market": 0.21,
       "low": null
     },
     "got-forsaken_crypt-b-f": {
@@ -8932,7 +8916,7 @@
       "low": null
     },
     "got-fowl_bones-b-f": {
-      "market": 5.5,
+      "market": 5.47,
       "low": null
     },
     "got-freeze-b-s": {
@@ -8952,7 +8936,7 @@
       "low": null
     },
     "got-garden_of_eden-b-s": {
-      "market": 41.61,
+      "market": 41.35,
       "low": null
     },
     "got-garden_of_eden-b-f": {
@@ -8960,7 +8944,7 @@
       "low": null
     },
     "got-gargantula-b-s": {
-      "market": 7.27,
+      "market": 7.17,
       "low": null
     },
     "got-gargantula-b-f": {
@@ -8971,24 +8955,20 @@
       "market": 0.17,
       "low": null
     },
-    "got-ghost_town-b-f": {
-      "market": 1.87,
-      "low": null
-    },
     "got-ghostfire-b-s": {
       "market": 0.08,
       "low": null
     },
     "got-ghostfire-b-f": {
-      "market": 3.04,
+      "market": 3.03,
       "low": null
     },
     "got-ghoul-b-s": {
-      "market": 0.1,
+      "market": 0.11,
       "low": null
     },
     "got-ghoul-b-f": {
-      "market": 6.56,
+      "market": 6.73,
       "low": null
     },
     "got-gibbous_nightgaunts-b-s": {
@@ -8996,7 +8976,7 @@
       "low": null
     },
     "got-gibbous_nightgaunts-b-f": {
-      "market": 2.0,
+      "market": 2.13,
       "low": null
     },
     "got-gift_of_the_frog-b-s": {
@@ -9024,7 +9004,7 @@
       "low": null
     },
     "got-gift_of_the_wolf-b-s": {
-      "market": 0.12,
+      "market": 0.13,
       "low": null
     },
     "got-gift_of_the_wolf-b-f": {
@@ -9032,7 +9012,7 @@
       "low": null
     },
     "got-gilman_house-b-s": {
-      "market": 21.33,
+      "market": 21.44,
       "low": null
     },
     "got-gilman_house-b-f": {
@@ -9064,7 +9044,7 @@
       "low": null
     },
     "got-golden_dawn-b-s": {
-      "market": 1.59,
+      "market": 1.5,
       "low": null
     },
     "got-golden_dawn-b-f": {
@@ -9092,7 +9072,7 @@
       "low": null
     },
     "got-granary_rats-b-f": {
-      "market": 4.05,
+      "market": 4.02,
       "low": null
     },
     "got-grasping_ground-b-s": {
@@ -9200,7 +9180,7 @@
       "low": null
     },
     "got-heirloom_lost-b-s": {
-      "market": 0.51,
+      "market": 0.52,
       "low": null
     },
     "got-heirloom_lost-b-f": {
@@ -9228,11 +9208,11 @@
       "low": null
     },
     "got-hellstar-b-s": {
-      "market": 6.49,
+      "market": 6.36,
       "low": null
     },
     "got-hemogoblet-b-s": {
-      "market": 0.43,
+      "market": 0.44,
       "low": null
     },
     "got-hemogoblet-b-f": {
@@ -9240,7 +9220,7 @@
       "low": null
     },
     "got-hemogoblin-b-s": {
-      "market": 0.52,
+      "market": 0.53,
       "low": null
     },
     "got-hemogoblin-b-f": {
@@ -9292,7 +9272,7 @@
       "low": null
     },
     "got-holy_warrior-b-f": {
-      "market": 4.41,
+      "market": 4.43,
       "low": null
     },
     "got-holy_water-b-s": {
@@ -9312,11 +9292,11 @@
       "low": null
     },
     "got-horns_of_behemoth-b-s": {
-      "market": 7.08,
+      "market": 7.01,
       "low": null
     },
     "got-horrible_hybrids-b-s": {
-      "market": 0.13,
+      "market": 0.14,
       "low": null
     },
     "got-horrible_hybrids-b-f": {
@@ -9324,7 +9304,7 @@
       "low": null
     },
     "got-hotwheel-b-s": {
-      "market": 0.19,
+      "market": 0.17,
       "low": null
     },
     "got-hotwheel-b-f": {
@@ -9368,7 +9348,7 @@
       "low": null
     },
     "got-ignited-b-f": {
-      "market": 5.24,
+      "market": 5.02,
       "low": null
     },
     "got-imposter-b-s": {
@@ -9380,7 +9360,7 @@
       "low": null
     },
     "got-infusion_factory-b-s": {
-      "market": 0.52,
+      "market": 0.51,
       "low": null
     },
     "got-infusion_factory-b-f": {
@@ -9404,7 +9384,7 @@
       "low": null
     },
     "got-interrogator-b-s": {
-      "market": 0.66,
+      "market": 0.63,
       "low": null
     },
     "got-interrogator-b-f": {
@@ -9412,7 +9392,7 @@
       "low": null
     },
     "got-into_the_abyss-b-s": {
-      "market": 0.59,
+      "market": 0.6,
       "low": null
     },
     "got-into_the_abyss-b-f": {
@@ -9444,11 +9424,11 @@
       "low": null
     },
     "got-ironclad-b-s": {
-      "market": 0.95,
+      "market": 0.94,
       "low": null
     },
     "got-ironclad-b-f": {
-      "market": 107.73,
+      "market": 106.87,
       "low": null
     },
     "got-jack_the_ripper-b-s": {
@@ -9460,7 +9440,7 @@
       "low": null
     },
     "got-key_to_the_city-b-s": {
-      "market": 30.51,
+      "market": 30.37,
       "low": null
     },
     "got-key_to_the_city-b-f": {
@@ -9484,7 +9464,7 @@
       "low": null
     },
     "got-kiss_of_judas-b-s": {
-      "market": 14.04,
+      "market": 13.47,
       "low": null
     },
     "got-kiss_of_judas-b-f": {
@@ -9508,7 +9488,7 @@
       "low": null
     },
     "got-koscheis_egg-b-s": {
-      "market": 4.37,
+      "market": 4.29,
       "low": null
     },
     "got-koscheis_egg-b-f": {
@@ -9528,7 +9508,7 @@
       "low": null
     },
     "got-landmass-b-f": {
-      "market": 12.04,
+      "market": 12.12,
       "low": null
     },
     "got-lash-b-s": {
@@ -9544,15 +9524,15 @@
       "low": null
     },
     "got-leadworks-b-f": {
-      "market": 6.25,
+      "market": 6.13,
       "low": null
     },
     "got-legion_of_gall-b-s": {
-      "market": 1.67,
+      "market": 1.71,
       "low": null
     },
     "got-legion_of_gall-b-f": {
-      "market": 18.65,
+      "market": 21.04,
       "low": null
     },
     "got-lesser_blood_demon-b-s": {
@@ -9572,7 +9552,7 @@
       "low": null
     },
     "got-lilith-b-s": {
-      "market": 42.64,
+      "market": 42.43,
       "low": null
     },
     "got-lilith-b-f": {
@@ -9592,7 +9572,7 @@
       "low": null
     },
     "got-lord_of_fear-b-s": {
-      "market": 0.6,
+      "market": 0.59,
       "low": null
     },
     "got-lord_of_fear-b-f": {
@@ -9608,7 +9588,7 @@
       "low": null
     },
     "got-lord_of_lies-b-s": {
-      "market": 2.44,
+      "market": 2.35,
       "low": null
     },
     "got-lord_of_lies-b-f": {
@@ -9616,7 +9596,7 @@
       "low": null
     },
     "got-lucid_dreamers-b-s": {
-      "market": 0.92,
+      "market": 0.91,
       "low": null
     },
     "got-lucid_dreamers-b-f": {
@@ -9640,7 +9620,7 @@
       "low": null
     },
     "got-maiden_mother_crone-b-s": {
-      "market": 59.92,
+      "market": 59.77,
       "low": null
     },
     "got-maiden_mother_crone-b-f": {
@@ -9652,7 +9632,7 @@
       "low": null
     },
     "got-makeshift_barricade-b-f": {
-      "market": 3.14,
+      "market": 3.12,
       "low": null
     },
     "got-malakhim-b-s": {
@@ -9676,7 +9656,7 @@
       "low": null
     },
     "got-martyrs_of_tomorrow-b-f": {
-      "market": 13.66,
+      "market": 12.08,
       "low": null
     },
     "got-master_necromancer-b-s": {
@@ -9696,7 +9676,7 @@
       "low": null
     },
     "got-mazuj_ifrit-b-s": {
-      "market": 0.53,
+      "market": 0.55,
       "low": null
     },
     "got-mazuj_ifrit-b-f": {
@@ -9712,15 +9692,15 @@
       "low": null
     },
     "got-megalurker-b-s": {
-      "market": 0.18,
+      "market": 0.17,
       "low": null
     },
     "got-megalurker-b-f": {
-      "market": 7.56,
+      "market": 7.48,
       "low": null
     },
     "got-mephistopheles-b-s": {
-      "market": 12.09,
+      "market": 12.14,
       "low": null
     },
     "got-mephistopheles-b-f": {
@@ -9744,7 +9724,7 @@
       "low": null
     },
     "got-mismanaged_mortuary-b-s": {
-      "market": 1.0,
+      "market": 0.99,
       "low": null
     },
     "got-mismanaged_mortuary-b-f": {
@@ -9764,7 +9744,7 @@
       "low": null
     },
     "got-monks_of_kobalsa-b-f": {
-      "market": 3.11,
+      "market": 3.07,
       "low": null
     },
     "got-monstermorphosis-b-s": {
@@ -9808,7 +9788,7 @@
       "low": null
     },
     "got-mover_of_mountains-b-s": {
-      "market": 6.48,
+      "market": 6.42,
       "low": null
     },
     "got-mover_of_mountains-b-f": {
@@ -9832,7 +9812,7 @@
       "low": null
     },
     "got-murder_of_crows-b-s": {
-      "market": 0.14,
+      "market": 0.15,
       "low": null
     },
     "got-murder_of_crows-b-f": {
@@ -9840,7 +9820,7 @@
       "low": null
     },
     "got-myrrhs_trophy_room-b-s": {
-      "market": 8.84,
+      "market": 8.78,
       "low": null
     },
     "got-myrrhs_trophy_room-b-f": {
@@ -9908,7 +9888,7 @@
       "low": null
     },
     "got-nommo_monitor-b-f": {
-      "market": 1.86,
+      "market": 1.79,
       "low": null
     },
     "got-nosferatu-b-s": {
@@ -9924,7 +9904,7 @@
       "low": null
     },
     "got-novice_necromancer-b-f": {
-      "market": 5.25,
+      "market": 5.26,
       "low": null
     },
     "got-noxious_corpse-b-s": {
@@ -9932,7 +9912,7 @@
       "low": null
     },
     "got-noxious_corpse-b-f": {
-      "market": 4.91,
+      "market": 4.83,
       "low": null
     },
     "got-old_mortimers_den-b-s": {
@@ -9964,7 +9944,7 @@
       "low": null
     },
     "got-open_grave-b-f": {
-      "market": 6.03,
+      "market": 5.79,
       "low": null
     },
     "got-open_mausoleum-b-s": {
@@ -9972,15 +9952,15 @@
       "low": null
     },
     "got-open_mausoleum-b-f": {
-      "market": 5.18,
+      "market": 5.05,
       "low": null
     },
     "got-ophanim-b-s": {
-      "market": 0.47,
+      "market": 0.54,
       "low": null
     },
     "got-ophanim-b-f": {
-      "market": 19.02,
+      "market": 18.77,
       "low": null
     },
     "got-order_of_the_pale_worm-b-s": {
@@ -9992,7 +9972,7 @@
       "low": null
     },
     "got-order_of_the_sacred_oak-b-s": {
-      "market": 0.23,
+      "market": 0.22,
       "low": null
     },
     "got-order_of_the_sacred_oak-b-f": {
@@ -10000,7 +9980,7 @@
       "low": null
     },
     "got-order_of_the_white_wing-b-s": {
-      "market": 0.17,
+      "market": 0.18,
       "low": null
     },
     "got-order_of_the_white_wing-b-f": {
@@ -10008,7 +9988,7 @@
       "low": null
     },
     "got-orm_infestor-b-s": {
-      "market": 0.85,
+      "market": 0.84,
       "low": null
     },
     "got-orm_infestor-b-f": {
@@ -10028,7 +10008,7 @@
       "low": null
     },
     "got-overflow-b-f": {
-      "market": 8.45,
+      "market": 8.7,
       "low": null
     },
     "got-paladins_of_bazia-b-s": {
@@ -10060,7 +10040,7 @@
       "low": null
     },
     "got-peacemaker_arbalest-b-f": {
-      "market": 9.79,
+      "market": 10.37,
       "low": null
     },
     "got-peculiar_port-b-s": {
@@ -10088,7 +10068,7 @@
       "low": null
     },
     "got-pied_piper_of_hameln-b-s": {
-      "market": 24.46,
+      "market": 24.99,
       "low": null
     },
     "got-pied_piper_of_hameln-b-f": {
@@ -10104,7 +10084,7 @@
       "low": null
     },
     "got-pilgrims_shrine-b-s": {
-      "market": 0.64,
+      "market": 0.66,
       "low": null
     },
     "got-pilgrims_shrine-b-f": {
@@ -10116,7 +10096,7 @@
       "low": null
     },
     "got-pith_imp-b-f": {
-      "market": 3.79,
+      "market": 3.78,
       "low": null
     },
     "got-plague_pits-b-s": {
@@ -10136,7 +10116,7 @@
       "low": null
     },
     "got-plate_of_the_whale-b-s": {
-      "market": 4.81,
+      "market": 4.75,
       "low": null
     },
     "got-plate_of_the_whale-b-f": {
@@ -10248,7 +10228,7 @@
       "low": null
     },
     "got-renatus_trueblood-b-s": {
-      "market": 1.0,
+      "market": 0.97,
       "low": null
     },
     "got-renatus_trueblood-b-f": {
@@ -10268,7 +10248,7 @@
       "low": null
     },
     "got-returned_king-b-f": {
-      "market": 84.47,
+      "market": 84.33,
       "low": null
     },
     "got-revered_revenant-b-s": {
@@ -10276,15 +10256,15 @@
       "low": null
     },
     "got-revered_revenant-b-f": {
-      "market": 4.6,
+      "market": 4.55,
       "low": null
     },
     "got-river_rapids-b-s": {
-      "market": 1.76,
+      "market": 1.8,
       "low": null
     },
     "got-river_rapids-b-f": {
-      "market": 23.5,
+      "market": 25.33,
       "low": null
     },
     "got-river_of_blood-b-s": {
@@ -10316,7 +10296,7 @@
       "low": null
     },
     "got-sacred_stag-b-s": {
-      "market": 4.53,
+      "market": 4.44,
       "low": null
     },
     "got-sacred_stag-b-f": {
@@ -10324,7 +10304,7 @@
       "low": null
     },
     "got-saint_of_redemption-b-s": {
-      "market": 6.66,
+      "market": 6.63,
       "low": null
     },
     "got-saint_of_redemption-b-f": {
@@ -10332,7 +10312,7 @@
       "low": null
     },
     "got-saintweald-b-s": {
-      "market": 7.72,
+      "market": 7.77,
       "low": null
     },
     "got-saintweald-b-f": {
@@ -10348,11 +10328,11 @@
       "low": null
     },
     "got-satanic_panic-b-s": {
-      "market": 4.23,
+      "market": 4.15,
       "low": null
     },
     "got-satanic_panic-b-f": {
-      "market": 81.0,
+      "market": 72.24,
       "low": null
     },
     "got-savior-pd-s": {
@@ -10372,7 +10352,7 @@
       "low": null
     },
     "got-scatter-b-s": {
-      "market": 0.16,
+      "market": 0.14,
       "low": null
     },
     "got-scatter-b-f": {
@@ -10416,7 +10396,7 @@
       "low": null
     },
     "got-searing_truth-b-f": {
-      "market": 8.84,
+      "market": 8.79,
       "low": null
     },
     "got-second_wind-b-s": {
@@ -10464,11 +10444,11 @@
       "low": null
     },
     "got-sewer_rats-b-f": {
-      "market": 3.14,
+      "market": 3.13,
       "low": null
     },
     "got-shackled_demon-b-s": {
-      "market": 0.35,
+      "market": 0.34,
       "low": null
     },
     "got-shackled_demon-b-f": {
@@ -10488,7 +10468,7 @@
       "low": null
     },
     "got-shoggoth-b-f": {
-      "market": 4.48,
+      "market": 4.43,
       "low": null
     },
     "got-shrike_orchard-b-s": {
@@ -10504,11 +10484,11 @@
       "low": null
     },
     "got-silent_hills-b-f": {
-      "market": 8.58,
+      "market": 8.53,
       "low": null
     },
     "got-silver_bullet-b-s": {
-      "market": 3.82,
+      "market": 3.89,
       "low": null
     },
     "got-silver_bullet-b-f": {
@@ -10532,7 +10512,7 @@
       "low": null
     },
     "got-sister_stefania-b-s": {
-      "market": 16.8,
+      "market": 16.34,
       "low": null
     },
     "got-sister_stefania-b-f": {
@@ -10556,7 +10536,7 @@
       "low": null
     },
     "got-slimy_mutants-b-f": {
-      "market": 4.39,
+      "market": 4.36,
       "low": null
     },
     "got-slobbermaw-b-s": {
@@ -10600,7 +10580,7 @@
       "low": null
     },
     "got-sphere_of_animosity-b-s": {
-      "market": 4.73,
+      "market": 4.65,
       "low": null
     },
     "got-sphere_of_animosity-b-f": {
@@ -10620,11 +10600,11 @@
       "low": null
     },
     "got-spore_spouts-b-s": {
-      "market": 0.16,
+      "market": 0.15,
       "low": null
     },
     "got-spore_spouts-b-f": {
-      "market": 5.28,
+      "market": 5.2,
       "low": null
     },
     "got-stagecoach-b-s": {
@@ -10648,7 +10628,7 @@
       "low": null
     },
     "got-static_servant-b-f": {
-      "market": 4.28,
+      "market": 4.21,
       "low": null
     },
     "got-stinging_kelp-b-s": {
@@ -10656,7 +10636,7 @@
       "low": null
     },
     "got-stinging_kelp-b-f": {
-      "market": 4.44,
+      "market": 4.37,
       "low": null
     },
     "got-stitched_abomination-b-s": {
@@ -10664,7 +10644,7 @@
       "low": null
     },
     "got-stitched_abomination-b-f": {
-      "market": 11.81,
+      "market": 11.33,
       "low": null
     },
     "got-stream-pd-s": {
@@ -10672,7 +10652,7 @@
       "low": null
     },
     "got-sturmgeist-b-s": {
-      "market": 2.81,
+      "market": 2.85,
       "low": null
     },
     "got-sturmgeist-b-f": {
@@ -10680,7 +10660,7 @@
       "low": null
     },
     "got-stygian_archers-b-s": {
-      "market": 0.25,
+      "market": 0.26,
       "low": null
     },
     "got-stygian_archers-b-f": {
@@ -10736,7 +10716,7 @@
       "low": null
     },
     "got-the_apex_of_babel-b-s": {
-      "market": 10.99,
+      "market": 10.75,
       "low": null
     },
     "got-the_base_of_babel-b-s": {
@@ -10744,11 +10724,11 @@
       "low": null
     },
     "got-the_base_of_babel-b-f": {
-      "market": 3.62,
+      "market": 3.61,
       "low": null
     },
     "got-the_doom_of_dilmun-b-s": {
-      "market": 21.03,
+      "market": 21.16,
       "low": null
     },
     "got-the_doom_of_dilmun-b-f": {
@@ -10764,7 +10744,7 @@
       "low": null
     },
     "got-the_flood-b-s": {
-      "market": 12.21,
+      "market": 12.01,
       "low": null
     },
     "got-the_flood-b-f": {
@@ -10780,7 +10760,7 @@
       "low": null
     },
     "got-the_inquisition-b-s": {
-      "market": 15.33,
+      "market": 15.31,
       "low": null
     },
     "got-the_inquisition-b-f": {
@@ -10788,7 +10768,7 @@
       "low": null
     },
     "got-the_malleus_maleficarum-b-s": {
-      "market": 6.27,
+      "market": 6.2,
       "low": null
     },
     "got-the_malleus_maleficarum-b-f": {
@@ -10796,7 +10776,7 @@
       "low": null
     },
     "got-the_manor_at_daperyll_hill-b-s": {
-      "market": 13.14,
+      "market": 13.23,
       "low": null
     },
     "got-the_manor_at_daperyll_hill-b-f": {
@@ -10804,7 +10784,7 @@
       "low": null
     },
     "got-the_pallid_bust-b-s": {
-      "market": 6.27,
+      "market": 6.06,
       "low": null
     },
     "got-the_rack-b-s": {
@@ -10856,7 +10836,7 @@
       "low": null
     },
     "got-tombstone_wardens-b-s": {
-      "market": 0.52,
+      "market": 0.51,
       "low": null
     },
     "got-tombstone_wardens-b-f": {
@@ -10864,7 +10844,7 @@
       "low": null
     },
     "got-toolbox-b-s": {
-      "market": 3.93,
+      "market": 3.9,
       "low": null
     },
     "got-toolbox-b-f": {
@@ -10880,7 +10860,7 @@
       "low": null
     },
     "got-torrid_omphalos-b-s": {
-      "market": 55.78,
+      "market": 55.26,
       "low": null
     },
     "got-torrid_omphalos-b-f": {
@@ -10889,6 +10869,10 @@
     },
     "got-town_priest-b-s": {
       "market": 0.13,
+      "low": null
+    },
+    "got-town_priest-b-f": {
+      "market": 2.04,
       "low": null
     },
     "got-trade_encampment-b-s": {
@@ -10920,7 +10904,7 @@
       "low": null
     },
     "got-troubled_town-b-f": {
-      "market": 3.56,
+      "market": 3.47,
       "low": null
     },
     "got-twilight_bloom-b-s": {
@@ -10928,7 +10912,7 @@
       "low": null
     },
     "got-twilight_bloom-b-f": {
-      "market": 9.64,
+      "market": 9.63,
       "low": null
     },
     "got-undead_ambush-b-s": {
@@ -10968,7 +10952,7 @@
       "low": null
     },
     "got-varistus_the_evictor-b-s": {
-      "market": 4.85,
+      "market": 4.84,
       "low": null
     },
     "got-varistus_the_evictor-b-f": {
@@ -10992,7 +10976,7 @@
       "low": null
     },
     "got-vindictive_nation-b-s": {
-      "market": 0.84,
+      "market": 0.85,
       "low": null
     },
     "got-vindictive_nation-b-f": {
@@ -11028,7 +11012,7 @@
       "low": null
     },
     "got-weathered_trunks-b-s": {
-      "market": 0.04,
+      "market": 0.05,
       "low": null
     },
     "got-weathered_trunks-b-f": {
@@ -11040,7 +11024,7 @@
       "low": null
     },
     "got-wiccan_tools-b-f": {
-      "market": 8.12,
+      "market": 8.2,
       "low": null
     },
     "got-wild_fanatic-b-s": {
@@ -11072,7 +11056,7 @@
       "low": null
     },
     "got-witching_hour-b-f": {
-      "market": 2.27,
+      "market": 2.24,
       "low": null
     },
     "got-wreathed_in_righteousness-b-s": {
@@ -11084,7 +11068,7 @@
       "low": null
     },
     "got-wuthering_heights-b-s": {
-      "market": 8.13,
+      "market": 8.46,
       "low": null
     },
     "got-wuthering_heights-b-f": {
@@ -11096,7 +11080,7 @@
       "low": null
     },
     "got-young_master_damion-b-s": {
-      "market": 18.62,
+      "market": 18.06,
       "low": null
     },
     "got-young_master_damion-b-f": {
@@ -11108,7 +11092,7 @@
       "low": null
     },
     "got-zap-b-f": {
-      "market": 7.71,
+      "market": 7.83,
       "low": null
     },
     "got-zeppelin_of_zealots-b-s": {
@@ -11124,7 +11108,7 @@
       "low": null
     },
     "got-zombie_bruiser-b-f": {
-      "market": 3.09,
+      "market": 2.95,
       "low": null
     },
     "got-zombie_horde-b-s": {
@@ -11132,7 +11116,7 @@
       "low": null
     },
     "got-zombie_horde-b-f": {
-      "market": 4.77,
+      "market": 4.7,
       "low": null
     },
     "dra-adtonitum-b-s": {
@@ -11172,7 +11156,7 @@
       "low": null
     },
     "dra-dragonlord-b-f": {
-      "market": 373.58,
+      "market": 365.4,
       "low": null
     },
     "dra-dragonlords_lair-b-s": {
@@ -11196,7 +11180,7 @@
       "low": null
     },
     "dra-kairos_the_archivist-b-f": {
-      "market": 137.24,
+      "market": 133.15,
       "low": null
     },
     "dra-moonsong_talagelum-b-s": {
