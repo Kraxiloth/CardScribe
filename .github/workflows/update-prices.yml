@@ -15,7 +15,7 @@ jobs:
 
       - name: Scrape prices
         shell: powershell
-        run: powershell.exe -ExecutionPolicy Bypass -File scripts/scrape_prices.ps1
+        run: powershell.exe -ExecutionPolicy Bypass -File "$env:GITHUB_WORKSPACE\scripts\scrape_prices.ps1"
 
       - name: Commit updated prices
         shell: powershell
@@ -23,7 +23,8 @@ jobs:
           git config user.name  "CardScribe Price Bot"
           git config user.email "bot@cardscribe.sorcery.no"
           git add public/prices.json
-          $diff = git diff --cached --quiet; if ($LASTEXITCODE -ne 0) {
+          $diff = git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
             $date = Get-Date -Format 'yyyy-MM-dd'
             git commit -m "chore: update prices $date"
             git push
