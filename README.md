@@ -18,35 +18,6 @@ CardScribe helps Sorcery: CR players build clean, consistent Discord trade listi
 - $250+ photo reminder (per community rules)
 - Fully offline — no backend, card database embedded
 
-## Development
-
-```bash
-npm install
-npm run dev        # local dev server at localhost:5173
-npm run build      # build to dist/
-npm run typecheck  # TypeScript check without building
-```
-
-## Deployment
-
-Build locally, then copy the contents of `dist/` to the repo root and push to `main`:
-
-```bash
-npm run build
-cp -r dist/* .
-git add -A
-git commit -m "Deploy"
-git push
-```
-
-## Stack
-
-- React 19 + TypeScript
-- Vite 6
-- Tailwind CSS 3
-- Zustand (state management)
-- Fuse.js (fuzzy card matching)
-
 ## Card Database
 
 The card database is sourced from the [Sorcery TCG public API](https://api.sorcerytcg.com/) and embedded at build time as `src/data/cards.json`. To refresh it against the latest API response, replace that file and rebuild.
