@@ -91,15 +91,17 @@ Card Name (Beta) LP
 <div class="preview" id="cardPreview"><img id="previewImg" alt=""></div><div class="toast" id="toast"></div><datalist id="cardNames"></datalist>
 <script>
 'use strict';
-const CARDS_URL='https://data.sorcery.no/cards.json';
-const PRICES_URL='https://data.sorcery.no/prices.json';
+const API_BASE='https://api.sorcery.no';
+const CARDS_URL=API_BASE+'/cards';
+const PRICES_URL=API_BASE+'/prices/current';
+const CARD_PAGE_SIZE=100;
 const IMAGE_BASE='https://d27a44hjr9gen3.cloudfront.net/cards/';
 const CONDITION_FACTOR={NM:1,LP:.9,MP:.8,HP:.65,DMG:.5};
 const RARITY_ORDER={Unique:0,Elite:1,Exceptional:2,Ordinary:3};
 const $=id=>document.getElementById(id);
 const THEME_NAMES=['sorcery','light','void','parchment'];
 function initTheme(){const select=$('themeSelect');let theme=document.documentElement.dataset.theme||'sorcery';if(!THEME_NAMES.includes(theme))theme='sorcery';document.documentElement.dataset.theme=theme;select.value=theme;select.onchange=()=>{document.documentElement.dataset.theme=select.value;try{localStorage.setItem('sorcery-theme',select.value)}catch{}}}
-let catalogue=[],priceCards=[],priceByPrinting=new Map(),cardByName=new Map(),setNames=[],rows=[],step=1,listingType='selling',hoverTimer;
+let catalogue=[],priceByPrinting=new Map(),cardByName=new Map(),setNames=[],rows=[],step=1,listingType='selling',hoverTimer;
 const money=n=>Number.isFinite(n)?'$'+n.toFixed(2):'—';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const uid=()=>crypto.randomUUID?.()||Math.random().toString(36).slice(2);
@@ -109,8 +111,8 @@ function normalize(s){return String(s||'').toLowerCase().normalize('NFD').replac
 function lev(a,b){if(a===b)return 0;if(!a.length)return b.length;if(!b.length)return a.length;let p=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(c[j-1]+1,p[j]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[b.length]}
 function findCard(name){const n=normalize(name);if(!n)return null;if(cardByName.has(n))return {card:cardByName.get(n),score:1};let best=null,bestScore=0;for(const c of catalogue){const cn=normalize(c.name);let score=cn.includes(n)||n.includes(cn)?Math.min(cn.length,n.length)/Math.max(cn.length,n.length):1-lev(n,cn)/Math.max(n.length,cn.length);if(score>bestScore){best=c;bestScore=score}}return bestScore>=.62?{card:best,score:bestScore}:null}
 function printLabel(p){return `${p.set?.name||'Unknown set'} · ${p.meta?.finish||'Standard'}`}
-function priceFor(printingId,condition='NM'){const p=priceByPrinting.get(printingId);if(!p?.price||!Number.isFinite(Number(p.price.market)))return null;return Number(p.price.market)*(CONDITION_FACTOR[condition]??1)}
-function lowFor(printingId,condition='NM'){const p=priceByPrinting.get(printingId);if(!p?.price||!Number.isFinite(Number(p.price.low)))return null;return Number(p.price.low)*(CONDITION_FACTOR[condition]??1)}
+function priceFor(printingId,condition='NM'){const p=priceByPrinting.get(printingId);if(p?.price?.market==null||!Number.isFinite(Number(p.price.market)))return null;return Number(p.price.market)*(CONDITION_FACTOR[condition]??1)}
+function lowFor(printingId,condition='NM'){const p=priceByPrinting.get(printingId);if(p?.price?.low==null||!Number.isFinite(Number(p.price.low)))return null;return Number(p.price.low)*(CONDITION_FACTOR[condition]??1)}
 function pickPrinting(card,setHint,finishHint){if(!card?.printings?.length)return null;const set=normalize(setHint),finish=normalize(finishHint||'Standard');return card.printings.find(p=>normalize(p.set?.name)===set&&normalize(p.meta?.finish)===finish)||card.printings.find(p=>normalize(p.set?.name)===set)||card.printings.find(p=>normalize(p.meta?.finish)===finish)||card.printings[0]}
 function parseLine(source){let s=source.trim();if(!s)return null;let qty=1,m=s.match(/^\s*(?:x\s*(\d+)|(\d+)\s*x)\s*(?:[-–—:·,]\s*)?/i)||s.match(/^\s*([1-9])\s+(?=\S)/);if(m){qty=Math.max(1,Number(m[1]||m[2]||m[3])||1);s=s.slice(m[0].length)}s=s.replace(/[()[\]]/g,' ').replace(/[·|,]/g,' ');let condition='NM',finish='Standard',set='';const cond=s.match(/(?:^|\s)(NM|LP|MP|HP|DMG)(?=\s|$)/i);if(cond){condition=cond[1].toUpperCase();s=s.replace(cond[0],' ')}const fin=s.match(/(?:^|\s)(Standard|Foil|Rainbow)(?=\s|$)/i);if(fin){finish=fin[1][0].toUpperCase()+fin[1].slice(1).toLowerCase();s=s.replace(fin[0],' ')}const candidates=[...setNames].sort((a,b)=>b.length-a.length);for(const candidate of candidates){const re=new RegExp('(?:^|\\s)'+candidate.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?=\\s|$)','i');if(re.test(s)){set=candidate;s=s.replace(re,' ');break}}s=s.replace(/\b(unique|elite|exceptional|ordinary)\b/ig,' ').replace(/\s+/g,' ').trim();const match=findCard(s);const card=match?.card||null;const printing=pickPrinting(card,set,finish);return {id:uid(),qty,rawName:s,card,printingId:printing?.id||'',condition,customPrice:'',confidence:match?.score||0}}
 function createBlank(){return{id:uid(),qty:1,rawName:'',card:null,printingId:'',condition:'NM',customPrice:'',confidence:0}}
@@ -132,7 +134,66 @@ function generate(){const s=seller(),labels={selling:'Selling',buying:'Buying',t
 function markdown(text){let safe=esc(text);safe=safe.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');return safe.split('\n').map(x=>`<p>${x||'&nbsp;'}</p>`).join('')}
 function savePrefs(){const s=seller();localStorage.setItem('cardscribe-prefs',JSON.stringify({...s,listingType}))}
 function loadPrefs(){try{const s=JSON.parse(localStorage.getItem('cardscribe-prefs'));if(!s)return;$('discord').value=s.discord||'';$('shipsFrom').value=s.from||'';$('shipsTo').value=s.to||'';$('wanted').value=s.wanted||'';$('notes').value=s.notes||'';$('offers').checked=!!s.offers;$('photos').checked=!!s.photos;listingType=s.listingType||'selling';document.querySelectorAll('[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===listingType));document.querySelectorAll('[data-pay]').forEach(b=>b.classList.toggle('active',(s.pay||[]).includes(b.dataset.pay)))}catch{}}
-async function init(){try{const [cr,pr]=await Promise.all([fetch(CARDS_URL,{cache:'no-store'}),fetch(PRICES_URL,{cache:'no-store'})]);if(!cr.ok||!pr.ok)throw new Error('Data request failed');[catalogue,priceCards]=await Promise.all([cr.json(),pr.json()]);for(const c of catalogue)cardByName.set(normalize(c.name),c);setNames=[...new Set(catalogue.flatMap(c=>c.printings||[]).map(p=>p.set?.name).filter(Boolean))];for(const c of priceCards)for(const p of c.printings||[])priceByPrinting.set(p.id,p);$('cardNames').innerHTML=catalogue.map(c=>`<option value="${esc(c.name)}"></option>`).join('');$('parseBtn').disabled=false;$('loadNotice').className='notice success';$('loadNotice').innerHTML=`<strong>Catalogue ready.</strong> ${catalogue.length.toLocaleString()} cards loaded with prices for ${priceByPrinting.size.toLocaleString()} printings.`;setStatus(`${catalogue.length.toLocaleString()} cards · ${priceByPrinting.size.toLocaleString()} prices`,'ok')}catch(err){console.error(err);$('loadNotice').className='notice error';$('loadNotice').innerHTML='<strong>Could not load data.</strong> Check your connection and refresh the page. CardScribe does not use an embedded fallback catalogue.';setStatus('Data unavailable','bad')}}
+async function fetchApiJson(url){
+  const response=await fetch(url,{credentials:'omit',headers:{Accept:'application/json'},signal:AbortSignal.timeout(30000)});
+  if(!response.ok)throw new Error(`API request failed (HTTP ${response.status})`);
+  return response.json();
+}
+async function loadCatalogue(){
+  const cards=new Map(),seenCursors=new Set();
+  let cursor=null;
+  while(true){
+    const url=new URL(CARDS_URL);
+    url.searchParams.set('limit',String(CARD_PAGE_SIZE));
+    if(cursor!==null)url.searchParams.set('cursor',cursor);
+    const data=await fetchApiJson(url);
+    if(!Array.isArray(data.cards)||typeof data.pagination?.hasMore!=='boolean')throw new Error('Invalid catalogue response');
+    for(const card of data.cards){
+      if(!card?.id||typeof card.name!=='string'||!Array.isArray(card.printings))throw new Error('Invalid card in catalogue');
+      cards.set(card.id,card);
+    }
+    setStatus(`Loading catalogue: ${cards.size.toLocaleString()} cards`);
+    if(!data.pagination.hasMore)break;
+    const next=data.pagination.nextCursor;
+    if(typeof next!=='string'||!next||seenCursors.has(next))throw new Error('Invalid catalogue pagination');
+    seenCursors.add(next);
+    cursor=next;
+  }
+  if(!cards.size)throw new Error('The API returned an empty catalogue');
+  return [...cards.values()];
+}
+async function loadPrices(){
+  const data=await fetchApiJson(PRICES_URL);
+  if(!data.prices||typeof data.prices!=='object'||Array.isArray(data.prices))throw new Error('Invalid price response');
+  if(data.currency!=='USD')throw new Error('Unsupported price currency');
+  return data.prices;
+}
+async function init(){
+  try{
+    const [cards,prices]=await Promise.all([loadCatalogue(),loadPrices()]);
+    catalogue=cards;
+    cardByName.clear();
+    priceByPrinting.clear();
+    for(const c of catalogue){
+      cardByName.set(normalize(c.name),c);
+      for(const p of c.printings){
+        if(Object.prototype.hasOwnProperty.call(prices,p.slug))priceByPrinting.set(p.id,{price:prices[p.slug]});
+      }
+    }
+    setNames=[...new Set(catalogue.flatMap(c=>c.printings).map(p=>p.set?.name).filter(Boolean))];
+    $('cardNames').innerHTML=catalogue.map(c=>`<option value="${esc(c.name)}"></option>`).join('');
+    $('parseBtn').disabled=false;
+    $('loadNotice').className='notice success';
+    $('loadNotice').innerHTML=`<strong>Catalogue ready.</strong> ${catalogue.length.toLocaleString()} cards loaded with prices for ${priceByPrinting.size.toLocaleString()} printings.`;
+    setStatus(`${catalogue.length.toLocaleString()} cards · ${priceByPrinting.size.toLocaleString()} prices`,'ok');
+  }catch(err){
+    console.error(err);
+    $('parseBtn').disabled=true;
+    $('loadNotice').className='notice error';
+    $('loadNotice').innerHTML='<strong>Could not load data.</strong> Check your connection and refresh the page. CardScribe loads its catalogue and prices from the Sorcery.no API.';
+    setStatus('Data unavailable','bad');
+  }
+}
 $('exampleBtn').onclick=()=>{$('pasteInput').value='2x Abaddon Succubus Gothic Foil NM\n1 Avalon Arthurian Legends NM\n2 Camelot Arthurian Legends LP\n3 Apprentice Wizard Beta Standard NM'};
 $('clearBtn').onclick=()=>{$('pasteInput').value='';$('pasteInput').focus()};
 $('parseBtn').onclick=()=>{const input=$('pasteInput').value;if(!input.trim())return toast('Paste at least one card first');rows=input.split(/\r?\n/).map(parseLine).filter(Boolean);if(!rows.length)return toast('No card lines found');renderReview();go(2)};
