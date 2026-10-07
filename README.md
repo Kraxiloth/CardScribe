@@ -18,10 +18,6 @@ CardScribe helps Sorcery: CR players build clean, consistent Discord trade listi
 - $250+ photo reminder (per community rules)
 - Fully offline — no backend, card database embedded
 
-## Card Database
-
-The card database is sourced from the [Sorcery TCG public API](https://api.sorcerytcg.com/) and embedded at build time as `src/data/cards.json`. To refresh it against the latest API response, replace that file and rebuild.
-
 ## License
 
 MIT
